@@ -29,6 +29,7 @@ import com.example.hku_a_ios_001.android.ui.HomeScreen
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.platform.LocalContext
 import com.example.hku_a_ios_001.android.data.DataSource
@@ -36,11 +37,16 @@ import com.example.hku_a_ios_001.android.ui.A_aScreen
 import com.example.hku_a_ios_001.android.ui.A_bScreen
 import com.example.hku_a_ios_001.android.ui.B_aScreen
 
+
+
+import com.example.hku_a_ios_001.android.data.DataSource.pageChoice
+
 enum class HKUScreen(){
     Home,
-    a_a,
+    a_a ,
     a_b,
     b_a,
+//    b_a (title = Res.string.b_aTitle),
     b_b,
     b_c,
     b_d,
@@ -58,6 +64,7 @@ enum class HKUScreen(){
     h_b
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun    HKUAppBar(
     canNavigateBack: Boolean,
@@ -105,14 +112,20 @@ fun HKUApp(
                 ) {
                     composable(route = HKUScreen.Home.name) {
                         HomeScreen(
+                            onNextButtonClicked = {
+                            navController.navigate(HKUScreen.Home.name)
+                        },
+                            pageChoice = pageChoice,
                             modifier = Modifier
                                 .fillMaxSize()
                                 .padding(dimensionResource(R.dimen.padding_medium))
                         )
                     }
                     composable(route = HKUScreen.a_a.name) {
-                        val context = LocalContext.current
                         A_aScreen(
+                            onNextButtonClicked = {
+                                navController.navigate(HKUScreen.a_a.name)},
+
                             modifier = Modifier
                                 .fillMaxSize()
                                 .padding(dimensionResource(R.dimen.padding_medium))
@@ -120,6 +133,8 @@ fun HKUApp(
                     }
                     composable(route = HKUScreen.a_b.name) {
                         A_bScreen(
+                            onNextButtonClicked = {
+                                navController.navigate(HKUScreen.a_b.name)},
                             modifier = Modifier
                                 .fillMaxSize()
                                 .padding(dimensionResource(R.dimen.padding_medium))
@@ -129,6 +144,8 @@ fun HKUApp(
 
                     composable(route = HKUScreen.b_a.name) {
                         B_aScreen(
+                            onNextButtonClicked = {
+                                navController.navigate(HKUScreen.b_a.name)},
                             modifier = Modifier
                                 .fillMaxSize()
                                 .padding(dimensionResource(R.dimen.padding_medium))

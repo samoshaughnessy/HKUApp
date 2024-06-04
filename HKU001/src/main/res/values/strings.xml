@@ -14,7 +14,32 @@
      limitations under the License.
 -->
 <resources>
-    <string name="app_name">Cupcake</string>
+    <string name="a_a">a_a</string>
+    <string name="a_b">a_b</string>
+    <string name="b_a">b_a</string>
+    <string name="b_b">b_b</string>
+    <string name="b_c">b_c</string>
+    <string name="b_d">b_d</string>
+    <string name="c_a">c_a</string>
+    <string name="c_b">c_b</string>
+    <string name="d_a">d_a</string>
+    <string name="d_b">d_b</string>
+    <string name="e_a">e_a</string>
+    <string name="e_b">e_b</string>
+    <string name="f_a">f_a</string>
+    <string name="f_b">f_b</string>
+    <string name="f_c">f_c</string>
+    <string name="g_a">g_a</string>
+    <string name="h_a">h_a</string>
+    <string name="h_b">h_b</string>
+
+
+    <string name="a_aTitle">a_aTitle</string>
+    <string name="a_bTitle">a_bTitle</string>
+    <string name="b_aTitle">b_aTitle</string>
+
+
+    <string name="app_name">HKUApplication</string>
     <string name="order_cupcakes">Order Cupcakes</string>
     <string name="one_cupcake">One Cupcake</string>
     <string name="six_cupcakes">Six Cupcakes</string>
@@ -27,7 +52,7 @@
     <string name="coffee">Coffee</string>
     <string name="special_flavor">Special Flavor</string>
     <string name="cancel">Cancel</string>
-    <string name="next">Next</string>
+    <string name="next"> > </string>
     <string name="choose_pickup_date">Choose Pickup Date</string>
     <string name="order_summary">Order Summary</string>
     <string name="send">Send Order to Another App</string>
