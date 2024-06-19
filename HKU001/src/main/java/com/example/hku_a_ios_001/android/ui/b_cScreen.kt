@@ -50,8 +50,6 @@ val bulletPointsB_C = listOf("宵禁（或會影響您的工作）；", "在一�
 
 @Composable
 fun B_cScreen(
-    onSelectionChanged: (String) -> Unit = {},
-    onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: () -> Unit = {},
     modifier: Modifier = Modifier
 ){

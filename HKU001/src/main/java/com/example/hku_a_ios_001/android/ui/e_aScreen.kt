@@ -51,8 +51,6 @@ import com.example.hku_a_ios_001.android.ui.theme.md_theme_light_background
 
 @Composable
 fun E_aScreen(
-    onSelectionChanged: (String) -> Unit = {},
-    onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: () -> Unit = {},
     modifier: Modifier = Modifier
 ){

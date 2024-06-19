@@ -1,7 +1,5 @@
 package com.example.hku_a_ios_001.android
 
-
-import android.media.Image
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -11,22 +9,15 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
-
 
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
@@ -35,26 +26,20 @@ import androidx.navigation.compose.composable
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 import com.example.hku_a_ios_001.android.ui.HKUViewModel
-
 import com.example.hku_a_ios_001.android.ui.HomeScreen
-
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material3.Button
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.semantics.Role.Companion.Image
-import androidx.core.graphics.red
-//import com.example.hku_a_ios_001.android.data.DataSource
+
 import com.example.hku_a_ios_001.android.ui.A_aScreen
 import com.example.hku_a_ios_001.android.ui.A_bScreen
 import com.example.hku_a_ios_001.android.ui.B_aScreen
@@ -72,16 +57,6 @@ import com.example.hku_a_ios_001.android.ui.F_bScreen
 import com.example.hku_a_ios_001.android.ui.G_aScreen
 import com.example.hku_a_ios_001.android.ui.H_aScreen
 
-
-
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.DrawerValue
-import androidx.compose.material3.ModalDrawerSheet
-import androidx.compose.material3.ModalNavigationDrawer
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.rememberDrawerState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.draw.scale
@@ -90,21 +65,11 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.min
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 
-
-//import com.example.hku_a_ios_001.android.data.DataSource.pageChoice
-import com.example.hku_a_ios_001.android.ui.HKULogo
 import com.example.hku_a_ios_001.android.ui.theme.md_theme_dark_background
 import com.example.hku_a_ios_001.android.data.OrderUiState
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
-
-
-//var currentPage = HKUScreen.Home // replace with data from OrderUIState
-
-
 
 enum class HKUScreen(val string:String){ // can add size with int value to alter size of titles if required
     Home("有條件釋放咨詢庫"),
@@ -130,15 +95,10 @@ enum class HKUScreen(val string:String){ // can add size with int value to alter
 @Composable
 fun    HKUAppBar(
     currentScreen : OrderUiState,
-    canNavigateBack: Boolean,
-    navigateUp: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: HKUViewModel,
     toggleDropDown: ()->Unit={}
 ) {
-
-
-
     // edit to allow drop down menu
     CenterAlignedTopAppBar(
         title = {
@@ -166,8 +126,6 @@ fun    HKUAppBar(
     )
 
 }
-
-// See if we can extract the image into this part of the application
 @Composable
 fun HKUApp(
     viewModel: HKUViewModel = viewModel(),
@@ -178,15 +136,12 @@ fun HKUApp(
             topBar = {
                 HKUAppBar(
                     currentScreen = uiState,
-                    canNavigateBack = false,
                     viewModel = viewModel,
-                    navigateUp = { /* TODO: implement back navigation */ },
                     toggleDropDown = {viewModel.toggleDropDown()}
                 )
             }
         )
         { innerPadding ->
-            // fix the button clicks so that we can get to actual pages
             Box(
                 modifier = Modifier
                 .background(color = Color.Black)
@@ -200,7 +155,6 @@ fun HKUApp(
                 )
             )
             {
-
                 if (uiState.openHamburger) {
                     BurgerMenuDropDown(
                         viewModel=viewModel,
@@ -214,7 +168,6 @@ fun HKUApp(
                             currentScreen = uiState,
                             viewModel = viewModel,
                         navController = navController,
-                        showOrHide = uiState.openDropDown,
                         modifier = Modifier
                     )
                     }
@@ -235,7 +188,6 @@ fun HKUApp(
                                     viewModel.setPage(HKUScreen.Home)
 
                                 },
-//                        pageChoice = pageChoice,
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
@@ -246,7 +198,6 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.a_b.name)
                                     viewModel.setPage(HKUScreen.a_b)
-
                                 },
 
                                 modifier = Modifier
@@ -258,9 +209,7 @@ fun HKUApp(
                             A_bScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
-//                            currentPage = HKUScreen.Home
                                     viewModel.setPage(HKUScreen.Home)
-
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -273,9 +222,7 @@ fun HKUApp(
                             B_aScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.b_b.name)
-//                            currentPage = HKUScreen.b_b
                                     viewModel.setPage(HKUScreen.b_b)
-
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -286,14 +233,11 @@ fun HKUApp(
                             B_bScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.b_c.name)
-//                            currentPage = HKUScreen.b_c
                                     viewModel.setPage(HKUScreen.b_c)
-
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
-
                             )
                         }
 
@@ -301,15 +245,11 @@ fun HKUApp(
                             B_cScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.b_d.name)
-//                            currentPage = HKUScreen.b_d
                                     viewModel.setPage(HKUScreen.b_d)
-
                                 },
-
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
-
                             )
                         }
 
@@ -317,164 +257,121 @@ fun HKUApp(
                             B_dScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
-//                            currentPage = HKUScreen.Home
                                     viewModel.setPage(HKUScreen.Home)
-
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
-
                             )
                         }
-
                         composable(route = HKUScreen.c_a.name) {
                             C_aScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.c_b.name)
-//                            currentPage = HKUScreen.c_b
                                     viewModel.setPage(HKUScreen.c_b)
-
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
-
                             )
                         }
-
                         composable(route = HKUScreen.c_b.name) {
                             C_bScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
-//                            currentPage = HKUScreen.Home
                                     viewModel.setPage(HKUScreen.Home)
-
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
-
                             )
                         }
-
                         composable(route = HKUScreen.d_a.name) {
                             D_aScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.d_b.name)
-//                            currentPage = HKUScreen.d_b
                                     viewModel.setPage(HKUScreen.d_b)
-
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
-
                             )
                         }
-
                         composable(route = HKUScreen.d_b.name) {
                             D_bScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
-//                            currentPage = HKUScreen.Home
                                     viewModel.setPage(HKUScreen.Home)
-
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
-
                             )
                         }
-
                         composable(route = HKUScreen.e_a.name) {
                             E_aScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.e_b.name)
-//                            currentPage = HKUScreen.e_b
                                     viewModel.setPage(HKUScreen.e_b)
-
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
-
                             )
                         }
-
                         composable(route = HKUScreen.e_b.name) {
                             E_bScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
-//                            currentPage = HKUScreen.Home
                                     viewModel.setPage(HKUScreen.Home)
-
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
-
                             )
                         }
-
                         composable(route = HKUScreen.f_a.name) {
                             F_aScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.f_b.name)
-//                            currentPage = HKUScreen.f_b
                                     viewModel.setPage(HKUScreen.f_b)
-
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
-
                             )
                         }
-
                         composable(route = HKUScreen.f_b.name) {
                             F_bScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
-//                            currentPage = HKUScreen.Home
                                     viewModel.setPage(HKUScreen.Home)
-
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
-
                             )
                         }
-
                         composable(route = HKUScreen.g_a.name) {
                             G_aScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
-//                            currentPage = HKUScreen.Home
                                     viewModel.setPage(HKUScreen.Home)
-
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
-
                             )
                         }
-
                         composable(route = HKUScreen.h_a.name) {
                             H_aScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
-//                            currentPage = HKUScreen.Home
                                     viewModel.setPage(HKUScreen.Home)
-
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
-
                             )
                         }
                     }
@@ -486,11 +383,9 @@ fun HKUApp(
 
 @Composable
 fun SelectDropItem(
-    viewModel: HKUViewModel,
     labelResourceId: String,
     itemImagePath: Int,
     buttonClick: () -> Unit = {},
-    modifier: Modifier = Modifier,
 ){
     Box(
         modifier = Modifier
@@ -553,7 +448,6 @@ fun InnerMenu (
 fun ArrowDropDownMenu (
     viewModel: HKUViewModel,
     navController: NavHostController,
-    showOrHide: Boolean,
     modifier: Modifier,
     currentScreen: OrderUiState
 ) {
@@ -613,31 +507,6 @@ fun ArrowDropDownMenu (
                     InnerMenu(list = fbList, viewModel= viewModel, navController= navController)
                 }
             }
-//            else if (currentScreen.currentPage == HKUScreen.g_a) {
-//                Column(
-//                    Modifier.fillMaxSize()
-//                ) {
-//                    InnerMenu(list = gaList)
-//                }
-//            }else if (currentScreen.currentPage == HKUScreen.h_a) {
-//                Column(
-//                    Modifier.fillMaxSize()
-//                ) {
-//                    InnerMenu(list = haList)
-//                }
-//            }
-
-//            items.forEach{ it ->
-//                val (label, destination, screen) = it;
-//                Text(label, color = Color.Black, fontWeight = FontWeight.Bold, fontSize = 14.sp, textAlign = TextAlign.Center, modifier = Modifier.clickable {
-//                    viewModel.setPage(destination)
-//                    navController.navigate(screen)
-//                    viewModel.toggleDropDown()
-//
-//                })
-//
-//            }
-
         }
     }
 }
@@ -665,7 +534,7 @@ fun BurgerMenuDropDown (
             ) {
 
                 SelectDropItem( labelResourceId = "有條件釋放",
-                    itemImagePath = R.drawable.a_door, viewModel = viewModel,
+                    itemImagePath = R.drawable.a_door,
                     buttonClick = {
                         navController.navigate(HKUScreen.a_a.name)
                         viewModel.setPage(HKUScreen.a_a)
@@ -675,7 +544,7 @@ fun BurgerMenuDropDown (
 
                 SelectDropItem(
                     labelResourceId = "中途宿舍",
-                    itemImagePath = R.drawable.b_home, viewModel = viewModel,
+                    itemImagePath = R.drawable.b_home,
                     buttonClick = {
                         navController.navigate(HKUScreen.b_a.name)
                         viewModel.setPage(HKUScreen.b_a)
@@ -685,7 +554,7 @@ fun BurgerMenuDropDown (
 
                 SelectDropItem(
                     labelResourceId = "有條件釋放令",
-                    itemImagePath = R.drawable.c_clipboard, viewModel = viewModel,
+                    itemImagePath = R.drawable.c_clipboard,
                     buttonClick = {  navController.navigate(HKUScreen.c_a.name)
                         viewModel.setPage(HKUScreen.c_a)
                         viewModel.closeHamburger()
@@ -693,7 +562,7 @@ fun BurgerMenuDropDown (
                 )
                 SelectDropItem(
                     labelResourceId = "如果有條件釋放令不合理？",
-                    itemImagePath = R.drawable.d_scales, viewModel = viewModel,
+                    itemImagePath = R.drawable.d_scales,
                     buttonClick = {
                         navController.navigate(HKUScreen.d_a.name)
                         viewModel.setPage(HKUScreen.d_a)
@@ -702,7 +571,7 @@ fun BurgerMenuDropDown (
                 )
                 SelectDropItem(
                     labelResourceId = "復核申請需要哪些資料？",
-                    itemImagePath = R.drawable.e_documents, viewModel = viewModel,
+                    itemImagePath = R.drawable.e_documents,
                     buttonClick = {
                         navController.navigate(HKUScreen.e_a.name)
                         viewModel.setPage(HKUScreen.e_a)
@@ -711,7 +580,7 @@ fun BurgerMenuDropDown (
                 )
                 SelectDropItem(
                     labelResourceId = "可以向你的醫生提出的問題",
-                    itemImagePath = R.drawable.f_doc, viewModel = viewModel,
+                    itemImagePath = R.drawable.f_doc,
                     buttonClick = {
                         navController.navigate(HKUScreen.f_a.name)
                         viewModel.setPage(HKUScreen.f_a)
@@ -720,7 +589,7 @@ fun BurgerMenuDropDown (
                 )
                 SelectDropItem(
                     labelResourceId = "有條件釋放令統計",
-                    itemImagePath = R.drawable.f_doc,viewModel = viewModel, // fix image
+                    itemImagePath = R.drawable.f_doc,
                     buttonClick = {
                         navController.navigate(HKUScreen.g_a.name)
                         viewModel.setPage(HKUScreen.g_a)
@@ -729,7 +598,7 @@ fun BurgerMenuDropDown (
                 )
                 SelectDropItem(
                     labelResourceId = "重要聯絡人",
-                    itemImagePath = R.drawable.h_contact,viewModel = viewModel,
+                    itemImagePath = R.drawable.h_contact,
                     buttonClick = {
                         navController.navigate(HKUScreen.h_a.name)
                         viewModel.setPage(HKUScreen.h_a)

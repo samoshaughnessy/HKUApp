@@ -74,8 +74,6 @@ import com.example.hku_a_ios_001.android.data.OrderUiState
 fun HomeScreen(
     navController: NavController,
     viewModel: HKUViewModel,
-//    pageChoice: List<Pair<String,Int>>,
-    onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {

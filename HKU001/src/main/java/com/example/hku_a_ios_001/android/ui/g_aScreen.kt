@@ -135,8 +135,6 @@ fun TableScreen() {
 
 @Composable
 fun G_aScreen(
-    onSelectionChanged: (String) -> Unit = {},
-    onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: () -> Unit = {},
     modifier: Modifier = Modifier
 ){
