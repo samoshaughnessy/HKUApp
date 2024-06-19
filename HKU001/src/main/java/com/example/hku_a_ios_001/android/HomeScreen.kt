@@ -99,6 +99,7 @@ import androidx.compose.ui.zIndex
 import com.example.hku_a_ios_001.android.ui.HKULogo
 import com.example.hku_a_ios_001.android.ui.theme.md_theme_dark_background
 import com.example.hku_a_ios_001.android.data.OrderUiState
+import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 
 //var currentPage = HKUScreen.Home // replace with data from OrderUIState
@@ -186,7 +187,8 @@ fun HKUApp(
         )
         { innerPadding ->
             // fix the button clicks so that we can get to actual pages
-            Box(modifier = Modifier
+            Box(
+                modifier = Modifier
                 .background(color = Color.Black)
                 .fillMaxSize()
                 .paint(
@@ -649,15 +651,17 @@ fun BurgerMenuDropDown (
     showOrHide : Boolean,
     modifier: Modifier,
 ){
-    if (showOrHide == true) {
+    if (showOrHide) {
         Box(
-            modifier = Modifier.offset(x=0.dp, y=100.dp),
+            modifier = Modifier.offset(x=0.dp, y=100.dp).fillMaxSize(),
         ) {
-            Column(modifier = Modifier
-                .padding(15.dp)
+            Column(
+
+                modifier = Modifier
+                .padding(45.dp)
                 .background(color = md_theme_dark_background.copy(alpha = 0.4f))
                 .shadow(2.dp, shape = RectangleShape),
-                horizontalAlignment = Alignment.Start
+
             ) {
 
                 SelectDropItem( labelResourceId = "有條件釋放",
