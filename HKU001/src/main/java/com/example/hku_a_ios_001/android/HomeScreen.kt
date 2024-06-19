@@ -90,6 +90,7 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.min
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 
@@ -510,11 +511,42 @@ fun SelectDropItem(
 
 }
 
+val abList = listOf(Pair("什麼是有條件釋放？", HKUScreen.a_a.name), Pair("什麼是“條件”？", HKUScreen.a_b.name))
+val bdList  = listOf(
+        Pair("什麼是中途宿舍?", HKUScreen.b_a.name), Pair("進入中途宿舍需要\n哪些條件？", HKUScreen.b_b.name),
+        Pair("中途宿舍額外限制", HKUScreen.b_c.name), Pair("如何申請？", HKUScreen.b_d.name)
+)
+val cbList = listOf(Pair("有條件釋放令", HKUScreen.c_a.name), Pair("您的有條件釋放令將\n會持續多久", HKUScreen.c_b.name))
+val dbList = listOf(Pair("如果有條件釋放令不合理",HKUScreen.d_a.name), Pair("精神健康覆核審裁（MHRT)",HKUScreen.d_b.name))
+val ebList = listOf(Pair("提出覆核申請需要\n提交哪些資料？", HKUScreen.e_a.name), Pair("申請書需要包括哪\n些內容？", HKUScreen.e_b.name))
+val fbList = listOf(Pair("可以向精神科醫\n生提出的問題", HKUScreen.f_a.name), Pair("醫生沒有正當理由卻拒\n絕調整相關限制...",HKUScreen.f_b.name))
 
-// fix the arrowDropDownMenu on every page
-// Each section should display different drop downs
-// Section 1 = only give items in 1 ie a_a, a_b
-// section 2 = only give items in 2 ie b_a, b_b. b_c. b_d
+
+
+@Composable
+fun InnerMenu (    
+    list: List<Pair<String, String>>,
+    viewModel: HKUViewModel,
+    navController: NavHostController,
+){
+    list.forEach(){it ->
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxSize()
+                .border(1.dp, color = Color.Black)
+                .padding(20.dp)
+                .clickable {
+                    viewModel.toggleDropDown()
+                    navController.navigate(it.second)
+                }
+        ){
+            Text(it.first, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center)
+        }
+    }
+    
+}
+
 @Composable
 fun ArrowDropDownMenu (
     viewModel: HKUViewModel,
@@ -524,44 +556,75 @@ fun ArrowDropDownMenu (
     currentScreen: OrderUiState
 ) {
     Box(
-        modifier = Modifier.offset(x=0.dp, y=100.dp),
+        modifier =  if( (currentScreen.currentPage == HKUScreen.g_a) || (currentScreen.currentPage == HKUScreen.h_a)){
+            Modifier
+        } else {
+            Modifier.padding(15.dp)
+                .fillMaxSize()
+                .offset(x = 0.dp, y = 85.dp)
+                .background(color = md_theme_dark_background)
+                .shadow(2.dp, shape = RectangleShape)
+                .zIndex(1f)
+                .defaultMinSize(minWidth = 200.dp, minHeight = 150.dp)
+        }
+        ,
     ) {
         Column(modifier = Modifier
             .padding(15.dp)
-            .fillMaxSize()
-            .background(color = md_theme_dark_background.copy(alpha = 0.4f))
-            .shadow(2.dp, shape = RectangleShape),
-            horizontalAlignment = Alignment.Start
-        ) {
+            .fillMaxSize(),
+            verticalArrangement = Arrangement.SpaceEvenly,
+            ) {
             if((currentScreen.currentPage == HKUScreen.a_a) || (currentScreen.currentPage == HKUScreen.a_b )){
                 Column  (
                     Modifier.fillMaxSize()
                 ){
-                    Row(
-                        modifier = Modifier.clickable {  }
-                    ){
-                       Text("什麼是有條件釋放？")
-
-                    }
-                    Row(
-                        modifier = Modifier.clickable {  }
-
-                    ) {
-                            Text("什麼是“條件”？")
-
-                    }
+                    InnerMenu(list = abList, viewModel= viewModel, navController= navController)
                 }
             } else if ((currentScreen.currentPage == HKUScreen.b_a) || (currentScreen.currentPage == HKUScreen.b_b) || (currentScreen.currentPage == HKUScreen.b_c) || (currentScreen.currentPage == HKUScreen.b_d)){
-                Text("BBBBBB")
+                Column  (
+                    Modifier.fillMaxSize()
+                ){
+                    InnerMenu(list = bdList, viewModel= viewModel, navController= navController)
+                }
             } else if ((currentScreen.currentPage == HKUScreen.c_a) || (currentScreen.currentPage == HKUScreen.c_b)){
-                Text("CCCCC")
+                Column  (
+                    Modifier.fillMaxSize()
+                ){
+                    InnerMenu(list = cbList, viewModel= viewModel, navController= navController)
+                }
             }else if ((currentScreen.currentPage == HKUScreen.d_a) || (currentScreen.currentPage == HKUScreen.d_b)){
-                Text("DDDD")
+                Column  (
+                    Modifier.fillMaxSize()
+                ){
+                    InnerMenu(list = dbList, viewModel= viewModel, navController= navController)
+                }
             }else if ((currentScreen.currentPage == HKUScreen.e_a) || (currentScreen.currentPage == HKUScreen.e_b)){
-                Text("EEEEE")
+                Column  (
+                    Modifier.fillMaxSize()
+                ){
+                    InnerMenu(list = ebList, viewModel= viewModel, navController= navController)
+                }
             }else if ((currentScreen.currentPage == HKUScreen.f_a) || (currentScreen.currentPage == HKUScreen.f_b)){
-                Text("FFFFF")
+                Column  (
+                    Modifier.fillMaxSize()
+                ){
+                    InnerMenu(list = fbList, viewModel= viewModel, navController= navController)
+                }
             }
+//            else if (currentScreen.currentPage == HKUScreen.g_a) {
+//                Column(
+//                    Modifier.fillMaxSize()
+//                ) {
+//                    InnerMenu(list = gaList)
+//                }
+//            }else if (currentScreen.currentPage == HKUScreen.h_a) {
+//                Column(
+//                    Modifier.fillMaxSize()
+//                ) {
+//                    InnerMenu(list = haList)
+//                }
+//            }
+
 //            items.forEach{ it ->
 //                val (label, destination, screen) = it;
 //                Text(label, color = Color.Black, fontWeight = FontWeight.Bold, fontSize = 14.sp, textAlign = TextAlign.Center, modifier = Modifier.clickable {
