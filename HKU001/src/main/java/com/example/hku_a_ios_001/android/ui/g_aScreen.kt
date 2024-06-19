@@ -92,7 +92,6 @@ fun RowScope.TableCell(
 
 @Composable
 fun TableScreen() {
-    // Just a fake data... a Pair of Int and String
     val tableData = arrayOf( arrayOf("您理解您身處的有條件釋放制度嗎？", "36.2%" ,"63.8%"),
         arrayOf("您理解有條件釋放令的監管條件嗎？", "70.2%" ,"29.8%"),
         arrayOf("您知道如何終止您的有條件釋放令嗎？", "25.5%" ,"74.5%"),
@@ -104,14 +103,12 @@ fun TableScreen() {
     // Each cell of a column must have the same weight.
     val column1Weight = .2f // 30%
     val column2Weight = .6f // 70%
-    LazyColumn(
+    Column(
         modifier = Modifier.background(color = Color.Gray)
     ) {
         // Here is the header
-        item {
             Row(
                 Modifier
-                    .fillMaxSize()
                     .border(1.dp, color = Color.White)
                     .height(IntrinsicSize.Min)) {
                 TableCell(text = "問題", weight = column2Weight, backgroundColor = Color(0XFF3D85C6), textAlignment = TextAlign.Center, textColour = Color(0XFFFFFFFF))
@@ -119,13 +116,11 @@ fun TableScreen() {
                 TableCell(text = "NO", weight = column1Weight, backgroundColor = Color(0XFF3D85C6), textAlignment = TextAlign.Center, textColour = Color(0XFFFFFFFF))
             }
         }
-        // Here are all the lines of your table.
-        itemsIndexed(tableData) { index, it ->
+    tableData.forEachIndexed { index, it ->
             val (text, yes, no) = it
             val backgroundColor = if (index % 2 == 0) Color(0XFF9FC5E8) else Color(0XFFEEEEEE)
 
             Row( modifier = Modifier
-                .fillMaxSize()
                 .border(1.dp, color = Color.White)
                 .height(IntrinsicSize.Min)
                 ,) {
@@ -134,7 +129,6 @@ fun TableScreen() {
                 TableCell(text = no, weight = column1Weight, backgroundColor = backgroundColor, textAlignment = TextAlign.Center, textColour = Color.Black)
             }
         }
-    }
 }
 
 
@@ -157,14 +151,14 @@ fun G_aScreen(
             Text(
                 "有條件釋放者\n" +
                         "是否了解\n" +
-                        "他們的情況",
+                        "他們的情況\n",
                 lineHeight = 50.sp, fontSize = 35.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
 
-//            TableScreen() // causing issues if in app the page wont load
+            TableScreen() // causing issues if in app the page wont load
 
             Text( buildAnnotatedString {
-                append("來源: ")
+                append("\n來源: ")
                 withStyle(style = SpanStyle(fontStyle = FontStyle.Italic)){
                     append("Cheung D. (2022). Control in the community: A qualitative analysis of the experience of persons on conditional discharge in Hong Kong. International journal of law and psychiatry, 82\"")
                 }
