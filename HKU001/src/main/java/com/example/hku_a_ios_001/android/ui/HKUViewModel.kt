@@ -18,7 +18,7 @@ class HKUViewModel : ViewModel() {
     /**
      * Cupcake state for this order
      */
-    private val _uiState = MutableStateFlow(OrderUiState( currentPage = HKUScreen.Home, openHamburger = false))
+    private val _uiState = MutableStateFlow(OrderUiState( currentPage = HKUScreen.Home, openHamburger = false, openDropDown = false))
     val uiState: StateFlow<OrderUiState> = _uiState.asStateFlow()
 
     fun setPage(page: HKUScreen){
@@ -33,6 +33,7 @@ class HKUViewModel : ViewModel() {
         _uiState.update{ currentState ->
             currentState.copy(
                 openHamburger = true,
+                openDropDown = false,
                 currentPage = HKUScreen.Home
             )
         }
@@ -44,6 +45,14 @@ class HKUViewModel : ViewModel() {
             currentState.copy(
                 openHamburger = false,
                 currentPage = currentState.currentPage
+            )
+        }
+    }
+
+    fun toggleDropDown(){
+        _uiState.update{ currentState ->
+            currentState.copy(
+                openDropDown = !currentState.openDropDown,
             )
         }
     }

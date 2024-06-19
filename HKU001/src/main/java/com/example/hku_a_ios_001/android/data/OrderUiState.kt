@@ -7,7 +7,8 @@ import com.example.hku_a_ios_001.android.HKUScreen
  */
 data class OrderUiState(
     val currentPage : HKUScreen,
-    val openHamburger : Boolean
+    val openHamburger : Boolean,
+    val openDropDown: Boolean
 )
 
 

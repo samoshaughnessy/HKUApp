@@ -83,9 +83,6 @@ fun HomeScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(15.dp),
-//                .background(color = md_theme_dark_background.copy(alpha = 0.4f))
-//                .shadow(2.dp, shape = RectangleShape)
-//                .padding(5.dp),
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
@@ -97,7 +94,6 @@ fun HomeScreen(
                     itemImagePath = R.drawable.a_door,
                     onClick = {
                         navController.navigate(HKUScreen.a_a.name)
-//                        currentPage = HKUScreen.a_a
                         viewModel.setPage(HKUScreen.a_a)
 
                     }
@@ -107,7 +103,6 @@ fun HomeScreen(
                     itemImagePath = R.drawable.b_home,
                     onClick = {
                         navController.navigate(HKUScreen.b_a.name)
-//                        currentPage = HKUScreen.b_a
                         viewModel.setPage(HKUScreen.b_a)
 
                     }
@@ -119,7 +114,6 @@ fun HomeScreen(
                     itemImagePath = R.drawable.c_clipboard,
                     onClick = {
                         navController.navigate(HKUScreen.c_a.name)
-//                        currentPage = HKUScreen.c_a
                         viewModel.setPage(HKUScreen.c_a)
 
                     }
@@ -130,7 +124,6 @@ fun HomeScreen(
                     itemImagePath = R.drawable.d_scales,
                     onClick = {
                         navController.navigate(HKUScreen.d_a.name)
-//                        currentPage = HKUScreen.d_a
                         viewModel.setPage(HKUScreen.d_a)
 
                     }
@@ -143,7 +136,6 @@ fun HomeScreen(
                     itemImagePath = R.drawable.e_documents,
                     onClick = {
                         navController.navigate(HKUScreen.e_a.name)
-//                        currentPage = HKUScreen.e_a
                         viewModel.setPage(HKUScreen.e_a)
 
                     }
@@ -154,7 +146,6 @@ fun HomeScreen(
                     itemImagePath = R.drawable.f_doc,
                     onClick = {
                         navController.navigate(HKUScreen.f_a.name)
-//                        currentPage = HKUScreen.f_a
                         viewModel.setPage(HKUScreen.f_a)
 
                     }
@@ -166,7 +157,6 @@ fun HomeScreen(
                     itemImagePath = R.drawable.f_doc, /// change image
                     onClick = {
                         navController.navigate(HKUScreen.g_a.name)
-//                        currentPage = HKUScreen.g_a
                         viewModel.setPage(HKUScreen.g_a)
 
                     }
@@ -176,7 +166,6 @@ fun HomeScreen(
                     itemImagePath = R.drawable.h_contact,
                     onClick = {
                         navController.navigate(HKUScreen.h_a.name)
-//                        currentPage = HKUScreen.h_a
                         viewModel.setPage(HKUScreen.h_a)
 
                     }
@@ -203,12 +192,6 @@ fun HomeButton(
             enabled = true,
             onClick = nextButton
         ) {
-//            val colorMatrix = floatArrayOf(
-//                -1f, 0f, 0f, 0f, 255f,
-//                0f, -1f, 0f, 0f, 255f,
-//                0f, 0f, -1f, 0f, 255f,
-//                0f, 0f, 0f, 1f, 0f
-//            )
             Icon(
                 imageVector = Icons.Filled.Home,
                 contentDescription = "Home",
@@ -216,16 +199,6 @@ fun HomeButton(
                 tint= Color.Black //  need to fix the colour
 
             )
-
-//            Image(
-//
-//                painter = painterResource(R.drawable.b_home), modifier = Modifier
-//                    .background(color = Color.Transparent).alpha(0.2f)
-//                    .fillMaxSize()
-//                    .scale(3f) ,
-//                colorFilter = ColorFilter.colorMatrix(ColorMatrix(colorMatrix)),
-//                contentDescription = null,
-//            )
         }
 
     }

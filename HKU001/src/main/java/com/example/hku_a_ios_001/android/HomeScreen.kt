@@ -44,6 +44,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material3.Button
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.ui.graphics.Color
@@ -119,8 +120,8 @@ enum class HKUScreen(val string:String){ // can add size with int value to alter
     e_b("申請書需要包括哪些內容？ ▼"),
     f_a("可以向精神科醫生提出的問題 ▼"),
     f_b("醫生沒有正當理由卻拒絕調整相關限制... ▼"),
-    g_a("有條件釋放者是否了解他們的情況 ▼"),
-    h_a("重要聯絡人 ▼"),
+    g_a("有條件釋放者是否了解他們的情況"),
+    h_a("重要聯絡人"),
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -130,7 +131,8 @@ fun    HKUAppBar(
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: HKUViewModel
+    viewModel: HKUViewModel,
+    toggleDropDown: ()->Unit={}
 ) {
 
 
@@ -139,7 +141,7 @@ fun    HKUAppBar(
     CenterAlignedTopAppBar(
         title = {
             Text(
-                currentScreen.currentPage.string, fontSize = 20.sp, textAlign = TextAlign.Center, fontWeight = FontWeight.Bold
+                currentScreen.currentPage.string, fontSize = 20.sp, textAlign = TextAlign.Center, fontWeight = FontWeight.Bold, modifier = if ((currentScreen.currentPage !== HKUScreen.Home)){Modifier.clickable { toggleDropDown() }} else {Modifier}
             )
                 },
         colors = TopAppBarDefaults.mediumTopAppBarColors(
@@ -176,7 +178,8 @@ fun HKUApp(
                     currentScreen = uiState,
                     canNavigateBack = false,
                     viewModel = viewModel,
-                    navigateUp = { /* TODO: implement back navigation */ }
+                    navigateUp = { /* TODO: implement back navigation */ },
+                    toggleDropDown = {viewModel.toggleDropDown()}
                 )
             }
         )
@@ -203,6 +206,15 @@ fun HKUApp(
                         navController = navController
                     )
                 } else {
+                    if(uiState.openDropDown){
+                        ArrowDropDownMenu(
+                            currentScreen = uiState,
+                            viewModel = viewModel,
+                        navController = navController,
+                        showOrHide = uiState.openDropDown,
+                        modifier = Modifier
+                    )
+                    }
                     NavHost(
                         navController = navController,
                         startDestination = HKUScreen.Home.name,
@@ -480,7 +492,8 @@ fun SelectDropItem(
     Box(
         modifier = Modifier
             .defaultMinSize(minWidth = 300.dp, minHeight = 10.dp)
-            .border(1.dp, color = Color.Black).clickable { buttonClick() }
+            .border(1.dp, color = Color.Black)
+            .clickable { buttonClick() }
         ) {
         Row (
             horizontalArrangement = Arrangement.Start,
@@ -496,6 +509,74 @@ fun SelectDropItem(
     }
 
 }
+
+
+// fix the arrowDropDownMenu on every page
+// Each section should display different drop downs
+// Section 1 = only give items in 1 ie a_a, a_b
+// section 2 = only give items in 2 ie b_a, b_b. b_c. b_d
+@Composable
+fun ArrowDropDownMenu (
+    viewModel: HKUViewModel,
+    navController: NavHostController,
+    showOrHide: Boolean,
+    modifier: Modifier,
+    currentScreen: OrderUiState
+) {
+    Box(
+        modifier = Modifier.offset(x=0.dp, y=100.dp),
+    ) {
+        Column(modifier = Modifier
+            .padding(15.dp)
+            .fillMaxSize()
+            .background(color = md_theme_dark_background.copy(alpha = 0.4f))
+            .shadow(2.dp, shape = RectangleShape),
+            horizontalAlignment = Alignment.Start
+        ) {
+            if((currentScreen.currentPage == HKUScreen.a_a) || (currentScreen.currentPage == HKUScreen.a_b )){
+                Column  (
+                    Modifier.fillMaxSize()
+                ){
+                    Row(
+                        modifier = Modifier.clickable {  }
+                    ){
+                       Text("什麼是有條件釋放？")
+
+                    }
+                    Row(
+                        modifier = Modifier.clickable {  }
+
+                    ) {
+                            Text("什麼是“條件”？")
+
+                    }
+                }
+            } else if ((currentScreen.currentPage == HKUScreen.b_a) || (currentScreen.currentPage == HKUScreen.b_b) || (currentScreen.currentPage == HKUScreen.b_c) || (currentScreen.currentPage == HKUScreen.b_d)){
+                Text("BBBBBB")
+            } else if ((currentScreen.currentPage == HKUScreen.c_a) || (currentScreen.currentPage == HKUScreen.c_b)){
+                Text("CCCCC")
+            }else if ((currentScreen.currentPage == HKUScreen.d_a) || (currentScreen.currentPage == HKUScreen.d_b)){
+                Text("DDDD")
+            }else if ((currentScreen.currentPage == HKUScreen.e_a) || (currentScreen.currentPage == HKUScreen.e_b)){
+                Text("EEEEE")
+            }else if ((currentScreen.currentPage == HKUScreen.f_a) || (currentScreen.currentPage == HKUScreen.f_b)){
+                Text("FFFFF")
+            }
+//            items.forEach{ it ->
+//                val (label, destination, screen) = it;
+//                Text(label, color = Color.Black, fontWeight = FontWeight.Bold, fontSize = 14.sp, textAlign = TextAlign.Center, modifier = Modifier.clickable {
+//                    viewModel.setPage(destination)
+//                    navController.navigate(screen)
+//                    viewModel.toggleDropDown()
+//
+//                })
+//
+//            }
+
+        }
+    }
+}
+
 
 
 @Composable
@@ -591,7 +672,6 @@ fun BurgerMenuDropDown (
             }
         }
     }
-
 }
 
 // can remove before launch
