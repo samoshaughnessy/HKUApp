@@ -1,6 +1,7 @@
 package com.example.hku_a_ios_001.android.ui;
 
 import androidx.lifecycle.ViewModel;
+import com.example.hku_a_ios_001.android.HKUScreen
 import com.example.hku_a_ios_001.android.data.OrderUiState;
 import kotlinx.coroutines.flow.MutableStateFlow;
 import kotlinx.coroutines.flow.StateFlow;
@@ -18,11 +19,22 @@ private const val PRICE_PER_CUPCAKE = 2.00
 private const val PRICE_FOR_SAME_DAY_PICKUP = 3.00
 
 class HKUViewModel : ViewModel() {
+
+
+
     /**
      * Cupcake state for this order
      */
-    private val _uiState = MutableStateFlow(OrderUiState(pickupOptions = pickupOptions()))
+    private val _uiState = MutableStateFlow(OrderUiState(pickupOptions = pickupOptions(), currentPage = HKUScreen.Home))
     val uiState: StateFlow<OrderUiState> = _uiState.asStateFlow()
+
+    fun setPage(page: HKUScreen){
+        _uiState.update { currentState ->
+            currentState.copy(
+                currentPage = page
+            )
+        }
+    }
 
     /**
      * Set the quantity [numberCupcakes] of cupcakes for this order's state and update the price
@@ -62,7 +74,7 @@ class HKUViewModel : ViewModel() {
      * Reset the order state
      */
     fun resetOrder() {
-        _uiState.value = OrderUiState(pickupOptions = pickupOptions())
+        _uiState.value = OrderUiState(pickupOptions = pickupOptions(), currentPage = HKUScreen.Home)
     }
 
     /**

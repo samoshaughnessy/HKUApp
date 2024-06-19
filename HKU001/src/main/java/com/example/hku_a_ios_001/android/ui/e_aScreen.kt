@@ -84,21 +84,7 @@ fun E_aScreen(
                 append("由任何獲得服務對象授權代其提出申請的人簽署。")
             }, fontSize = 20.sp
             )
-
-
-            Row() {
-                Button(
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
-                    modifier = Modifier
-                        .height(60.dp)
-                        .width(60.dp)
-                        .absoluteOffset(x = 230.dp, y = 0.dp),
-                    enabled = true,
-                    onClick = onNextButtonClicked
-                ) {
-                    Text(">",color = Color.White, fontSize = 30.sp, fontWeight = FontWeight.Bold)
-                }
-            }
+            NextButton(nextButton = onNextButtonClicked)
             HKULogo()
         }
 }

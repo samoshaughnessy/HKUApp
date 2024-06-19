@@ -77,21 +77,8 @@ fun D_aScreen(
                 "-即使院長認為不需要再對服務對象進行隔離治療，院長也沒有辦法直接釋放服務對象；\n \n" +
                 "-解除或取消：只有精神健康覆核審裁處有權力；醫務人員和院長沒有權力直接解除或者取消有條件釋放令，但是實踐中醫生可以解除您需要遵守的全部條件，從而達到同樣效果", fontSize = 20.sp
             )
-            Row(
-            ) {
-                Button(
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
-                    modifier = Modifier
-                        .height(60.dp)
-                        .width(60.dp)
-                        .absoluteOffset(x = 230.dp, y = 0.dp),
-                    enabled = true,
-                    onClick = onNextButtonClicked
-                ) {
-                    Text(">",color = Color.White, fontSize = 30.sp, fontWeight = FontWeight.Bold)
-                }
+            NextButton(nextButton = onNextButtonClicked)
 
-            }
             HKULogo()
             }
 }

@@ -89,39 +89,7 @@ fun E_bScreen(
                 "2. 如果服務對象希望授權代表，還需提供授權代表的姓名、地址以及現有身分證的號碼。如仍未授權其他人為代表，則需述明該服務對象是否打算授權代表，抑或是否有意自行處理其個案。 \n \n" +
                 "3. 根據相關規定，如上述指明的任何一項資料並未包括在申請書上，則在切實可行範圍內，負責當局（即院長、醫生、懲教署署長、社會福利署署長等有關人士）須提供該項資料。但我們依然建議您盡可能全面地自行準備相關资料。"
             , fontSize = 20.sp)
-
-            Row(
-
-                verticalAlignment = Alignment.Bottom,
-                modifier = Modifier.fillMaxSize(),
-            ) {
-                Button(
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
-                    modifier = Modifier
-                        .height(60.dp)
-                        .width(60.dp)
-                        .absoluteOffset(x = 230.dp, y = 0.dp),
-                    enabled = true,
-                    onClick = onNextButtonClicked
-                ) {
-
-                    val colorMatrix = floatArrayOf(
-                        -1f, 0f, 0f, 0f, 255f,
-                        0f, -1f, 0f, 0f, 255f,
-                        0f, 0f, -1f, 0f, 255f,
-                        0f, 0f, 0f, 1f, 0f
-                    )
-
-                    Image(
-                        painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.b_home), modifier = Modifier
-                            .background(color = Color.Black)
-                            .scale(10f),
-                        colorFilter = ColorFilter.colorMatrix(ColorMatrix(colorMatrix)),
-                        contentDescription = null,
-                    )
-                }
-
-            }
+            HomeButton(nextButton = onNextButtonClicked)
             HKULogo()
         }
 }

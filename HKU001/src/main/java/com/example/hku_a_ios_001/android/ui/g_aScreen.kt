@@ -169,36 +169,7 @@ fun G_aScreen(
                     append("Cheung D. (2022). Control in the community: A qualitative analysis of the experience of persons on conditional discharge in Hong Kong. International journal of law and psychiatry, 82\"")
                 }
             }, fontSize = 20.sp, fontWeight = FontWeight.Bold)
-            Row(
-                verticalAlignment = Alignment.Bottom,
-            ) {
-                Button(
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
-                    modifier = Modifier
-                        .height(60.dp)
-                        .width(60.dp)
-                        .absoluteOffset(x = 230.dp, y = 0.dp),
-                    enabled = true,
-                    onClick = onNextButtonClicked
-                ) {
-
-                    val colorMatrix = floatArrayOf(
-                        -1f, 0f, 0f, 0f, 255f,
-                        0f, -1f, 0f, 0f, 255f,
-                        0f, 0f, -1f, 0f, 255f,
-                        0f, 0f, 0f, 1f, 0f
-                    )
-
-                    Image(
-                        painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.b_home), modifier = Modifier
-                            .background(color = Color.Black)
-                            .scale(10f),
-                        colorFilter = ColorFilter.colorMatrix(ColorMatrix(colorMatrix)),
-                        contentDescription = null,
-                    )
-                }
-
-            }
+            HomeButton(nextButton = onNextButtonClicked)
             HKULogo()
         }
 }

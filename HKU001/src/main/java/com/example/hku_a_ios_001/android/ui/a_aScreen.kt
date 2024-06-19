@@ -90,24 +90,7 @@ fun A_aScreen(
                         "\n" +
                         "若獲有條件釋放的病人沒有遵守基於第42B條第3款所規限的任何條件，該名病人或將被重新召回醫院。", fontSize = 20.sp
             )
-            Row(
-
-                verticalAlignment = Alignment.Bottom,
-                modifier = Modifier.fillMaxSize(),
-            ) {
-                Button(
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
-                    modifier = Modifier
-                        .height(60.dp)
-                        .width(60.dp)
-                        .absoluteOffset(x = 230.dp, y = 0.dp),
-                    enabled = true,
-                    onClick = onNextButtonClicked
-                ) {
-                    Text(">",color = Color.White, fontSize = 30.sp, fontWeight = FontWeight.Bold)
-                }
-
-            }
+            NextButton(nextButton = onNextButtonClicked)
         HKULogo()
         }
 }

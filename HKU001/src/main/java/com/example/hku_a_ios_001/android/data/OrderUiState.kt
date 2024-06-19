@@ -1,8 +1,10 @@
 package com.example.hku_a_ios_001.android.data
 
+import com.example.hku_a_ios_001.android.HKUScreen
+
 /**
  * Data class that represents the current UI state in terms of [quantity], [flavor],
- * [dateOptions], selected pickup [date] and [price]
+ * [dateOptions], selected pickup [date] and [price] -- now including [currentPage]
  */
 data class OrderUiState(
     /** Selected cupcake quantity (1, 6, 12) */
@@ -18,7 +20,11 @@ data class OrderUiState(
 
     /** Selected Page */
 //    Todo turn page into into
-    val page : Int = 0
+    val page : Int = 0,
+
+    // make page titles from here?
+
+    val currentPage : HKUScreen
 )
 
 

@@ -64,8 +64,8 @@ fun F_aScreen(
                 painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.doctor),
                 contentDescription = "background_image",
                 modifier = Modifier
-                    .offset(x = -135.dp, y = 310.dp)
-                    .scale(0.6f)
+                    .offset(x = -155.dp, y = 250.dp)
+                    .scale(0.7f)
             )
         }
 
@@ -92,21 +92,8 @@ fun F_aScreen(
                 "我的心理健康狀況診斷結果是什麼？ \n \n " +
                 "距離我上次診斷已經很久了，我  \n" + "覺得自己好轉了，  你可以再次診  斷我嗎 \n", fontSize = 20.sp
             )
-            Row(
-            ) {
-                Button(
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
-                    modifier = Modifier
-                        .height(60.dp)
-                        .width(60.dp)
-                        .absoluteOffset(x = 230.dp, y = 0.dp),
-                    enabled = true,
-                    onClick = onNextButtonClicked
-                ) {
-                    Text(">",color = Color.White, fontSize = 30.sp, fontWeight = FontWeight.Bold)
-                }
+            NextButton(nextButton = onNextButtonClicked)
 
-            }
             HKULogo()
         }
 }

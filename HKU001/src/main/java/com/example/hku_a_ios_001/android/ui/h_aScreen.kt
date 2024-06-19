@@ -154,39 +154,10 @@ fun H_aScreen(
                 "\n精神健康覆核審裁處\n" +
                         "香港添馬添美道2號政府總部東翼19樓\n" +
                         "+852 2594 5636\n" +
-                        "https://www.healthbureau.gov.hk/cn/committees/mhrt.htm", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+                        "https://www.healthbureau.gov.hk/cn/committees/mhrt.htm\n", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
 
-            Row(
-                verticalAlignment = Alignment.Bottom,
-            ) {
-                Button(
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
-                    modifier = Modifier
-                        .height(60.dp)
-                        .width(60.dp)
-                        .absoluteOffset(x = 230.dp, y = 0.dp),
-                    enabled = true,
-                    onClick = onNextButtonClicked
-                ) {
-
-                    val colorMatrix = floatArrayOf(
-                        -1f, 0f, 0f, 0f, 255f,
-                        0f, -1f, 0f, 0f, 255f,
-                        0f, 0f, -1f, 0f, 255f,
-                        0f, 0f, 0f, 1f, 0f
-                    )
-
-                    Image(
-                        painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.b_home), modifier = Modifier
-                            .background(color = Color.Black)
-                            .scale(10f),
-                        colorFilter = ColorFilter.colorMatrix(ColorMatrix(colorMatrix)),
-                        contentDescription = null,
-                    )
-                }
-
-            }
+            HomeButton(nextButton = onNextButtonClicked)
             HKULogo()
         }
 }

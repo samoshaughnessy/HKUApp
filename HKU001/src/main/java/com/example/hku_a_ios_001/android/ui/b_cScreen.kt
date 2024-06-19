@@ -80,23 +80,7 @@ fun B_cScreen(
                         "-向有關當局，如申訴專員公署提出投訴\n" + "其他選擇：向社會福利署提出申訴" , fontSize = 20.sp
             )
 
-            Row(
-
-                verticalAlignment = Alignment.Bottom
-            ) {
-                Button(
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
-                    modifier = Modifier
-                        .height(60.dp)
-                        .width(60.dp)
-                        .absoluteOffset(x = 230.dp, y = 0.dp),
-                    enabled = true,
-                    onClick = onNextButtonClicked
-                ) {
-                    Text(">",color = Color.White, fontSize = 30.sp, fontWeight = FontWeight.Bold)
-                }
-
-            }
+            NextButton(nextButton = onNextButtonClicked)
             HKULogo()
         }
 }

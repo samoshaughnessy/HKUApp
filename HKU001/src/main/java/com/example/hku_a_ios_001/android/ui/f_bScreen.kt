@@ -64,8 +64,8 @@ fun F_bScreen(
                 painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.doctor),
                 contentDescription = "background_image",
                 modifier = Modifier
-                    .offset(x = -125.dp, y = 290.dp)
-                    .scale(0.6f)
+                    .offset(x = -150.dp, y = 280.dp)
+                    .scale(0.7f)
             )
         }
         Column(
@@ -92,36 +92,7 @@ fun F_bScreen(
                         "           證據支持 \n"
             )
 
-            Row(
-                verticalAlignment = Alignment.Bottom,
-            ) {
-                Button(
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
-                    modifier = Modifier
-                        .height(60.dp)
-                        .width(60.dp)
-                        .absoluteOffset(x = 230.dp, y = 0.dp),
-                    enabled = true,
-                    onClick = onNextButtonClicked
-                ) {
-
-                    val colorMatrix = floatArrayOf(
-                        -1f, 0f, 0f, 0f, 255f,
-                        0f, -1f, 0f, 0f, 255f,
-                        0f, 0f, -1f, 0f, 255f,
-                        0f, 0f, 0f, 1f, 0f
-                    )
-
-                    Image(
-                        painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.b_home), modifier = Modifier
-                            .background(color = Color.Black)
-                            .scale(10f),
-                        colorFilter = ColorFilter.colorMatrix(ColorMatrix(colorMatrix)),
-                        contentDescription = null,
-                    )
-                }
-
-            }
+            HomeButton(nextButton = onNextButtonClicked)
             HKULogo()
         }
 }

@@ -50,6 +50,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
 import androidx.core.graphics.rotationMatrix
 import com.example.hku_a_ios_001.R
 import com.example.hku_a_ios_001.android.ui.theme.HKUTheme
@@ -63,6 +64,17 @@ fun A_bScreen(
     onNextButtonClicked: () -> Unit = {},
     modifier: Modifier = Modifier
 ){
+    Box(
+        modifier = Modifier.zIndex(1f).fillMaxSize()
+
+    ) {
+        Image(
+            painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.dotted_arrow),
+            contentDescription = "arrow",
+            modifier = Modifier
+                .offset(x = 30.dp, y = 360.dp).scale(3.5f)
+        )
+    }
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
@@ -105,38 +117,7 @@ fun A_bScreen(
             " 什麼是“合理”？",fontSize = 20.sp, fontWeight = FontWeight.Bold
         )
         BulletList(listItems = bulletPoints)
-        Row(
-
-            verticalAlignment = Alignment.Bottom,
-            modifier = Modifier.fillMaxSize(),
-        ) {
-            Button(
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
-                modifier = Modifier
-                    .height(60.dp)
-                    .width(60.dp)
-                    .absoluteOffset(x = 230.dp, y = 0.dp),
-                enabled = true,
-                onClick = onNextButtonClicked
-            ) {
-
-                val colorMatrix = floatArrayOf(
-                    -1f, 0f, 0f, 0f, 255f,
-                    0f, -1f, 0f, 0f, 255f,
-                    0f, 0f, -1f, 0f, 255f,
-                    0f, 0f, 0f, 1f, 0f
-                )
-
-                Image(
-                    painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.b_home), modifier = Modifier
-                        .background(color = Color.Black)
-                        .scale(10f),
-                    colorFilter = ColorFilter.colorMatrix(ColorMatrix(colorMatrix)),
-                    contentDescription = null,
-                )
-            }
-
-        }
+        HomeButton(nextButton = onNextButtonClicked)
         HKULogo()
         }
 

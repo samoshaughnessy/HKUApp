@@ -73,24 +73,7 @@ fun B_bScreen(
 
             OrderedList(listItems = orderedPoints)
 
-            Row(
-
-                verticalAlignment = Alignment.Bottom,
-
-                ) {
-                Button(
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
-                    modifier = Modifier
-                        .height(60.dp)
-                        .width(60.dp)
-                        .absoluteOffset(x = 210.dp, y = 0.dp),
-                    enabled = true,
-                    onClick = onNextButtonClicked
-                ) {
-                    Text(">",color = Color.White, fontSize = 30.sp, fontWeight = FontWeight.Bold)
-                }
-
-            }
+            NextButton(nextButton = onNextButtonClicked)
             HKULogo()
         }
 }

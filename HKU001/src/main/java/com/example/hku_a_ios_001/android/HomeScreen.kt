@@ -1,5 +1,6 @@
 package com.example.hku_a_ios_001.android
 
+
 import android.media.Image
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -48,7 +49,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.core.graphics.red
-import com.example.hku_a_ios_001.android.data.DataSource
+//import com.example.hku_a_ios_001.android.data.DataSource
 import com.example.hku_a_ios_001.android.ui.A_aScreen
 import com.example.hku_a_ios_001.android.ui.A_bScreen
 import com.example.hku_a_ios_001.android.ui.B_aScreen
@@ -66,6 +67,8 @@ import com.example.hku_a_ios_001.android.ui.F_bScreen
 import com.example.hku_a_ios_001.android.ui.G_aScreen
 import com.example.hku_a_ios_001.android.ui.H_aScreen
 
+
+
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -80,40 +83,50 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.text.style.TextAlign
 
 
-import com.example.hku_a_ios_001.android.data.DataSource.pageChoice
+//import com.example.hku_a_ios_001.android.data.DataSource.pageChoice
 import com.example.hku_a_ios_001.android.ui.HKULogo
 import com.example.hku_a_ios_001.android.ui.theme.md_theme_dark_background
+import com.example.hku_a_ios_001.android.data.OrderUiState
 
-enum class HKUScreen(){
-    Home,
-    a_a,
-    a_b,
-    b_a,
-    b_b,
-    b_c,
-    b_d,
-    c_a,
-    c_b,
-    d_a,
-    d_b,
-    e_a,
-    e_b,
-    f_a,
-    f_b,
-    g_a,
-    h_a,
+
+//var currentPage = HKUScreen.Home // replace with data from OrderUIState
+
+
+
+enum class HKUScreen(val string:String){
+    Home("有條件釋放咨詢庫"),
+    a_a("什麼是有條件釋放？ ▼"),
+    a_b("什麼是“條件”？ ▼"),
+    b_a("什麼是中途宿舍? ▼"),
+    b_b("進入中途宿舍需要哪些條件？ ▼"),
+    b_c("中途宿舍額外限制 ▼"),
+    b_d("如何申請？ ▼"),
+    c_a("有條件釋放令 ▼"),
+    c_b("您的有條件釋放令將會持續多久？ ▼"),
+    d_a("如果有條件釋放令不合理？ ▼"),
+    d_b("精神健康覆核審裁（MHRT) ▼"),
+    e_a("提出覆核申請需要提交哪些資料？ ▼"),
+    e_b("申請書需要包括哪些內容？ ▼"),
+    f_a("可以向精神科醫生提出的問題 ▼"),
+    f_b("醫生沒有正當理由卻拒絕調整相關限制... ▼"),
+    g_a("有條件釋放者是否了解他們的情況 ▼"),
+    h_a("重要聯絡人 ▼"),
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun    HKUAppBar(
+    currentScreen : OrderUiState,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+
+
+
     // edit to allow drop down menu
     CenterAlignedTopAppBar(
-        title = { Text(stringResource(id = R.string.app_name), textAlign = TextAlign.Center) },
+        title = { Text(currentScreen.currentPage.string, textAlign = TextAlign.Center) },
         colors = TopAppBarDefaults.mediumTopAppBarColors(
             containerColor = md_theme_dark_background.copy(alpha = 0.4f)
         ),
@@ -135,18 +148,17 @@ fun HKUApp(
     viewModel: HKUViewModel = viewModel(),
     navController: NavHostController = rememberNavController()
 ) {
-        Scaffold(
-//            modifier = Modifier.background(Color.Transparent), // fix image
-//            modifier = Modifier.verticalScroll(rememberScrollState()),
+    val uiState by viewModel.uiState.collectAsState()
+    Scaffold(
             topBar = {
                 HKUAppBar(
+                    currentScreen = uiState,
                     canNavigateBack = false,
                     navigateUp = { /* TODO: implement back navigation */ }
                 )
             }
         )
         { innerPadding ->
-            val uiState by viewModel.uiState.collectAsState()
             // fix the button clicks so that we can get to actual pages
             Box(modifier = Modifier
                 .background(color = Color.Black)
@@ -167,12 +179,15 @@ fun HKUApp(
             ) {
                 composable(route = HKUScreen.Home.name) {
                     HomeScreen(
+                        viewModel = viewModel,
                         navController = navController,
                         // this on nextButtonClicked needs to be altered here as previously we are always passing one destination, in this case, we could go anywhere..
                         onNextButtonClicked = {
                             navController.navigate(HKUScreen.Home.name)
+                            viewModel.setPage(HKUScreen.Home)
+
                         },
-                        pageChoice = pageChoice,
+//                        pageChoice = pageChoice,
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(dimensionResource(R.dimen.padding_medium))
@@ -182,6 +197,8 @@ fun HKUApp(
                     A_aScreen(
                         onNextButtonClicked = {
                             navController.navigate(HKUScreen.a_b.name)
+                            viewModel.setPage(HKUScreen.a_b)
+
                         },
 
                         modifier = Modifier
@@ -193,6 +210,9 @@ fun HKUApp(
                     A_bScreen(
                         onNextButtonClicked = {
                             navController.navigate(HKUScreen.Home.name)
+//                            currentPage = HKUScreen.Home
+                            viewModel.setPage(HKUScreen.Home)
+
                         },
                         modifier = Modifier
                             .fillMaxSize()
@@ -205,6 +225,9 @@ fun HKUApp(
                     B_aScreen(
                         onNextButtonClicked = {
                             navController.navigate(HKUScreen.b_b.name)
+//                            currentPage = HKUScreen.b_b
+                            viewModel.setPage(HKUScreen.b_b)
+
                         },
                         modifier = Modifier
                             .fillMaxSize()
@@ -215,6 +238,9 @@ fun HKUApp(
                     B_bScreen(
                         onNextButtonClicked = {
                             navController.navigate(HKUScreen.b_c.name)
+//                            currentPage = HKUScreen.b_c
+                            viewModel.setPage(HKUScreen.b_c)
+
                         },
                         modifier = Modifier
                             .fillMaxSize()
@@ -227,7 +253,11 @@ fun HKUApp(
                     B_cScreen(
                         onNextButtonClicked = {
                             navController.navigate(HKUScreen.b_d.name)
+//                            currentPage = HKUScreen.b_d
+                            viewModel.setPage(HKUScreen.b_d)
+
                         },
+
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(dimensionResource(R.dimen.padding_medium))
@@ -239,6 +269,9 @@ fun HKUApp(
                     B_dScreen(
                         onNextButtonClicked = {
                             navController.navigate(HKUScreen.Home.name)
+//                            currentPage = HKUScreen.Home
+                            viewModel.setPage(HKUScreen.Home)
+
                         },
                         modifier = Modifier
                             .fillMaxSize()
@@ -251,6 +284,9 @@ fun HKUApp(
                     C_aScreen(
                         onNextButtonClicked = {
                             navController.navigate(HKUScreen.c_b.name)
+//                            currentPage = HKUScreen.c_b
+                            viewModel.setPage(HKUScreen.c_b)
+
                         },
                         modifier = Modifier
                             .fillMaxSize()
@@ -263,6 +299,9 @@ fun HKUApp(
                     C_bScreen(
                         onNextButtonClicked = {
                             navController.navigate(HKUScreen.Home.name)
+//                            currentPage = HKUScreen.Home
+                            viewModel.setPage(HKUScreen.Home)
+
                         },
                         modifier = Modifier
                             .fillMaxSize()
@@ -275,6 +314,9 @@ fun HKUApp(
                     D_aScreen(
                         onNextButtonClicked = {
                             navController.navigate(HKUScreen.d_b.name)
+//                            currentPage = HKUScreen.d_b
+                            viewModel.setPage(HKUScreen.d_b)
+
                         },
                         modifier = Modifier
                             .fillMaxSize()
@@ -287,6 +329,9 @@ fun HKUApp(
                     D_bScreen(
                         onNextButtonClicked = {
                             navController.navigate(HKUScreen.Home.name)
+//                            currentPage = HKUScreen.Home
+                            viewModel.setPage(HKUScreen.Home)
+
                         },
                         modifier = Modifier
                             .fillMaxSize()
@@ -299,6 +344,9 @@ fun HKUApp(
                     E_aScreen(
                         onNextButtonClicked = {
                             navController.navigate(HKUScreen.e_b.name)
+//                            currentPage = HKUScreen.e_b
+                            viewModel.setPage(HKUScreen.e_b)
+
                         },
                         modifier = Modifier
                             .fillMaxSize()
@@ -311,6 +359,9 @@ fun HKUApp(
                     E_bScreen(
                         onNextButtonClicked = {
                             navController.navigate(HKUScreen.Home.name)
+//                            currentPage = HKUScreen.Home
+                            viewModel.setPage(HKUScreen.Home)
+
                         },
                         modifier = Modifier
                             .fillMaxSize()
@@ -323,6 +374,9 @@ fun HKUApp(
                     F_aScreen(
                         onNextButtonClicked = {
                             navController.navigate(HKUScreen.f_b.name)
+//                            currentPage = HKUScreen.f_b
+                            viewModel.setPage(HKUScreen.f_b)
+
                         },
                         modifier = Modifier
                             .fillMaxSize()
@@ -335,6 +389,9 @@ fun HKUApp(
                     F_bScreen(
                         onNextButtonClicked = {
                             navController.navigate(HKUScreen.Home.name)
+//                            currentPage = HKUScreen.Home
+                            viewModel.setPage(HKUScreen.Home)
+
                         },
                         modifier = Modifier
                             .fillMaxSize()
@@ -347,6 +404,9 @@ fun HKUApp(
                     G_aScreen(
                         onNextButtonClicked = {
                             navController.navigate(HKUScreen.Home.name)
+//                            currentPage = HKUScreen.Home
+                            viewModel.setPage(HKUScreen.Home)
+
                         },
                         modifier = Modifier
                             .fillMaxSize()
@@ -359,6 +419,9 @@ fun HKUApp(
                     H_aScreen(
                         onNextButtonClicked = {
                             navController.navigate(HKUScreen.Home.name)
+//                            currentPage = HKUScreen.Home
+                            viewModel.setPage(HKUScreen.Home)
+
                         },
                         modifier = Modifier
                             .fillMaxSize()

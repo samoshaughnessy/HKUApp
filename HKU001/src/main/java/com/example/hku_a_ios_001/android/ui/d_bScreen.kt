@@ -83,7 +83,7 @@ fun D_bScreen(
                 "覆核申請時，您可以獲得如下幫助：\n", fontSize = 20.sp
             )
 
-            val bulletItems = listOf("條件釋放令下的服務對象轉介至精神健康覆核審裁處申請表格往往可以在醫院填寫。在醫院填表時，可以獲得醫務社工的協助", "一般來說，當您提出覆核申請時，申訴專員不應該詢問您多餘的問題", "詢問機當局及提出覆核申請的過程，建議您盡量採用書面形式，如是口頭形式，建議盡量錄音，保留溝通過程中的證據，以防醫院施加不合理的條件", "可由您或您的親屬提出申請；申請法律援助以支付法律代表的費用；", "您有權在法律代表或其他授權代表的陪同下出席覆核申請聆訊；"  )
+            val bulletItems = listOf("條件釋放令下的服務對象轉介至精神健康覆核審裁處申請表格往往可以在醫院填寫。在醫院填表時，可以獲得醫務社工的協助", "一般來說，當您提出覆核申請時，申訴專員不應該詢問您多餘的問題", "詢問機當局及提出覆核申請的過程，建議您盡量採用書面形式，如是口頭形式，建議盡量錄音，保留溝通過程中的證據，以防醫院施加不合理的條件", "可由您或您的親屬提出申請；申請法律援助以支付法律代表的費用；", "您有權在法律代表或其他授權代表的陪同下出席覆核申請聆訊；\n"  )
 
             BulletList(listItems = bulletItems)
 
@@ -115,37 +115,7 @@ fun D_bScreen(
                 lineHeight = 50.sp, fontSize = 30.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
 
-            Row(
-                verticalAlignment = Alignment.Bottom,
-                modifier = Modifier.fillMaxSize(),
-            ) {
-                Button(
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
-                    modifier = Modifier
-                        .height(60.dp)
-                        .width(60.dp)
-                        .absoluteOffset(x = 230.dp, y = 0.dp),
-                    enabled = true,
-                    onClick = onNextButtonClicked
-                ) {
-
-                    val colorMatrix = floatArrayOf(
-                        -1f, 0f, 0f, 0f, 255f,
-                        0f, -1f, 0f, 0f, 255f,
-                        0f, 0f, -1f, 0f, 255f,
-                        0f, 0f, 0f, 1f, 0f
-                    )
-
-                    Image(
-                        painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.b_home), modifier = Modifier
-                            .background(color = Color.Black)
-                            .scale(10f),
-                        colorFilter = ColorFilter.colorMatrix(ColorMatrix(colorMatrix)),
-                        contentDescription = null,
-                    )
-                }
-
-            }
+            HomeButton(nextButton = onNextButtonClicked)
             HKULogo()
         }
 }
