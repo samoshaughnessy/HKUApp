@@ -64,7 +64,7 @@ fun D_bScreen(
         Column(
             verticalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier
-                .padding(15.dp)
+                .padding(25.dp)
                 .background(color = md_theme_dark_background.copy(alpha = 0.4f))
                 .shadow(2.dp, shape = RectangleShape)
                 .padding(20.dp)
@@ -110,7 +110,7 @@ fun D_bScreen(
                 "精神健康覆核審裁處 \n" +
                         "香港添馬添美道2號政府總部東翼19樓 \n" + "+852 2594 5636 \n" +  "https://www.healthbureau.gov.\nhk/cn/\ncommittees/mhrt.htm"
                 ,
-                lineHeight = 50.sp, fontSize = 30.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+                fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
 
             HomeButton(nextButton = onNextButtonClicked)

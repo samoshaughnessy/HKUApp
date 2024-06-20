@@ -70,13 +70,13 @@ fun A_bScreen(
             painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.dotted_arrow),
             contentDescription = "arrow",
             modifier = Modifier
-                .offset(x = 30.dp, y = 360.dp).scale(3.5f)
+                .offset(x = 40.dp, y = 390.dp).scale(3.5f)
         )
     }
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
-            .padding(15.dp)
+            .padding(25.dp)
             .background(color = md_theme_dark_background.copy(alpha = 0.4f))
             .shadow(2.dp, shape = RectangleShape)
             .padding(20.dp)

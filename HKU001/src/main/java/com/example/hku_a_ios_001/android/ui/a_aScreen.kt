@@ -60,7 +60,7 @@ fun A_aScreen(
         Column(
             verticalArrangement = Arrangement.SpaceBetween,
                     modifier = Modifier
-                        .padding(15.dp)
+                        .padding(25.dp)
                         .background(color = md_theme_dark_background.copy(alpha = 0.4f))
                         .shadow(2.dp, shape = RectangleShape)
                         .padding(10.dp)

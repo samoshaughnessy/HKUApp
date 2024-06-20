@@ -49,10 +49,18 @@ class HKUViewModel : ViewModel() {
         }
     }
 
-    fun toggleDropDown(){
+    fun openDropDown(){
         _uiState.update{ currentState ->
             currentState.copy(
-                openDropDown = !currentState.openDropDown,
+                openDropDown = true,
+            )
+        }
+    }
+
+    fun closeDropDown(){
+        _uiState.update{ currentState ->
+            currentState.copy(
+                openDropDown = false,
             )
         }
     }

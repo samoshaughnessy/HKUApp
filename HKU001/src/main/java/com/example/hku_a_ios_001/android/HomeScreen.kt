@@ -1,5 +1,6 @@
 package com.example.hku_a_ios_001.android
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -28,6 +29,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.hku_a_ios_001.android.ui.HKUViewModel
 import com.example.hku_a_ios_001.android.ui.HomeScreen
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -97,13 +99,16 @@ fun    HKUAppBar(
     currentScreen : OrderUiState,
     modifier: Modifier = Modifier,
     viewModel: HKUViewModel,
-    toggleDropDown: ()->Unit={}
 ) {
     // edit to allow drop down menu
     CenterAlignedTopAppBar(
         title = {
             Text(
-                currentScreen.currentPage.string, fontSize = 20.sp, textAlign = TextAlign.Center, fontWeight = FontWeight.Bold, modifier = if ((currentScreen.currentPage !== HKUScreen.Home)){Modifier.clickable { toggleDropDown() }} else {Modifier}
+                currentScreen.currentPage.string, color = Color.White, fontSize = 25.sp, textAlign = TextAlign.Center, fontWeight = FontWeight.Bold, modifier = if ((currentScreen.currentPage !== HKUScreen.Home)){Modifier.fillMaxWidth(0.85f).clickable { if(!currentScreen.openDropDown){
+                    viewModel.openDropDown()
+                } else {
+                    viewModel.closeDropDown()
+                } }} else {Modifier.fillMaxWidth(0.85f)}
             )
                 },
         colors = TopAppBarDefaults.mediumTopAppBarColors(
@@ -114,7 +119,7 @@ fun    HKUAppBar(
             Icon(
                 imageVector = Icons.Filled.Menu,
                 contentDescription = "menu",
-                modifier = Modifier.clickable(enabled = true){
+                modifier = Modifier.scale(1.5f).clickable(enabled = true){
                     if(!currentScreen.openHamburger){
                         viewModel.openHamburger()
                     } else {
@@ -137,7 +142,6 @@ fun HKUApp(
                 HKUAppBar(
                     currentScreen = uiState,
                     viewModel = viewModel,
-                    toggleDropDown = {viewModel.toggleDropDown()}
                 )
             }
         )
@@ -186,7 +190,7 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
                                     viewModel.setPage(HKUScreen.Home)
-
+                                    viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -198,6 +202,7 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.a_b.name)
                                     viewModel.setPage(HKUScreen.a_b)
+                                    viewModel.closeDropDown()
                                 },
 
                                 modifier = Modifier
@@ -210,6 +215,7 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
                                     viewModel.setPage(HKUScreen.Home)
+                                    viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -223,6 +229,7 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.b_b.name)
                                     viewModel.setPage(HKUScreen.b_b)
+                                    viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -234,6 +241,7 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.b_c.name)
                                     viewModel.setPage(HKUScreen.b_c)
+                                    viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -246,6 +254,7 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.b_d.name)
                                     viewModel.setPage(HKUScreen.b_d)
+                                    viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -258,6 +267,7 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
                                     viewModel.setPage(HKUScreen.Home)
+                                    viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -269,6 +279,7 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.c_b.name)
                                     viewModel.setPage(HKUScreen.c_b)
+                                    viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -280,6 +291,7 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
                                     viewModel.setPage(HKUScreen.Home)
+                                    viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -291,6 +303,7 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.d_b.name)
                                     viewModel.setPage(HKUScreen.d_b)
+                                    viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -302,6 +315,7 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
                                     viewModel.setPage(HKUScreen.Home)
+                                    viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -313,6 +327,7 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.e_b.name)
                                     viewModel.setPage(HKUScreen.e_b)
+                                    viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -324,6 +339,7 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
                                     viewModel.setPage(HKUScreen.Home)
+                                    viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -335,6 +351,7 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.f_b.name)
                                     viewModel.setPage(HKUScreen.f_b)
+                                    viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -346,6 +363,7 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
                                     viewModel.setPage(HKUScreen.Home)
+                                    viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -357,6 +375,7 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
                                     viewModel.setPage(HKUScreen.Home)
+                                    viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -368,6 +387,7 @@ fun HKUApp(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
                                     viewModel.setPage(HKUScreen.Home)
+                                    viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -390,19 +410,20 @@ fun SelectDropItem(
     Box(
         modifier = Modifier
             .defaultMinSize(minWidth = 300.dp, minHeight = 10.dp)
-            .border(1.dp, color = Color.Black)
+//            .border(1.dp, color = Color.Black)
             .clickable { buttonClick() }
         ) {
         Row (
             horizontalArrangement = Arrangement.Start,
             verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxSize()
         ){
             Image(
                 painter = painterResource(itemImagePath),
                 contentDescription = null,
-                modifier = Modifier.scale(1f)
+                modifier = Modifier.scale(2f)
             )
-            Text(labelResourceId, color = Color.Black, fontWeight = FontWeight.Bold, fontSize = 14.sp, textAlign = TextAlign.Center)
+            Text(labelResourceId, color = Color.Black, fontWeight = FontWeight.Bold, fontSize = 20.sp)
         }
     }
 
@@ -410,13 +431,13 @@ fun SelectDropItem(
 
 val abList = listOf(Pair("什麼是有條件釋放？", HKUScreen.a_a.name), Pair("什麼是“條件”？", HKUScreen.a_b.name))
 val bdList  = listOf(
-        Pair("什麼是中途宿舍?", HKUScreen.b_a.name), Pair("進入中途宿舍需要\n哪些條件？", HKUScreen.b_b.name),
+        Pair("什麼是中途宿舍?", HKUScreen.b_a.name), Pair("進入中途宿舍需\n要哪些條件？", HKUScreen.b_b.name),
         Pair("中途宿舍額外限制", HKUScreen.b_c.name), Pair("如何申請？", HKUScreen.b_d.name)
 )
 val cbList = listOf(Pair("有條件釋放令", HKUScreen.c_a.name), Pair("您的有條件釋放令將\n會持續多久", HKUScreen.c_b.name))
-val dbList = listOf(Pair("如果有條件釋放令不合理",HKUScreen.d_a.name), Pair("精神健康覆核審裁（MHRT)",HKUScreen.d_b.name))
-val ebList = listOf(Pair("提出覆核申請需要\n提交哪些資料？", HKUScreen.e_a.name), Pair("申請書需要包括哪\n些內容？", HKUScreen.e_b.name))
-val fbList = listOf(Pair("可以向精神科醫\n生提出的問題", HKUScreen.f_a.name), Pair("醫生沒有正當理由卻拒\n絕調整相關限制...",HKUScreen.f_b.name))
+val dbList = listOf(Pair("如果有條件釋放令不合理",HKUScreen.d_a.name), Pair("精神健康覆核審裁(MHRT)",HKUScreen.d_b.name))
+val ebList = listOf(Pair("提出覆核申請需要提交哪些資料？", HKUScreen.e_a.name), Pair("申請書需要包括哪些內容？", HKUScreen.e_b.name))
+val fbList = listOf(Pair("可以向精神科醫生提出的問題", HKUScreen.f_a.name), Pair("醫生沒有正當理由卻拒絕調整相關限制...",HKUScreen.f_b.name))
 
 
 
@@ -425,20 +446,26 @@ fun InnerMenu (
     list: List<Pair<String, String>>,
     viewModel: HKUViewModel,
     navController: NavHostController,
-){
+    currentScreen : OrderUiState,
+    ){
     list.forEach(){it ->
         Row(
             horizontalArrangement = Arrangement.Center,
             modifier = Modifier
                 .fillMaxSize()
-                .border(1.dp, color = Color.Black)
+                .padding(20.dp)
+                .border(border = BorderStroke(2.dp, color=Color.Black))
                 .padding(20.dp)
                 .clickable {
-                    viewModel.toggleDropDown()
+                    if(!currentScreen.openDropDown){
+                        viewModel.openDropDown()
+                    } else {
+                        viewModel.closeDropDown()
+                    }
                     navController.navigate(it.second)
                 }
         ){
-            Text(it.first, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center)
+            Text(it.first, fontSize = 25.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center)
         }
     }
     
@@ -458,7 +485,7 @@ fun ArrowDropDownMenu (
             Modifier.padding(15.dp)
                 .fillMaxSize()
                 .offset(x = 0.dp, y = 85.dp)
-                .background(color = md_theme_dark_background)
+                .background(color = Color.Gray.copy(alpha = 0.9F))
                 .shadow(2.dp, shape = RectangleShape)
                 .zIndex(1f)
                 .defaultMinSize(minWidth = 200.dp, minHeight = 150.dp)
@@ -474,37 +501,37 @@ fun ArrowDropDownMenu (
                 Column  (
                     Modifier.fillMaxSize()
                 ){
-                    InnerMenu(list = abList, viewModel= viewModel, navController= navController)
+                    InnerMenu(list = abList, viewModel= viewModel, navController= navController, currentScreen = currentScreen)
                 }
             } else if ((currentScreen.currentPage == HKUScreen.b_a) || (currentScreen.currentPage == HKUScreen.b_b) || (currentScreen.currentPage == HKUScreen.b_c) || (currentScreen.currentPage == HKUScreen.b_d)){
                 Column  (
                     Modifier.fillMaxSize()
                 ){
-                    InnerMenu(list = bdList, viewModel= viewModel, navController= navController)
+                    InnerMenu(list = bdList, viewModel= viewModel, navController= navController, currentScreen = currentScreen)
                 }
             } else if ((currentScreen.currentPage == HKUScreen.c_a) || (currentScreen.currentPage == HKUScreen.c_b)){
                 Column  (
                     Modifier.fillMaxSize()
                 ){
-                    InnerMenu(list = cbList, viewModel= viewModel, navController= navController)
+                    InnerMenu(list = cbList, viewModel= viewModel, navController= navController, currentScreen = currentScreen)
                 }
             }else if ((currentScreen.currentPage == HKUScreen.d_a) || (currentScreen.currentPage == HKUScreen.d_b)){
                 Column  (
                     Modifier.fillMaxSize()
                 ){
-                    InnerMenu(list = dbList, viewModel= viewModel, navController= navController)
+                    InnerMenu(list = dbList, viewModel= viewModel, navController= navController, currentScreen = currentScreen)
                 }
             }else if ((currentScreen.currentPage == HKUScreen.e_a) || (currentScreen.currentPage == HKUScreen.e_b)){
                 Column  (
                     Modifier.fillMaxSize()
                 ){
-                    InnerMenu(list = ebList, viewModel= viewModel, navController= navController)
+                    InnerMenu(list = ebList, viewModel= viewModel, navController= navController, currentScreen = currentScreen)
                 }
             }else if ((currentScreen.currentPage == HKUScreen.f_a) || (currentScreen.currentPage == HKUScreen.f_b)){
                 Column  (
                     Modifier.fillMaxSize()
                 ){
-                    InnerMenu(list = fbList, viewModel= viewModel, navController= navController)
+                    InnerMenu(list = fbList, viewModel= viewModel, navController= navController, currentScreen = currentScreen)
                 }
             }
         }
@@ -527,7 +554,7 @@ fun BurgerMenuDropDown (
             Column(
 
                 modifier = Modifier
-                .padding(45.dp)
+                .padding(15.dp)
                 .background(color = md_theme_dark_background.copy(alpha = 0.4f))
                 .shadow(2.dp, shape = RectangleShape),
 
@@ -589,7 +616,7 @@ fun BurgerMenuDropDown (
                 )
                 SelectDropItem(
                     labelResourceId = "有條件釋放令統計",
-                    itemImagePath = R.drawable.f_doc,
+                    itemImagePath = R.drawable.graph,
                     buttonClick = {
                         navController.navigate(HKUScreen.g_a.name)
                         viewModel.setPage(HKUScreen.g_a)

@@ -62,14 +62,14 @@ fun F_bScreen(
                 painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.doctor),
                 contentDescription = "background_image",
                 modifier = Modifier
-                    .offset(x = -150.dp, y = 280.dp)
+                    .offset(x = -140.dp, y = 290.dp)
                     .scale(0.7f)
             )
         }
         Column(
             verticalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier
-                .padding(15.dp)
+                .padding(25.dp)
                 .background(color = md_theme_dark_background.copy(alpha = 0.4f))
                 .shadow(2.dp, shape = RectangleShape)
                 .padding(20.dp)

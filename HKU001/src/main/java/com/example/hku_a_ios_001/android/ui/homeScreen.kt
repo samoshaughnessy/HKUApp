@@ -1,58 +1,33 @@
 package com.example.hku_a_ios_001.android.ui
 
-import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.absoluteOffset
-import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.selection.selectable
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.KeyboardArrowRight
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.paint
 import androidx.compose.ui.draw.scale
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -65,9 +40,7 @@ import com.example.hku_a_ios_001.android.R
 //import com.example.hku_a_ios_001.android.data.DataSource.pageChoice
 //import com.example.hku_a_ios_001.android.data.DataSource.quantityOptions
 import com.example.hku_a_ios_001.android.ui.theme.HKUTheme
-import com.example.hku_a_ios_001.android.ui.theme.md_theme_dark_background
 import androidx.navigation.compose.rememberNavController
-import com.example.hku_a_ios_001.android.data.OrderUiState
 
 
 @Composable
@@ -152,7 +125,7 @@ fun HomeScreen(
             Row(){
                 SelectPageButton(
                     labelResourceId = "有條件釋放令統計",
-                    itemImagePath = R.drawable.f_doc, /// change image
+                    itemImagePath = R.drawable.graph, /// change image
                     onClick = {
                         navController.navigate(HKUScreen.g_a.name)
                         viewModel.setPage(HKUScreen.g_a)
@@ -183,7 +156,7 @@ fun HomeButton(
     ) {
         OutlinedButton(
             border = BorderStroke(4.dp, Color.Black),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent), // neeed to fix the colour
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
             modifier = Modifier
                 .size(width = 60.dp, height = 60.dp)
                 .absoluteOffset(x = 250.dp, y = 0.dp),
@@ -194,7 +167,7 @@ fun HomeButton(
                 imageVector = Icons.Filled.Home,
                 contentDescription = "Home",
                 modifier = Modifier.scale(4f),
-                tint= Color.Black //  need to fix the colour
+                tint= Color.Black
 
             )
         }
@@ -243,7 +216,7 @@ fun HKULogo (){
             painter = painterResource(R.drawable.hku_logo),
             contentDescription = "HKU Logo",
             modifier = Modifier
-                .scale(3f)
+                .scale(3.5f)
                 .offset(x = 20.dp, y = 0.dp)
         )
     }
