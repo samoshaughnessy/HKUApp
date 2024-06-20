@@ -70,7 +70,7 @@ fun A_bScreen(
             painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.dotted_arrow),
             contentDescription = "arrow",
             modifier = Modifier
-                .offset(x = 40.dp, y = 390.dp).scale(3.5f)
+                .offset(x = 40.dp, y = 385.dp).scale(3.5f)
         )
     }
     Column(
