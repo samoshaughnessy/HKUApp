@@ -75,22 +75,22 @@ import com.example.hku_a_ios_001.android.data.OrderUiState
 
 enum class HKUScreen(val string:String){ // can add size with int value to alter size of titles if required
     Home("有條件釋放咨詢庫"),
-    a_a("什麼是有條件釋放？ ▼"),
-    a_b("什麼是“條件”？ ▼"),
-    b_a("什麼是中途宿舍? ▼"),
-    b_b("進入中途宿舍需要哪些條件？ ▼"),
-    b_c("中途宿舍額外限制 ▼"),
-    b_d("如何申請？ ▼"),
-    c_a("有條件釋放令 ▼"),
-    c_b("您的有條件釋放令將會持續多久？ ▼"),
-    d_a("如果有條件釋放令不合理？ ▼"),
-    d_b("精神健康覆核審裁（MHRT) ▼"),
-    e_a("提出覆核申請需要提交哪些資料？ ▼"),
-    e_b("申請書需要包括哪些內容？ ▼"),
-    f_a("可以向精神科醫生提出的問題 ▼"),
-    f_b("醫生沒有正當理由卻拒絕調整相關限制... ▼"),
-    g_a("有條件釋放者是否了解他們的情況"),
-    h_a("重要聯絡人"),
+    A_a("什麼是有條件釋放？ ▼"),
+    A_b("什麼是“條件”？ ▼"),
+    B_a("什麼是中途宿舍? ▼"),
+    B_b("進入中途宿舍需要哪些條件？ ▼"),
+    B_c("中途宿舍額外限制 ▼"),
+    B_d("如何申請？ ▼"),
+    C_a("有條件釋放令 ▼"),
+    C_b("您的有條件釋放令將會持續多久？ ▼"),
+    D_a("如果有條件釋放令不合理？ ▼"),
+    D_b("精神健康覆核審裁（MHRT) ▼"),
+    E_a("提出覆核申請需要提交哪些資料？ ▼"),
+    E_b("申請書需要包括哪些內容？ ▼"),
+    F_a("可以向精神科醫生提出的問題 ▼"),
+    F_b("醫生沒有正當理由卻拒絕調整相關限制... ▼"),
+    G_a("有條件釋放者是否了解他們的情況"),
+    H_a("重要聯絡人"),
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -197,11 +197,11 @@ fun HKUApp(
                                     .padding(dimensionResource(R.dimen.padding_medium))
                             )
                         }
-                        composable(route = HKUScreen.a_a.name) {
+                        composable(route = HKUScreen.A_a.name) {
                             A_aScreen(
                                 onNextButtonClicked = {
-                                    navController.navigate(HKUScreen.a_b.name)
-                                    viewModel.setPage(HKUScreen.a_b)
+                                    navController.navigate(HKUScreen.A_b.name)
+                                    viewModel.setPage(HKUScreen.A_b)
                                     viewModel.closeDropDown()
                                 },
 
@@ -210,7 +210,7 @@ fun HKUApp(
                                     .padding(dimensionResource(R.dimen.padding_medium))
                             )
                         }
-                        composable(route = HKUScreen.a_b.name) {
+                        composable(route = HKUScreen.A_b.name) {
                             A_bScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
@@ -224,11 +224,11 @@ fun HKUApp(
 
                         }
 
-                        composable(route = HKUScreen.b_a.name) {
+                        composable(route = HKUScreen.B_a.name) {
                             B_aScreen(
                                 onNextButtonClicked = {
-                                    navController.navigate(HKUScreen.b_b.name)
-                                    viewModel.setPage(HKUScreen.b_b)
+                                    navController.navigate(HKUScreen.B_b.name)
+                                    viewModel.setPage(HKUScreen.B_b)
                                     viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
@@ -236,11 +236,11 @@ fun HKUApp(
                                     .padding(dimensionResource(R.dimen.padding_medium))
                             )
                         }
-                        composable(route = HKUScreen.b_b.name) {
+                        composable(route = HKUScreen.B_b.name) {
                             B_bScreen(
                                 onNextButtonClicked = {
-                                    navController.navigate(HKUScreen.b_c.name)
-                                    viewModel.setPage(HKUScreen.b_c)
+                                    navController.navigate(HKUScreen.B_c.name)
+                                    viewModel.setPage(HKUScreen.B_c)
                                     viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
@@ -249,11 +249,11 @@ fun HKUApp(
                             )
                         }
 
-                        composable(route = HKUScreen.b_c.name) {
+                        composable(route = HKUScreen.B_c.name) {
                             B_cScreen(
                                 onNextButtonClicked = {
-                                    navController.navigate(HKUScreen.b_d.name)
-                                    viewModel.setPage(HKUScreen.b_d)
+                                    navController.navigate(HKUScreen.B_d.name)
+                                    viewModel.setPage(HKUScreen.B_d)
                                     viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
@@ -262,7 +262,7 @@ fun HKUApp(
                             )
                         }
 
-                        composable(route = HKUScreen.b_d.name) {
+                        composable(route = HKUScreen.B_d.name) {
                             B_dScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
@@ -274,11 +274,11 @@ fun HKUApp(
                                     .padding(dimensionResource(R.dimen.padding_medium))
                             )
                         }
-                        composable(route = HKUScreen.c_a.name) {
+                        composable(route = HKUScreen.C_a.name) {
                             C_aScreen(
                                 onNextButtonClicked = {
-                                    navController.navigate(HKUScreen.c_b.name)
-                                    viewModel.setPage(HKUScreen.c_b)
+                                    navController.navigate(HKUScreen.C_b.name)
+                                    viewModel.setPage(HKUScreen.C_b)
                                     viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
@@ -286,7 +286,7 @@ fun HKUApp(
                                     .padding(dimensionResource(R.dimen.padding_medium))
                             )
                         }
-                        composable(route = HKUScreen.c_b.name) {
+                        composable(route = HKUScreen.C_b.name) {
                             C_bScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
@@ -298,11 +298,11 @@ fun HKUApp(
                                     .padding(dimensionResource(R.dimen.padding_medium))
                             )
                         }
-                        composable(route = HKUScreen.d_a.name) {
+                        composable(route = HKUScreen.D_a.name) {
                             D_aScreen(
                                 onNextButtonClicked = {
-                                    navController.navigate(HKUScreen.d_b.name)
-                                    viewModel.setPage(HKUScreen.d_b)
+                                    navController.navigate(HKUScreen.D_b.name)
+                                    viewModel.setPage(HKUScreen.D_b)
                                     viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
@@ -310,7 +310,7 @@ fun HKUApp(
                                     .padding(dimensionResource(R.dimen.padding_medium))
                             )
                         }
-                        composable(route = HKUScreen.d_b.name) {
+                        composable(route = HKUScreen.D_b.name) {
                             D_bScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
@@ -322,11 +322,11 @@ fun HKUApp(
                                     .padding(dimensionResource(R.dimen.padding_medium))
                             )
                         }
-                        composable(route = HKUScreen.e_a.name) {
+                        composable(route = HKUScreen.E_a.name) {
                             E_aScreen(
                                 onNextButtonClicked = {
-                                    navController.navigate(HKUScreen.e_b.name)
-                                    viewModel.setPage(HKUScreen.e_b)
+                                    navController.navigate(HKUScreen.E_b.name)
+                                    viewModel.setPage(HKUScreen.E_b)
                                     viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
@@ -334,7 +334,7 @@ fun HKUApp(
                                     .padding(dimensionResource(R.dimen.padding_medium))
                             )
                         }
-                        composable(route = HKUScreen.e_b.name) {
+                        composable(route = HKUScreen.E_b.name) {
                             E_bScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
@@ -346,11 +346,11 @@ fun HKUApp(
                                     .padding(dimensionResource(R.dimen.padding_medium))
                             )
                         }
-                        composable(route = HKUScreen.f_a.name) {
+                        composable(route = HKUScreen.F_a.name) {
                             F_aScreen(
                                 onNextButtonClicked = {
-                                    navController.navigate(HKUScreen.f_b.name)
-                                    viewModel.setPage(HKUScreen.f_b)
+                                    navController.navigate(HKUScreen.F_b.name)
+                                    viewModel.setPage(HKUScreen.F_b)
                                     viewModel.closeDropDown()
                                 },
                                 modifier = Modifier
@@ -358,7 +358,7 @@ fun HKUApp(
                                     .padding(dimensionResource(R.dimen.padding_medium))
                             )
                         }
-                        composable(route = HKUScreen.f_b.name) {
+                        composable(route = HKUScreen.F_b.name) {
                             F_bScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
@@ -370,7 +370,7 @@ fun HKUApp(
                                     .padding(dimensionResource(R.dimen.padding_medium))
                             )
                         }
-                        composable(route = HKUScreen.g_a.name) {
+                        composable(route = HKUScreen.G_a.name) {
                             G_aScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
@@ -382,7 +382,7 @@ fun HKUApp(
                                     .padding(dimensionResource(R.dimen.padding_medium))
                             )
                         }
-                        composable(route = HKUScreen.h_a.name) {
+                        composable(route = HKUScreen.H_a.name) {
                             H_aScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
@@ -429,15 +429,15 @@ fun SelectDropItem(
 
 }
 
-val abList = listOf(Pair("什麼是有條件釋放？", HKUScreen.a_a.name), Pair("什麼是“條件”？", HKUScreen.a_b.name))
+val abList = listOf(Pair("什麼是有條件釋放？", HKUScreen.A_a.name), Pair("什麼是“條件”？", HKUScreen.A_b.name))
 val bdList  = listOf(
-        Pair("什麼是中途宿舍?", HKUScreen.b_a.name), Pair("進入中途宿舍需要哪些條件？", HKUScreen.b_b.name),
-        Pair("中途宿舍額外限制", HKUScreen.b_c.name), Pair("如何申請？", HKUScreen.b_d.name)
+        Pair("什麼是中途宿舍?", HKUScreen.B_a.name), Pair("進入中途宿舍需要哪些條件？", HKUScreen.B_b.name),
+        Pair("中途宿舍額外限制", HKUScreen.B_c.name), Pair("如何申請？", HKUScreen.B_d.name)
 )
-val cbList = listOf(Pair("有條件釋放令", HKUScreen.c_a.name), Pair("您的有條件釋放令將會持續多久", HKUScreen.c_b.name))
-val dbList = listOf(Pair("如果有條件釋放令不合理",HKUScreen.d_a.name), Pair("精神健康覆核審裁(MHRT)",HKUScreen.d_b.name))
-val ebList = listOf(Pair("提出覆核申請需要提交哪些資料？", HKUScreen.e_a.name), Pair("申請書需要包括哪些內容？", HKUScreen.e_b.name))
-val fbList = listOf(Pair("可以向精神科醫生提出的問題", HKUScreen.f_a.name), Pair("醫生沒有正當理由卻拒絕調整相關限制...",HKUScreen.f_b.name))
+val cbList = listOf(Pair("有條件釋放令", HKUScreen.C_a.name), Pair("您的有條件釋放令將會持續多久", HKUScreen.C_b.name))
+val dbList = listOf(Pair("如果有條件釋放令不合理",HKUScreen.D_a.name), Pair("精神健康覆核審裁(MHRT)",HKUScreen.D_b.name))
+val ebList = listOf(Pair("提出覆核申請需要提交哪些資料？", HKUScreen.E_a.name), Pair("申請書需要包括哪些內容？", HKUScreen.E_b.name))
+val fbList = listOf(Pair("可以向精神科醫生提出的問題", HKUScreen.F_a.name), Pair("醫生沒有正當理由卻拒絕調整相關限制...",HKUScreen.F_b.name))
 
 
 
@@ -479,7 +479,7 @@ fun ArrowDropDownMenu (
     currentScreen: OrderUiState
 ) {
     Box(
-        modifier =  if( (currentScreen.currentPage == HKUScreen.g_a) || (currentScreen.currentPage == HKUScreen.h_a)){
+        modifier =  if( (currentScreen.currentPage == HKUScreen.G_a) || (currentScreen.currentPage == HKUScreen.H_a)){
             Modifier
         } else {
             Modifier.padding(20.dp)
@@ -497,37 +497,37 @@ fun ArrowDropDownMenu (
             .fillMaxSize(),
             verticalArrangement = Arrangement.SpaceEvenly,
             ) {
-            if((currentScreen.currentPage == HKUScreen.a_a) || (currentScreen.currentPage == HKUScreen.a_b )){
+            if((currentScreen.currentPage == HKUScreen.A_a) || (currentScreen.currentPage == HKUScreen.A_b )){
                 Column  (
                     Modifier.fillMaxSize()
                 ){
                     InnerMenu(list = abList, viewModel= viewModel, navController= navController, currentScreen = currentScreen)
                 }
-            } else if ((currentScreen.currentPage == HKUScreen.b_a) || (currentScreen.currentPage == HKUScreen.b_b) || (currentScreen.currentPage == HKUScreen.b_c) || (currentScreen.currentPage == HKUScreen.b_d)){
+            } else if ((currentScreen.currentPage == HKUScreen.B_a) || (currentScreen.currentPage == HKUScreen.B_b) || (currentScreen.currentPage == HKUScreen.B_c) || (currentScreen.currentPage == HKUScreen.B_d)){
                 Column  (
                     Modifier.fillMaxSize()
                 ){
                     InnerMenu(list = bdList, viewModel= viewModel, navController= navController, currentScreen = currentScreen)
                 }
-            } else if ((currentScreen.currentPage == HKUScreen.c_a) || (currentScreen.currentPage == HKUScreen.c_b)){
+            } else if ((currentScreen.currentPage == HKUScreen.C_a) || (currentScreen.currentPage == HKUScreen.C_b)){
                 Column  (
                     Modifier.fillMaxSize()
                 ){
                     InnerMenu(list = cbList, viewModel= viewModel, navController= navController, currentScreen = currentScreen)
                 }
-            }else if ((currentScreen.currentPage == HKUScreen.d_a) || (currentScreen.currentPage == HKUScreen.d_b)){
+            }else if ((currentScreen.currentPage == HKUScreen.D_a) || (currentScreen.currentPage == HKUScreen.D_b)){
                 Column  (
                     Modifier.fillMaxSize()
                 ){
                     InnerMenu(list = dbList, viewModel= viewModel, navController= navController, currentScreen = currentScreen)
                 }
-            }else if ((currentScreen.currentPage == HKUScreen.e_a) || (currentScreen.currentPage == HKUScreen.e_b)){
+            }else if ((currentScreen.currentPage == HKUScreen.E_a) || (currentScreen.currentPage == HKUScreen.E_b)){
                 Column  (
                     Modifier.fillMaxSize()
                 ){
                     InnerMenu(list = ebList, viewModel= viewModel, navController= navController, currentScreen = currentScreen)
                 }
-            }else if ((currentScreen.currentPage == HKUScreen.f_a) || (currentScreen.currentPage == HKUScreen.f_b)){
+            }else if ((currentScreen.currentPage == HKUScreen.F_a) || (currentScreen.currentPage == HKUScreen.F_b)){
                 Column  (
                     Modifier.fillMaxSize()
                 ){
@@ -563,8 +563,8 @@ fun BurgerMenuDropDown (
                 SelectDropItem( labelResourceId = "有條件釋放",
                     itemImagePath = R.drawable.a_door,
                     buttonClick = {
-                        navController.navigate(HKUScreen.a_a.name)
-                        viewModel.setPage(HKUScreen.a_a)
+                        navController.navigate(HKUScreen.A_a.name)
+                        viewModel.setPage(HKUScreen.A_a)
                         viewModel.closeHamburger()
                     }
                 )
@@ -573,8 +573,8 @@ fun BurgerMenuDropDown (
                     labelResourceId = "中途宿舍",
                     itemImagePath = R.drawable.b_home,
                     buttonClick = {
-                        navController.navigate(HKUScreen.b_a.name)
-                        viewModel.setPage(HKUScreen.b_a)
+                        navController.navigate(HKUScreen.B_a.name)
+                        viewModel.setPage(HKUScreen.B_a)
                         viewModel.closeHamburger()
                     }
                 )
@@ -582,8 +582,8 @@ fun BurgerMenuDropDown (
                 SelectDropItem(
                     labelResourceId = "有條件釋放令",
                     itemImagePath = R.drawable.c_clipboard,
-                    buttonClick = {  navController.navigate(HKUScreen.c_a.name)
-                        viewModel.setPage(HKUScreen.c_a)
+                    buttonClick = {  navController.navigate(HKUScreen.C_a.name)
+                        viewModel.setPage(HKUScreen.C_a)
                         viewModel.closeHamburger()
                     }
                 )
@@ -591,8 +591,8 @@ fun BurgerMenuDropDown (
                     labelResourceId = "如果有條件釋放令不合理？",
                     itemImagePath = R.drawable.d_scales,
                     buttonClick = {
-                        navController.navigate(HKUScreen.d_a.name)
-                        viewModel.setPage(HKUScreen.d_a)
+                        navController.navigate(HKUScreen.D_a.name)
+                        viewModel.setPage(HKUScreen.D_a)
                         viewModel.closeHamburger()
                     }
                 )
@@ -600,8 +600,8 @@ fun BurgerMenuDropDown (
                     labelResourceId = "復核申請需要哪些資料？",
                     itemImagePath = R.drawable.e_documents,
                     buttonClick = {
-                        navController.navigate(HKUScreen.e_a.name)
-                        viewModel.setPage(HKUScreen.e_a)
+                        navController.navigate(HKUScreen.E_a.name)
+                        viewModel.setPage(HKUScreen.E_a)
                         viewModel.closeHamburger()
                     }
                 )
@@ -609,8 +609,8 @@ fun BurgerMenuDropDown (
                     labelResourceId = "可以向你的醫生提出的問題",
                     itemImagePath = R.drawable.f_doc,
                     buttonClick = {
-                        navController.navigate(HKUScreen.f_a.name)
-                        viewModel.setPage(HKUScreen.f_a)
+                        navController.navigate(HKUScreen.F_a.name)
+                        viewModel.setPage(HKUScreen.F_a)
                         viewModel.closeHamburger()
                     }
                 )
@@ -618,8 +618,8 @@ fun BurgerMenuDropDown (
                     labelResourceId = "有條件釋放令統計",
                     itemImagePath = R.drawable.graph,
                     buttonClick = {
-                        navController.navigate(HKUScreen.g_a.name)
-                        viewModel.setPage(HKUScreen.g_a)
+                        navController.navigate(HKUScreen.G_a.name)
+                        viewModel.setPage(HKUScreen.G_a)
                         viewModel.closeHamburger()
                     }
                 )
@@ -627,8 +627,8 @@ fun BurgerMenuDropDown (
                     labelResourceId = "重要聯絡人",
                     itemImagePath = R.drawable.h_contact,
                     buttonClick = {
-                        navController.navigate(HKUScreen.h_a.name)
-                        viewModel.setPage(HKUScreen.h_a)
+                        navController.navigate(HKUScreen.H_a.name)
+                        viewModel.setPage(HKUScreen.H_a)
                         viewModel.closeHamburger()
                     }
                 )

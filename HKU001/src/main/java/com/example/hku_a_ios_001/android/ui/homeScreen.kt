@@ -36,9 +36,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.hku_a_ios_001.android.HKUScreen
 import com.example.hku_a_ios_001.android.R
-//import com.example.hku_a_ios_001.android.data.DataSource
-//import com.example.hku_a_ios_001.android.data.DataSource.pageChoice
-//import com.example.hku_a_ios_001.android.data.DataSource.quantityOptions
 import com.example.hku_a_ios_001.android.ui.theme.HKUTheme
 import androidx.navigation.compose.rememberNavController
 
@@ -48,24 +45,23 @@ fun HomeScreen(
     navController: NavController,
     viewModel: HKUViewModel,
     onNextButtonClicked: (String) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier
 ) {
         Column(
-            modifier = Modifier
+            modifier
                 .fillMaxSize()
                 .padding(15.dp),
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
 
-            Row(
-            ){
+            Row{
                 SelectPageButton(
                     labelResourceId = "有條件釋放",
                     itemImagePath = R.drawable.a_door,
                     onClick = {
-                        navController.navigate(HKUScreen.a_a.name)
-                        viewModel.setPage(HKUScreen.a_a)
+                        navController.navigate(HKUScreen.A_a.name)
+                        viewModel.setPage(HKUScreen.A_a)
 
                     }
                 )
@@ -73,19 +69,19 @@ fun HomeScreen(
                     labelResourceId = "中途宿舍",
                     itemImagePath = R.drawable.b_home,
                     onClick = {
-                        navController.navigate(HKUScreen.b_a.name)
-                        viewModel.setPage(HKUScreen.b_a)
+                        navController.navigate(HKUScreen.B_a.name)
+                        viewModel.setPage(HKUScreen.B_a)
 
                     }
                 )
             }
-            Row(){
+            Row{
                 SelectPageButton(
                     labelResourceId = "有條件釋放令",
                     itemImagePath = R.drawable.c_clipboard,
                     onClick = {
-                        navController.navigate(HKUScreen.c_a.name)
-                        viewModel.setPage(HKUScreen.c_a)
+                        navController.navigate(HKUScreen.C_a.name)
+                        viewModel.setPage(HKUScreen.C_a)
 
                     }
                 )
@@ -94,20 +90,20 @@ fun HomeScreen(
                             "不合理？",
                     itemImagePath = R.drawable.d_scales,
                     onClick = {
-                        navController.navigate(HKUScreen.d_a.name)
-                        viewModel.setPage(HKUScreen.d_a)
+                        navController.navigate(HKUScreen.D_a.name)
+                        viewModel.setPage(HKUScreen.D_a)
 
                     }
                 )
             }
-            Row(){
+            Row{
                 SelectPageButton(
                     labelResourceId = "復核申請需要\n" +
                             "哪些資料？",
                     itemImagePath = R.drawable.e_documents,
                     onClick = {
-                        navController.navigate(HKUScreen.e_a.name)
-                        viewModel.setPage(HKUScreen.e_a)
+                        navController.navigate(HKUScreen.E_a.name)
+                        viewModel.setPage(HKUScreen.E_a)
 
                     }
                 )
@@ -116,19 +112,19 @@ fun HomeScreen(
                             "提出的問題",
                     itemImagePath = R.drawable.f_doc,
                     onClick = {
-                        navController.navigate(HKUScreen.f_a.name)
-                        viewModel.setPage(HKUScreen.f_a)
+                        navController.navigate(HKUScreen.F_a.name)
+                        viewModel.setPage(HKUScreen.F_a)
 
                     }
                 )
             }
-            Row(){
+            Row{
                 SelectPageButton(
                     labelResourceId = "有條件釋放令統計",
                     itemImagePath = R.drawable.graph, /// change image
                     onClick = {
-                        navController.navigate(HKUScreen.g_a.name)
-                        viewModel.setPage(HKUScreen.g_a)
+                        navController.navigate(HKUScreen.G_a.name)
+                        viewModel.setPage(HKUScreen.G_a)
 
                     }
                 )
@@ -136,8 +132,8 @@ fun HomeScreen(
                     labelResourceId = "重要聯絡人",
                     itemImagePath = R.drawable.h_contact,
                     onClick = {
-                        navController.navigate(HKUScreen.h_a.name)
-                        viewModel.setPage(HKUScreen.h_a)
+                        navController.navigate(HKUScreen.H_a.name)
+                        viewModel.setPage(HKUScreen.H_a)
 
                     }
                 )
@@ -229,8 +225,6 @@ fun SelectPageButton(
     labelResourceId: String,
     itemImagePath: Int,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier,
-
 ) {
     Button(
         onClick = onClick,
