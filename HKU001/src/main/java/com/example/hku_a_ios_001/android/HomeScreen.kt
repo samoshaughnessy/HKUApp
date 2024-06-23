@@ -431,10 +431,10 @@ fun SelectDropItem(
 
 val abList = listOf(Pair("什麼是有條件釋放？", HKUScreen.a_a.name), Pair("什麼是“條件”？", HKUScreen.a_b.name))
 val bdList  = listOf(
-        Pair("什麼是中途宿舍?", HKUScreen.b_a.name), Pair("進入中途宿舍需\n要哪些條件？", HKUScreen.b_b.name),
+        Pair("什麼是中途宿舍?", HKUScreen.b_a.name), Pair("進入中途宿舍需要哪些條件？", HKUScreen.b_b.name),
         Pair("中途宿舍額外限制", HKUScreen.b_c.name), Pair("如何申請？", HKUScreen.b_d.name)
 )
-val cbList = listOf(Pair("有條件釋放令", HKUScreen.c_a.name), Pair("您的有條件釋放令將\n會持續多久", HKUScreen.c_b.name))
+val cbList = listOf(Pair("有條件釋放令", HKUScreen.c_a.name), Pair("您的有條件釋放令將會持續多久", HKUScreen.c_b.name))
 val dbList = listOf(Pair("如果有條件釋放令不合理",HKUScreen.d_a.name), Pair("精神健康覆核審裁(MHRT)",HKUScreen.d_b.name))
 val ebList = listOf(Pair("提出覆核申請需要提交哪些資料？", HKUScreen.e_a.name), Pair("申請書需要包括哪些內容？", HKUScreen.e_b.name))
 val fbList = listOf(Pair("可以向精神科醫生提出的問題", HKUScreen.f_a.name), Pair("醫生沒有正當理由卻拒絕調整相關限制...",HKUScreen.f_b.name))
@@ -454,7 +454,7 @@ fun InnerMenu (
             modifier = Modifier
                 .fillMaxSize()
                 .padding(20.dp)
-                .border(border = BorderStroke(2.dp, color=Color.Black))
+                .border(border = BorderStroke(1.dp, color=Color.Black))
                 .padding(20.dp)
                 .clickable {
                     if(!currentScreen.openDropDown){
@@ -465,7 +465,7 @@ fun InnerMenu (
                     navController.navigate(it.second)
                 }
         ){
-            Text(it.first, fontSize = 25.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center)
+            Text(it.first, fontSize = 15.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center)
         }
     }
     
@@ -482,17 +482,17 @@ fun ArrowDropDownMenu (
         modifier =  if( (currentScreen.currentPage == HKUScreen.g_a) || (currentScreen.currentPage == HKUScreen.h_a)){
             Modifier
         } else {
-            Modifier.padding(15.dp)
+            Modifier.padding(20.dp)
                 .fillMaxSize()
-                .offset(x = 0.dp, y = 85.dp)
-                .background(color = Color.Gray.copy(alpha = 0.9F))
+                .offset(x = 0.dp, y = 70.dp)
+                .background(color = Color.Gray.copy(alpha = 0.95F))
                 .shadow(2.dp, shape = RectangleShape)
                 .zIndex(1f)
                 .defaultMinSize(minWidth = 200.dp, minHeight = 150.dp)
         }
         ,
     ) {
-        Column(modifier = Modifier
+        Column(modifier
             .padding(15.dp)
             .fillMaxSize(),
             verticalArrangement = Arrangement.SpaceEvenly,
@@ -549,7 +549,7 @@ fun BurgerMenuDropDown (
 ){
     if (showOrHide) {
         Box(
-            modifier = Modifier.offset(x=0.dp, y=100.dp).fillMaxSize(),
+            modifier.offset(x=0.dp, y=100.dp).fillMaxSize(),
         ) {
             Column(
 
