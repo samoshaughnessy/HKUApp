@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.sp
 import com.example.hku_a_ios_001.android.ui.theme.HKUTheme
 import com.example.hku_a_ios_001.android.ui.theme.md_theme_dark_background
 
-val bulletPointsB_C = listOf("宵禁（或會影響您的工作）；", "在一定範圍內限制您的財務自由；", "規定您在首次入住中途宿舍的數周或數月內，不得離開中途宿舍。")
+val bulletPointsB_C = listOf("宵禁（或會影響您的工作；\n", "在一定範圍內限制您的財務自由；\n", "規定您在首次入住中途宿舍的數周或數月內，不得離開中途宿舍。\n")
 
 @Composable
 fun B_cScreen(
@@ -46,10 +46,10 @@ fun B_cScreen(
 
             BulletList2(listItems = bulletPointsB_C, indentedItem = "可能：入住首三個月外出要登記 \n")
             Text(
-                "如果您發現中途宿舍的限制不合理，該怎麼辦？\n" +
+                "如果您發現中途宿舍的限制不合理，該怎麼辦？\n \n" +
                 "-尋求律師和非政府組織的\n" +
-                        "（聯繫方式見後）\n" +
-                        "-向有關當局，如申訴專員公署提出投訴\n" + "其他選擇：向社會福利署提出申訴" , fontSize = 20.sp
+                        "（聯繫方式見後）\n\n" +
+                        "-向有關當局，如申訴專員公署提出投訴\n\n" + "其他選擇：向社會福利署提出申訴" , fontSize = 20.sp
             )
 
             NextButton(nextButton = onNextButtonClicked)

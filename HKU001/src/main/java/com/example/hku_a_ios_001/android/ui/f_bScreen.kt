@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -30,15 +31,31 @@ fun F_bScreen(
     onNextButtonClicked: () -> Unit = {},
     modifier: Modifier
 ){
-        Box(
+    val context = LocalContext.current
+
+    val displayMetrics = context.resources.displayMetrics
+
+    //Width And Height Of Screen
+    val width = displayMetrics.widthPixels
+    val height = displayMetrics.heightPixels
+
+    //Device Density
+    val density = displayMetrics.density
+
+
+    Box(
             modifier = Modifier.zIndex(1f)
         ) {
             Image(
                 painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.doctor),
                 contentDescription = "background_image",
                 modifier = Modifier
-                    .offset(x = -140.dp, y = 290.dp)
-                    .scale(0.7f)
+                    .offset(x = if(height>1300){
+                        (-140).dp
+                    }else {
+                        (-175).dp
+                    }, y = 290.dp)     // (width/3.85).dp, y = (height/4.4).dp)  works for galaxy but not pixel...
+                    .scale(if(width > 720) {0.7f} else {0.39f})
             )
         }
         Column(

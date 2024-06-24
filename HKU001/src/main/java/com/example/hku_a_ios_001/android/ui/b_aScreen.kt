@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -29,6 +30,18 @@ fun B_aScreen(
     onNextButtonClicked: () -> Unit = {},
     modifier: Modifier
 ){
+
+    val context = LocalContext.current
+
+    val displayMetrics = context.resources.displayMetrics
+
+    //Width And Height Of Screen
+    val width = displayMetrics.widthPixels
+    val height = displayMetrics.heightPixels
+
+    //Device Density
+    val density = displayMetrics.density
+
     Column(
         modifier = Modifier
             .padding(25.dp)
@@ -43,10 +56,10 @@ fun B_aScreen(
             lineHeight = 50.sp, fontSize =35.sp, fontWeight = FontWeight.Bold,textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
         )
         Text(
-            "-為有條件釋放者提供的指定住所，提供膳食服務\n" +
-                    "-提供個人輔導及小組/社區活動\n" +
-                    "-週末及節假日可以請假\n" +
-                    "-經登記，家人和朋友可以來訪\n" +
+            "-為有條件釋放者提供的指定住所，提供膳食服務\n\n" +
+                    "-提供個人輔導及小組/社區活動\n\n" +
+                    "-週末及節假日可以請假\n\n" +
+                    "-經登記，家人和朋友可以來訪\n\n" +
                     "-居住期限根據個人需要和進度，由院長決定", fontSize = 20.sp
         )
 
@@ -54,7 +67,8 @@ fun B_aScreen(
             Image(
                 painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.house), // fix image alignment
                 contentDescription = "background_image",
-                modifier = Modifier.offset(x=165.dp, y=0.dp)
+                modifier = Modifier.offset(x = if(width > 720){200} else {150}
+                    .dp, y=0.dp) // pixel vs galaxy
             )
 
         Spacer(modifier = Modifier.height(20.dp))

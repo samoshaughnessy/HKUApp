@@ -44,7 +44,7 @@ fun E_aScreen(
 
 
             Text(
-                "\n根據《精神健康覆核審裁處規則》第136C章，第II部第3條規定：\n \n" + "1.申請必須以書面提出 ", fontSize = 20.sp
+                "\n根據《精神健康覆核審裁處規則》第136C章，第II部第3條規定：\n \n" + "1.申請必須以書面提出 \n", fontSize = 20.sp
             )
 
             Text( buildAnnotatedString {

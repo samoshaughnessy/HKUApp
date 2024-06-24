@@ -8,7 +8,9 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.absoluteOffset
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Icon
@@ -30,6 +32,7 @@ import com.example.hku_a_ios_001.android.ui.HKUViewModel
 import com.example.hku_a_ios_001.android.ui.HomeScreen
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -101,34 +104,49 @@ fun    HKUAppBar(
     viewModel: HKUViewModel,
 ) {
     // edit to allow drop down menu
-    CenterAlignedTopAppBar(
-        title = {
-            Text(
-                currentScreen.currentPage.string, color = Color.White, fontSize = 25.sp, textAlign = TextAlign.Center, fontWeight = FontWeight.Bold, modifier = if ((currentScreen.currentPage !== HKUScreen.Home)){Modifier.fillMaxWidth(0.85f).clickable { if(!currentScreen.openDropDown){
-                    viewModel.openDropDown()
-                } else {
-                    viewModel.closeDropDown()
-                } }} else {Modifier.fillMaxWidth(0.85f)}
-            )
-                },
-        colors = TopAppBarDefaults.mediumTopAppBarColors(
-            containerColor = md_theme_dark_background.copy(alpha = 0.4f)
-        ),
-        modifier = modifier,
-        navigationIcon = {
-            Icon(
-                imageVector = Icons.Filled.Menu,
-                contentDescription = "menu",
-                modifier = Modifier.scale(1.5f).clickable(enabled = true){
-                    if(!currentScreen.openHamburger){
-                        viewModel.openHamburger()
+    if(currentScreen.openHamburger){
+        println("hide")
+    } else {
+        CenterAlignedTopAppBar(
+            title = {
+                Text(
+                    currentScreen.currentPage.string,
+                    color = Color.White,
+                    fontSize = 25.sp,
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Bold,
+                    modifier = if ((currentScreen.currentPage !== HKUScreen.Home)) {
+                        Modifier.fillMaxWidth(0.85f).clickable {
+                            if (!currentScreen.openDropDown) {
+                                viewModel.openDropDown()
+                            } else {
+                                viewModel.closeDropDown()
+                            }
+                        }
                     } else {
-                        viewModel.closeHamburger()
+                        Modifier.fillMaxWidth(0.85f)
                     }
-                }
-            )
-        }
-    )
+                )
+            },
+            colors = TopAppBarDefaults.mediumTopAppBarColors(
+                containerColor = md_theme_dark_background.copy(alpha = 0.4f)
+            ),
+            modifier = modifier,
+            navigationIcon = {
+                Icon(
+                    imageVector = Icons.Filled.Menu,
+                    contentDescription = "menu",
+                    modifier = Modifier.scale(1.5f).clickable(enabled = true) {
+                        if (!currentScreen.openHamburger) {
+                            viewModel.openHamburger()
+                        } else {
+                            viewModel.closeHamburger()
+                        }
+                    }
+                )
+            }
+        )
+    }
 
 }
 @Composable
@@ -401,34 +419,6 @@ fun HKUApp(
 
 }
 
-@Composable
-fun SelectDropItem(
-    labelResourceId: String,
-    itemImagePath: Int,
-    buttonClick: () -> Unit = {},
-){
-    Box(
-        modifier = Modifier
-            .defaultMinSize(minWidth = 300.dp, minHeight = 10.dp)
-//            .border(1.dp, color = Color.Black)
-            .clickable { buttonClick() }
-        ) {
-        Row (
-            horizontalArrangement = Arrangement.Start,
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxSize()
-        ){
-            Image(
-                painter = painterResource(itemImagePath),
-                contentDescription = null,
-                modifier = Modifier.scale(2f)
-            )
-            Text(labelResourceId, color = Color.Black, fontWeight = FontWeight.Bold, fontSize = 20.sp)
-        }
-    }
-
-}
-
 val abList = listOf(Pair("什麼是有條件釋放？", HKUScreen.A_a.name), Pair("什麼是“條件”？", HKUScreen.A_b.name))
 val bdList  = listOf(
         Pair("什麼是中途宿舍?", HKUScreen.B_a.name), Pair("進入中途宿舍需要哪些條件？", HKUScreen.B_b.name),
@@ -538,6 +528,33 @@ fun ArrowDropDownMenu (
     }
 }
 
+@Composable
+fun SelectDropItem(
+    labelResourceId: String,
+    itemImagePath: Int,
+    buttonClick: () -> Unit = {},
+){
+    Box(
+        modifier = Modifier
+            .defaultMinSize(minWidth = 300.dp, minHeight = 10.dp)
+            .clickable { buttonClick() }
+    ) {
+        Row (
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxSize()
+        ){
+            Image(
+                painter = painterResource(itemImagePath),
+                contentDescription = null,
+                modifier = Modifier.scale(1.5f)
+            )
+            Text(labelResourceId, color = Color.Black, fontWeight = FontWeight.Bold, fontSize = 18.sp)
+        }
+    }
+
+}
+
 
 
 @Composable
@@ -549,18 +566,16 @@ fun BurgerMenuDropDown (
 ){
     if (showOrHide) {
         Box(
-            modifier.offset(x=0.dp, y=100.dp).fillMaxSize(),
+            modifier = Modifier.absoluteOffset(x=0.dp, y=10.dp)
         ) {
             Column(
-
                 modifier = Modifier
-                .padding(15.dp)
-                .background(color = md_theme_dark_background.copy(alpha = 0.4f))
-                .shadow(2.dp, shape = RectangleShape),
-
+                    .padding(15.dp)
+                    .background(color = md_theme_dark_background.copy(alpha = 0.4f))
+                    .shadow(2.dp, shape = RectangleShape),
             ) {
 
-                SelectDropItem( labelResourceId = "有條件釋放",
+                SelectDropItem(labelResourceId = "有條件釋放",
                     itemImagePath = R.drawable.a_door,
                     buttonClick = {
                         navController.navigate(HKUScreen.A_a.name)
@@ -582,7 +597,8 @@ fun BurgerMenuDropDown (
                 SelectDropItem(
                     labelResourceId = "有條件釋放令",
                     itemImagePath = R.drawable.c_clipboard,
-                    buttonClick = {  navController.navigate(HKUScreen.C_a.name)
+                    buttonClick = {
+                        navController.navigate(HKUScreen.C_a.name)
                         viewModel.setPage(HKUScreen.C_a)
                         viewModel.closeHamburger()
                     }
@@ -635,7 +651,7 @@ fun BurgerMenuDropDown (
             }
         }
     }
-}
+    }
 
 // can remove before launch
 //private fun cancelOrderAndNavigateToStart(

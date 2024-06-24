@@ -2,6 +2,7 @@ package com.example.hku_a_ios_001.android.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,7 +17,9 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -30,6 +33,7 @@ fun H_aScreen(
     onNextButtonClicked: () -> Unit = {},
     modifier: Modifier
 ){
+    val requiredContext = LocalContext.current
         Column(
             modifier = Modifier
                 .padding(25.dp)
@@ -59,13 +63,21 @@ fun H_aScreen(
                     contentDescription = null,
                 )
             }
-
             Text(
                 "\n法律援助署 \n" +
-                        "ladinfo@lad.gov.hk \n" +
-                        "+ 852 2537 7677 \n" +
+                        "ladinfo@lad.gov.hk", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
+            Text( "+852 2537 7677", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+                .align(alignment = Alignment.CenterHorizontally)
+                .clickable {
+                    openDialPad(context = requiredContext, phoneNum = "+85225377677")
+                } )
+            Text(
                         "香港金鐘道66號政府合署\n", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
+
+
+
+
 
             Row(
                 Modifier.fillMaxWidth(),
@@ -80,13 +92,36 @@ fun H_aScreen(
                     contentDescription = null,
                 )
             }
-
             Text(
-                "\n康和互助社聯會\n" +
-                        "concord.maca@gmail.com \n" +
-                        "+852 3586 0567 / 6826 0720\n" +
-                        "石硤尾南山邨南逸樓地下3-10號\n" +
-                        "www.concord.org.hk \n", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+                "\n康和互助社聯會\n"+"concord.maca@gmail.com "
+                ,fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
+            Text( "+852 3586 0567", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+                .align(alignment = Alignment.CenterHorizontally)
+                .clickable {
+                    openDialPad(context = requiredContext, phoneNum = "+85235860567")
+                } )
+            Text( "+852 6826 0720", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+                .align(alignment = Alignment.CenterHorizontally)
+                .clickable {
+                    openDialPad(context = requiredContext, phoneNum = "+85268260720")
+                } )
+            Text(
+                        "石硤尾南山邨南逸樓地下3-10號", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+            )
+            HyperlinkText(
+                fullText =  "www.concord.org.hk \n",
+                hyperLinks = mutableMapOf(
+                    "www.concord.org.hk" to "https://www.concord.org.hk",
+                ),
+                textStyle = TextStyle(
+                    textAlign = TextAlign.Center,
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold,
+                ),
+                linkTextColor = Color.Black,
+                linkTextFontWeight = FontWeight.Bold,
+                fontSize = 20.sp,
+                modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
 
             Row(
@@ -104,12 +139,35 @@ fun H_aScreen(
             }
             Text(
                 "\n香港守護尊嚴中心\n" +
-                        "info@dignityinstitute.com \n" +
-                        "+852 9728 5969\n" +
+                        "info@dignityinstitute.com", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
+
+            Text( "+852 9728 5969", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+                .align(alignment = Alignment.CenterHorizontally)
+                .clickable {
+                    openDialPad(context = requiredContext, phoneNum = "+85297285969")
+                } )
+            Text(
                         "P.O. Box 28557\n" +
-                        "香港告士打道郵政局\n" +
-                        "www.dignityinstitute.com \n", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+                        "香港告士打道郵政局", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
+
+            HyperlinkText(
+                fullText = "www.dignityinstitute.com \n"
+                ,
+                hyperLinks = mutableMapOf(
+                    "www.dignityinstitute.com" to "https://www.dignityinstitute.com",
+                ),
+                textStyle = TextStyle(
+                    textAlign = TextAlign.Center,
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold,
+                ),
+                linkTextFontWeight = FontWeight.Bold,
+                linkTextColor = Color.Black,
+                fontSize = 20.sp,
+                modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+            )
+
 
             Row(
                 Modifier.fillMaxWidth(),
@@ -126,10 +184,32 @@ fun H_aScreen(
             }
             Text(
                 "\n精神健康覆核審裁處\n" +
-                        "香港添馬添美道2號政府總部東翼19樓\n" +
-                        "+852 2594 5636\n" +
-                        "https://www.healthbureau.gov.hk/cn/committees/mhrt.htm\n", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+                        "香港添馬添美道2號政府總部東翼19樓", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
+            Text( "+852 2594 5636", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+                .align(alignment = Alignment.CenterHorizontally)
+                .clickable {
+                    openDialPad(context = requiredContext, phoneNum = "+85225945636")
+                } )
+
+            HyperlinkText(
+                fullText = "https://www.healthbureau.gov.hk/cn/committees/mhrt.htm\n"
+                ,
+                hyperLinks = mutableMapOf(
+                    "https://www.healthbureau.gov.hk/cn/committees/mhrt.htm" to "https://www.healthbureau.gov.hk/cn/committees/mhrt.htm",
+                ),
+                textStyle = TextStyle(
+                    textAlign = TextAlign.Center,
+                    color = Color.Black,
+                    fontWeight = FontWeight.ExtraBold,
+                ),
+                linkTextFontWeight = FontWeight.Bold,
+                linkTextColor = Color.Black,
+                fontSize = 20.sp,
+                modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+            )
+
+
 
             HomeButton(nextButton = onNextButtonClicked)
             HKULogo()

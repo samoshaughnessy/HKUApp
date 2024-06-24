@@ -1,8 +1,12 @@
 package com.example.hku_a_ios_001.android.ui
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.absoluteOffset
@@ -12,6 +16,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.KeyboardArrowRight
@@ -26,11 +31,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -38,6 +49,8 @@ import com.example.hku_a_ios_001.android.HKUScreen
 import com.example.hku_a_ios_001.android.R
 import com.example.hku_a_ios_001.android.ui.theme.HKUTheme
 import androidx.navigation.compose.rememberNavController
+
+
 
 
 @Composable
@@ -50,7 +63,7 @@ fun HomeScreen(
         Column(
             modifier
                 .fillMaxSize()
-                .padding(15.dp),
+                .padding(10.dp),
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
@@ -86,8 +99,7 @@ fun HomeScreen(
                     }
                 )
                 SelectPageButton(
-                    labelResourceId = "如果有條件釋放令\n" +
-                            "不合理？",
+                    labelResourceId = "如果有條件釋放令不合理？",
                     itemImagePath = R.drawable.d_scales,
                     onClick = {
                         navController.navigate(HKUScreen.D_a.name)
@@ -98,8 +110,7 @@ fun HomeScreen(
             }
             Row{
                 SelectPageButton(
-                    labelResourceId = "復核申請需要\n" +
-                            "哪些資料？",
+                    labelResourceId = "復核申請需要哪些資料？",
                     itemImagePath = R.drawable.e_documents,
                     onClick = {
                         navController.navigate(HKUScreen.E_a.name)
@@ -108,8 +119,7 @@ fun HomeScreen(
                     }
                 )
                 SelectPageButton(
-                    labelResourceId = "可以向你的醫生\n" +
-                            "提出的問題",
+                    labelResourceId = "可以向你的醫生提出的問題",
                     itemImagePath = R.drawable.f_doc,
                     onClick = {
                         navController.navigate(HKUScreen.F_a.name)
@@ -138,7 +148,11 @@ fun HomeScreen(
                     }
                 )
             }
-            HKULogo()
+            Box(
+                modifier = Modifier.padding(horizontal = 0.dp, vertical = 20.dp)
+            ) {
+                HKULogo()
+            }
         }
 }
 
@@ -155,7 +169,7 @@ fun HomeButton(
             colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
             modifier = Modifier
                 .size(width = 60.dp, height = 60.dp)
-                .absoluteOffset(x = 250.dp, y = 0.dp),
+                .absoluteOffset(x = 230.dp, y = 0.dp),
             enabled = true,
             onClick = nextButton
         ) {
@@ -186,7 +200,7 @@ fun NextButton(
             modifier = Modifier
                 .height(60.dp)
                 .width(60.dp)
-                .absoluteOffset(x = 250.dp, y = 0.dp),
+                .absoluteOffset(x = 230.dp, y = 0.dp),
             enabled = true,
             onClick = nextButton
         ) {
@@ -209,11 +223,11 @@ fun HKULogo (){
         horizontalArrangement = Arrangement.Start,
     ) {
         Image(
-            painter = painterResource(R.drawable.hku_logo),
+            painter = painterResource(R.drawable.hkulogo1),
             contentDescription = "HKU Logo",
             modifier = Modifier
-                .scale(3.5f)
-                .offset(x = 20.dp, y = 0.dp)
+                .scale(1f)
+                .offset(x = 0.dp, y = 0.dp)
         )
     }
 }
@@ -232,9 +246,8 @@ fun SelectPageButton(
         shape = RectangleShape,
         modifier = Modifier
             .height(170.dp)
-            .width(170.dp)
-//            .defaultMinSize(minWidth = 150.dp, minHeight = 150.dp)
-            .padding(5.dp)
+            .width(155.dp)
+            .padding(2.dp)
 
     ) {
         Column (
@@ -250,6 +263,75 @@ fun SelectPageButton(
             Text(labelResourceId, color = Color.Black, fontWeight = FontWeight.Bold, fontSize = 14.sp, textAlign = TextAlign.Center, modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
         }
     }
+}
+
+
+
+fun openDialPad(context: Context, phoneNum: String) {
+    val intent = Intent(Intent.ACTION_DIAL)
+    intent.setData(Uri.parse("tel:$phoneNum"))
+    context.startActivity(intent)
+}
+
+
+@Composable
+fun HyperlinkText(
+    modifier: Modifier,
+    fullText: String,
+    hyperLinks: Map<String, String>,
+    textStyle: TextStyle = TextStyle.Default,
+    linkTextColor: Color = Color.Blue,
+    linkTextFontWeight: FontWeight = FontWeight.Normal,
+    linkTextDecoration: TextDecoration = TextDecoration.None,
+    fontSize: TextUnit = TextUnit.Unspecified
+) {
+    val annotatedString = buildAnnotatedString {
+        append(fullText)
+
+        for((key, value) in hyperLinks){
+
+            val startIndex = fullText.indexOf(key)
+            val endIndex = startIndex + key.length
+            addStyle(
+                style = SpanStyle(
+                    color = linkTextColor,
+                    fontSize = fontSize,
+                    fontWeight = linkTextFontWeight,
+                    textDecoration = linkTextDecoration
+                ),
+                start = startIndex,
+                end = endIndex
+            )
+            addStringAnnotation(
+                tag = "URL",
+                annotation = value,
+                start = startIndex,
+                end = endIndex
+            )
+        }
+        addStyle(
+            style = SpanStyle(
+                fontSize = fontSize
+            ),
+            start = 0,
+            end = fullText.length
+        )
+    }
+
+    val uriHandler = LocalUriHandler.current
+
+    ClickableText(
+        modifier = modifier,
+        text = annotatedString,
+        style = textStyle,
+        onClick = {
+            annotatedString
+                .getStringAnnotations("URL", it, it)
+                .firstOrNull()?.let { stringAnnotation ->
+                    uriHandler.openUri(stringAnnotation.item)
+                }
+        }
+    )
 }
 
 

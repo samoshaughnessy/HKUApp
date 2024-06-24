@@ -1,7 +1,10 @@
 package com.example.hku_a_ios_001.android.ui
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,7 +19,9 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -31,6 +36,8 @@ fun D_bScreen(
     onNextButtonClicked: () -> Unit = {},
     modifier: Modifier
 ){
+
+    val requiredContext = LocalContext.current
         Column(
             modifier = Modifier
                 .padding(25.dp)
@@ -51,7 +58,7 @@ fun D_bScreen(
                 "覆核申請時，您可以獲得如下幫助：\n", fontSize = 20.sp
             )
 
-            val bulletItems = listOf("條件釋放令下的服務對象轉介至精神健康覆核審裁處申請表格往往可以在醫院填寫。在醫院填表時，可以獲得醫務社工的協助", "一般來說，當您提出覆核申請時，申訴專員不應該詢問您多餘的問題", "詢問機當局及提出覆核申請的過程，建議您盡量採用書面形式，如是口頭形式，建議盡量錄音，保留溝通過程中的證據，以防醫院施加不合理的條件", "可由您或您的親屬提出申請；申請法律援助以支付法律代表的費用；", "您有權在法律代表或其他授權代表的陪同下出席覆核申請聆訊；\n"  )
+            val bulletItems = listOf("條件釋放令下的服務對象轉介至精神健康覆核審裁處申請表格往往可以在醫院填寫。在醫院填表時，可以獲得醫務社工的協助\n", "一般來說，當您提出覆核申請時，申訴專員不應該詢問您多餘的問題\n", "詢問機當局及提出覆核申請的過程，建議您盡量採用書面形式，如是口頭形式，建議盡量錄音，保留溝通過程中的證據，以防醫院施加不合理的條件\n", "可由您或您的親屬提出申請；申請法律援助以支付法律代表的費用；\n", "您有權在法律代表或其他授權代表的陪同下出席覆核申請聆訊；\n"  )
 
             BulletList(listItems = bulletItems)
 
@@ -78,9 +85,35 @@ fun D_bScreen(
 
             Text(
                 "精神健康覆核審裁處 \n" +
-                        "香港添馬添美道2號政府總部東翼19樓 \n" + "+852 2594 5636 \n" +  "https://www.healthbureau.gov.\nhk/cn/\ncommittees/mhrt.htm"
+                        "香港添馬添美道2號政府總部東翼19樓 \n"
                 ,
                 fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+            )
+
+            Text( "+852 2594 5636 \n", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+                .align(alignment = Alignment.CenterHorizontally)
+                .clickable {
+                    openDialPad(context = requiredContext, phoneNum = "+85225945636")
+                } )
+
+
+
+            HyperlinkText(
+                fullText = "https://www.healthbureau.gov.hk/cn/\n" +
+                        "committees/mhrt.htm",
+                hyperLinks = mutableMapOf(
+                    "https://www.healthbureau.gov.hk/cn/" to "https://www.healthbureau.gov.hk/cn/committees/mhrt.htm",
+                    "committees/mhrt.htm" to "https://www.healthbureau.gov.hk/cn/committees/mhrt.htm",
+                ),
+                textStyle = TextStyle(
+                    textAlign = TextAlign.Center,
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold,
+                ),
+                linkTextFontWeight = FontWeight.Bold,
+                linkTextColor = Color.Black,
+                fontSize = 20.sp,
+                modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
 
             HomeButton(nextButton = onNextButtonClicked)

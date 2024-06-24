@@ -6,10 +6,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.absoluteOffset
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,6 +19,7 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -36,15 +37,29 @@ fun A_bScreen(
     onNextButtonClicked: () -> Unit = {},
     modifier: Modifier
 ){
+    val context = LocalContext.current
+
+    val displayMetrics = context.resources.displayMetrics
+
+    //Width And Height Of Screen
+    val width = displayMetrics.widthPixels
+    val height = displayMetrics.heightPixels
+
+    //Device Density
+    val density = displayMetrics.density
     Box(
-        modifier = Modifier.zIndex(1f).fillMaxSize()
+        modifier = Modifier
+            .zIndex(1f)
+            .fillMaxSize()
 
     ) {
+        Text("$height")
         Image(
             painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.dotted_arrow),
             contentDescription = "arrow",
             modifier = Modifier
-                .offset(x = 40.dp, y = 385.dp).scale(3.5f)
+                .absoluteOffset(x = (20).dp, y = (480).dp)
+                .scale(if(height > 1300){4f} else {3f}) // fix for pixel and galaxy
         )
     }
     Column(
@@ -66,9 +81,9 @@ fun A_bScreen(
         "常見規限條件包括:", fontSize = 20.sp
         )
         Text("居住在指定地點（比如中途宿舍）\n" +
-                "-服用指定藥物\n" +
-                "-定期到院長指定的診所覆診\n" +
-                "-接受社會福利署署長監督", fontSize = 20.sp)
+                "-服用指定藥物\n\n" +
+                "-定期到院長指定的診所覆診\n\n" +
+                "-接受社會福利署署長監督\n", fontSize = 20.sp)
 
         Text("• \t\t理論上院長可以施加" , fontSize=20.sp)
 //       Add in blue Arrow
@@ -97,7 +112,7 @@ fun A_bScreen(
 
 
 
-val bulletPoints = listOf("對控制病情、確保人身安全有實際作用", "與該人所患的病情相關", "與病情相應，不能在不必要的情況下侵犯個人生活")
+val bulletPoints = listOf("對控制病情、確保人身安全有實際作用\n", "與該人所患的病情相關\n", "與病情相應，不能在不必要的情況下侵犯個人生活\n")
 
 @Composable
 fun BulletList(listItems: List<String>){
