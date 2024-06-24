@@ -54,6 +54,7 @@ import com.example.hku_a_ios_001.android.ui.B_dScreen
 import com.example.hku_a_ios_001.android.ui.B_eScreen
 import com.example.hku_a_ios_001.android.ui.C_aScreen
 import com.example.hku_a_ios_001.android.ui.C_bScreen
+import com.example.hku_a_ios_001.android.ui.C_cScreen
 import com.example.hku_a_ios_001.android.ui.D_aScreen
 import com.example.hku_a_ios_001.android.ui.D_bScreen
 import com.example.hku_a_ios_001.android.ui.E_aScreen
@@ -86,8 +87,9 @@ enum class HKUScreen(val string:String){ // can add size with int value to alter
     B_c("進入中途宿舍需要哪些條件？ ▼"),
     B_d("中途宿舍額外限制 ▼"),
     B_e("如何申請？ ▼"),
-    C_a("有條件釋放令召回 ▼"),
-    C_b("您的有條件釋放令將會持續多久？ ▼"),
+    C_a("您會被召回醫院嗎？ ▼"),
+    C_b("有條件釋放令召回 ▼"),
+    C_c("您的有條件釋放令將會持續多久？ ▼"),
     D_a("如果有條件釋放令不合理？ ▼"),
     D_b("精神健康覆核審裁（MHRT) ▼"),
     E_a("提出覆核申請需要提交哪些資料？ ▼"),
@@ -327,10 +329,24 @@ fun HKUApp(
                         composable(route = HKUScreen.C_b.name) {
                             C_bScreen(
                                 onNextButtonClicked = {
+                                    navController.navigate(HKUScreen.C_c.name)
+                                    viewModel.setPage(HKUScreen.C_c)
+                                    viewModel.closeDropDown()
+                                },
+                                viewModel = viewModel, navController = navController,
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(dimensionResource(R.dimen.padding_medium))
+                            )
+                        }
+                        composable(route = HKUScreen.C_c.name) {
+                            C_cScreen(
+                                onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
                                     viewModel.setPage(HKUScreen.Home)
                                     viewModel.closeDropDown()
                                 },
+                                viewModel = viewModel, navController = navController,
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
@@ -355,6 +371,7 @@ fun HKUApp(
                                     viewModel.setPage(HKUScreen.Home)
                                     viewModel.closeDropDown()
                                 },
+                                viewModel = viewModel, navController = navController,
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
@@ -379,6 +396,7 @@ fun HKUApp(
                                     viewModel.setPage(HKUScreen.Home)
                                     viewModel.closeDropDown()
                                 },
+                                viewModel = viewModel, navController = navController,
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
@@ -403,6 +421,7 @@ fun HKUApp(
                                     viewModel.setPage(HKUScreen.Home)
                                     viewModel.closeDropDown()
                                 },
+                                viewModel = viewModel, navController = navController,
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
@@ -444,7 +463,7 @@ val bdList  = listOf(
         Pair("什麼是中途宿舍?", HKUScreen.B_a.name), Pair("香港中途宿舍位置", HKUScreen.B_b.name), Pair("進入中途宿舍需要哪些條件？", HKUScreen.B_c.name),
         Pair("中途宿舍額外限制", HKUScreen.B_d.name), Pair("如何申請？", HKUScreen.B_e.name)
 )
-val cbList = listOf(Pair("有條件釋放令召回\n", HKUScreen.C_a.name), Pair("您的有條件釋放令將會持續多久", HKUScreen.C_b.name))
+val cbList = listOf(Pair("您會被召回醫院嗎？", HKUScreen.C_a.name),Pair("有條件釋放令召回", HKUScreen.C_b.name), Pair("您的有條件釋放令將會持續多久", HKUScreen.C_c.name))
 val dbList = listOf(Pair("如果有條件釋放令不合理",HKUScreen.D_a.name), Pair("精神健康覆核審裁(MHRT)",HKUScreen.D_b.name))
 val ebList = listOf(Pair("提出覆核申請需要提交哪些資料？", HKUScreen.E_a.name), Pair("申請書需要包括哪些內容？", HKUScreen.E_b.name))
 val fbList = listOf(Pair("可以向精神科醫生提出的問題", HKUScreen.F_a.name), Pair("醫生沒有正當理由卻拒絕調整相關限制...",HKUScreen.F_b.name))
@@ -513,13 +532,13 @@ fun ArrowDropDownMenu (
                 ){
                     InnerMenu(list = abList, viewModel= viewModel, navController= navController, currentScreen = currentScreen)
                 }
-            } else if ((currentScreen.currentPage == HKUScreen.B_a) || (currentScreen.currentPage == HKUScreen.B_b) || (currentScreen.currentPage == HKUScreen.B_c) || (currentScreen.currentPage == HKUScreen.B_d)){
+            } else if ((currentScreen.currentPage == HKUScreen.B_a) || (currentScreen.currentPage == HKUScreen.B_b) || (currentScreen.currentPage == HKUScreen.B_c) || (currentScreen.currentPage == HKUScreen.B_d)|| (currentScreen.currentPage == HKUScreen.B_e)){
                 Column  (
                     Modifier.fillMaxSize()
                 ){
                     InnerMenu(list = bdList, viewModel= viewModel, navController= navController, currentScreen = currentScreen)
                 }
-            } else if ((currentScreen.currentPage == HKUScreen.C_a) || (currentScreen.currentPage == HKUScreen.C_b)){
+            } else if ((currentScreen.currentPage == HKUScreen.C_a) || (currentScreen.currentPage == HKUScreen.C_b)|| (currentScreen.currentPage == HKUScreen.C_c)){
                 Column  (
                     Modifier.fillMaxSize()
                 ){
@@ -615,7 +634,7 @@ fun BurgerMenuDropDown (
                 )
 
                 SelectDropItem(
-                    labelResourceId = "有條件釋放令召回\n",
+                    labelResourceId = "您會被召回醫院嗎？",
                     itemImagePath = R.drawable.c_clipboard,
                     buttonClick = {
                         navController.navigate(HKUScreen.C_a.name)

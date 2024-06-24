@@ -93,7 +93,7 @@ fun HomeScreen(
             }
             Row{
                 SelectPageButton(
-                    labelResourceId = "有條件釋放令召回",
+                    labelResourceId = "您會被召回醫院嗎？",
                     itemImagePath = R.drawable.c_clipboard,
                     onClick = {
                         navController.navigate(HKUScreen.C_a.name)

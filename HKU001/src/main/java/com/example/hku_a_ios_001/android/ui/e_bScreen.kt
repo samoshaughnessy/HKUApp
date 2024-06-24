@@ -19,13 +19,18 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.hku_a_ios_001.android.HKUScreen
 import com.example.hku_a_ios_001.android.ui.theme.HKUTheme
 import com.example.hku_a_ios_001.android.ui.theme.md_theme_dark_background
 
 @Composable
 fun E_bScreen(
     onNextButtonClicked: () -> Unit = {},
-    modifier: Modifier
+    modifier: Modifier,
+    viewModel: HKUViewModel,
+    navController: NavController
 ){
         Column(
             modifier = Modifier
@@ -56,6 +61,7 @@ fun E_bScreen(
                 "2. 如果服務對象希望授權代表，還需提供授權代表的姓名、地址以及現有身分證的號碼。如仍未授權其他人為代表，則需述明該服務對象是否打算授權代表，抑或是否有意自行處理其個案。 \n \n" +
                 "3. 根據相關規定，如上述指明的任何一項資料並未包括在申請書上，則在切實可行範圍內，負責當局（即院長、醫生、懲教署署長、社會福利署署長等有關人士）須提供該項資料。但我們依然建議您盡可能全面地自行準備相關资料。"
             , fontSize = 20.sp)
+            BackButton(viewModel = viewModel, navController = navController, destination = HKUScreen.E_a )
             HomeButton(nextButton = onNextButtonClicked)
             HKULogo()
         }
@@ -79,7 +85,9 @@ fun E_bScreenPreview() {
     HKUTheme {
         E_bScreen(
             modifier = Modifier
-                .fillMaxHeight()
+                .fillMaxHeight(),
+            viewModel = HKUViewModel(),
+            navController = rememberNavController(),
         )
     }
 }

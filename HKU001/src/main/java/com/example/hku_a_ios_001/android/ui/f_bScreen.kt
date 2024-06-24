@@ -23,13 +23,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.hku_a_ios_001.android.HKUScreen
 import com.example.hku_a_ios_001.android.ui.theme.HKUTheme
 import com.example.hku_a_ios_001.android.ui.theme.md_theme_dark_background
 
 @Composable
 fun F_bScreen(
     onNextButtonClicked: () -> Unit = {},
-    modifier: Modifier
+    modifier: Modifier,
+    viewModel: HKUViewModel,
+    navController: NavController
 ){
     val context = LocalContext.current
 
@@ -82,6 +87,7 @@ fun F_bScreen(
                         "           證據支持 \n"
             )
 
+            BackButton(viewModel = viewModel, navController = navController, destination = HKUScreen.F_a )
             HomeButton(nextButton = onNextButtonClicked)
             HKULogo()
         }
@@ -92,7 +98,9 @@ fun F_bScreen(
 fun F_bScreenPreview() {
     HKUTheme {
         F_bScreen(
-            modifier = Modifier.fillMaxHeight()
+            modifier = Modifier.fillMaxHeight(),
+            viewModel = HKUViewModel(),
+            navController = rememberNavController(),
         )
     }
 }

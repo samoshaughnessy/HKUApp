@@ -27,6 +27,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.hku_a_ios_001.android.HKUScreen
 import com.example.hku_a_ios_001.android.ui.theme.HKUTheme
 import com.example.hku_a_ios_001.android.ui.theme.md_theme_dark_background
 
@@ -34,7 +37,9 @@ import com.example.hku_a_ios_001.android.ui.theme.md_theme_dark_background
 @Composable
 fun D_bScreen(
     onNextButtonClicked: () -> Unit = {},
-    modifier: Modifier
+    modifier: Modifier,
+    viewModel: HKUViewModel,
+    navController: NavController
 ){
 
     val requiredContext = LocalContext.current
@@ -116,6 +121,7 @@ fun D_bScreen(
                 modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
 
+            BackButton(viewModel = viewModel, navController = navController, destination = HKUScreen.D_a )
             HomeButton(nextButton = onNextButtonClicked)
             HKULogo()
         }
@@ -126,7 +132,9 @@ fun D_bScreen(
 fun D_bScreenPreview() {
     HKUTheme {
         D_bScreen(
-                modifier = Modifier.fillMaxHeight()
+                modifier = Modifier.fillMaxHeight(),
+            viewModel = HKUViewModel(),
+            navController = rememberNavController(),
             )
     }
 }
