@@ -64,8 +64,13 @@ fun H_aScreen(
                 )
             }
             Text(
-                "\n法律援助署 \n" +
-                        "ladinfo@lad.gov.hk", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
+                "\n法律援助署", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
+
+            Text( "ladinfo@lad.gov.hk", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+                .align(alignment = Alignment.CenterHorizontally)
+                .clickable {
+                    openEmail(context = requiredContext, email = "ladinfo@lad.gov.hk")
+                } )
             Text( "+852 2537 7677", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
                 .align(alignment = Alignment.CenterHorizontally)
                 .clickable {
@@ -93,8 +98,14 @@ fun H_aScreen(
                 )
             }
             Text(
-                "\n康和互助社聯會\n"+"concord.maca@gmail.com "
+                "\n康和互助社聯會"
                 ,fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
+            Text( "concord.maca@gmail.com", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+                .align(alignment = Alignment.CenterHorizontally)
+                .clickable {
+                    openEmail(context = requiredContext, email = "concord.maca@gmail.com")
+                } )
+
             Text( "+852 3586 0567", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
                 .align(alignment = Alignment.CenterHorizontally)
                 .clickable {
@@ -138,9 +149,13 @@ fun H_aScreen(
                 )
             }
             Text(
-                "\n香港守護尊嚴中心\n" +
-                        "info@dignityinstitute.com", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
+                "\n香港守護尊嚴中心\n", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
 
+            Text( "info@dignityinstitute.com", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+                .align(alignment = Alignment.CenterHorizontally)
+                .clickable {
+                    openEmail(context = requiredContext, email = "info@dignityinstitute.com")
+                } )
             Text( "+852 9728 5969", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
                 .align(alignment = Alignment.CenterHorizontally)
                 .clickable {

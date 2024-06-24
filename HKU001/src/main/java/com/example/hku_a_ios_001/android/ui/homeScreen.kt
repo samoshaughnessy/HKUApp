@@ -273,6 +273,11 @@ fun openDialPad(context: Context, phoneNum: String) {
     context.startActivity(intent)
 }
 
+fun openEmail(context: Context, email: String){
+    val intent = Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", email, null))
+    context.startActivity(Intent.createChooser(intent, "Choose an Email client :"));
+}
+
 
 @Composable
 fun HyperlinkText(
