@@ -30,12 +30,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.example.hku_a_ios_001.android.HKUScreen
 import com.example.hku_a_ios_001.android.ui.theme.HKUTheme
 import com.example.hku_a_ios_001.android.ui.theme.md_theme_dark_background
 @Composable
 fun A_bScreen(
     onNextButtonClicked: () -> Unit = {},
-    modifier: Modifier
+    modifier: Modifier,
+    viewModel: HKUViewModel,
+    navController: NavController
 ){
     val context = LocalContext.current
 
@@ -59,7 +65,13 @@ fun A_bScreen(
             contentDescription = "arrow",
             modifier = Modifier
                 .absoluteOffset(x = (20).dp, y = (480).dp)
-                .scale(if(height > 1300){4f} else {3f}) // fix for pixel and galaxy
+                .scale(
+                    if (height > 1300) {
+                        4f
+                    } else {
+                        3f
+                    }
+                ) // fix for pixel and galaxy
         )
     }
     Column(
@@ -104,6 +116,7 @@ fun A_bScreen(
             " 什麼是“合理”？",fontSize = 20.sp, fontWeight = FontWeight.Bold
         )
         BulletList(listItems = bulletPoints)
+        BackButton(destination = HKUScreen.A_a, viewModel = viewModel, navController = navController)
         HomeButton(nextButton = onNextButtonClicked)
         HKULogo()
         }
@@ -129,6 +142,8 @@ fun BulletList(listItems: List<String>){
 fun A_bScreenPreview() {
     HKUTheme {
         A_bScreen(
+            viewModel = HKUViewModel(),
+            navController = rememberNavController(),
             modifier = Modifier.fillMaxHeight()
         )
     }

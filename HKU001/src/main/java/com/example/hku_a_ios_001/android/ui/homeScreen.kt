@@ -28,6 +28,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
@@ -44,7 +45,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.hku_a_ios_001.android.HKUScreen
 import com.example.hku_a_ios_001.android.R
 import com.example.hku_a_ios_001.android.ui.theme.HKUTheme
@@ -90,7 +93,7 @@ fun HomeScreen(
             }
             Row{
                 SelectPageButton(
-                    labelResourceId = "有條件釋放令",
+                    labelResourceId = "有條件釋放令召回",
                     itemImagePath = R.drawable.c_clipboard,
                     onClick = {
                         navController.navigate(HKUScreen.C_a.name)
@@ -185,6 +188,42 @@ fun HomeButton(
     }
 }
 
+
+@Composable
+fun BackButton(
+    viewModel: HKUViewModel,
+    navController: NavController,
+    destination: HKUScreen
+){
+    Row(
+
+        verticalAlignment = Alignment.Bottom,
+        modifier = Modifier.fillMaxSize(),
+    ) {
+        OutlinedButton(
+            border = BorderStroke(4.dp, Color.Black),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
+            modifier = Modifier
+                .height(60.dp)
+                .width(60.dp)
+                .absoluteOffset(x = 0.dp, y = 55.dp),
+            enabled = true,
+            onClick = {
+                navController.navigate(destination.name)
+                viewModel.setPage(destination)
+            }
+        ) {
+            Icon(
+                imageVector = Icons.Filled.KeyboardArrowRight,
+                contentDescription = "Next",
+                modifier = Modifier.scale(4f).rotate(180f),
+                tint= Color.Black
+            )
+        }
+
+    }
+
+}
 @Composable
 fun NextButton(
     nextButton: () -> Unit,
@@ -208,7 +247,7 @@ fun NextButton(
                 imageVector = Icons.Filled.KeyboardArrowRight,
                 contentDescription = "Next",
                 modifier = Modifier.scale(4f),
-                tint= Color.Black //  need to fix the col
+                tint= Color.Black
             )
         }
 
@@ -275,7 +314,9 @@ fun openDialPad(context: Context, phoneNum: String) {
 
 fun openEmail(context: Context, email: String){
     val intent = Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", email, null))
+    intent.putExtra(Intent.EXTRA_SUBJECT, "“有條件釋放”")
     context.startActivity(Intent.createChooser(intent, "Choose an Email client :"));
+
 }
 
 

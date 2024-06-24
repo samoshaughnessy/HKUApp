@@ -17,61 +17,52 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.hku_a_ios_001.android.HKUScreen
 import com.example.hku_a_ios_001.android.ui.theme.HKUTheme
 import com.example.hku_a_ios_001.android.ui.theme.md_theme_dark_background
-
-val bulletPointsB_C = listOf("宵禁（或會影響您的工作；\n", "在一定範圍內限制您的財務自由；\n", "規定您在首次入住中途宿舍的數周或數月內，不得離開中途宿舍。\n")
 
 @Composable
 fun B_cScreen(
     onNextButtonClicked: () -> Unit = {},
-    modifier: Modifier
+    modifier: Modifier,
+    viewModel: HKUViewModel,
+    navController: NavController
 ){
-        Column(
-            modifier = Modifier
-                .padding(25.dp)
-                .background(color = md_theme_dark_background.copy(alpha = 0.4f))
-                .shadow(2.dp, shape = RectangleShape)
-                .padding(10.dp),
-                verticalArrangement = Arrangement.SpaceBetween,
-//              horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-            Text(
-                "中途宿舍額外限制 \n",
-                lineHeight = 50.sp, fontSize =35.sp, fontWeight = FontWeight.Bold,textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
-            )
-            Text(
-                "中途宿舍可能施加額外限制，例如：", fontSize = 20.sp
-            )
+    Column(
+        modifier = Modifier
+            .padding(25.dp)
+            .background(color = md_theme_dark_background.copy(alpha = 0.4f))
+            .shadow(2.dp, shape = RectangleShape)
+            .padding(20.dp),
+        verticalArrangement = Arrangement.SpaceBetween,
+    ) {
 
-            BulletList2(listItems = bulletPointsB_C, indentedItem = "可能：入住首三個月外出要登記 \n")
-            Text(
-                "如果您發現中途宿舍的限制不合理，該怎麼辦？\n \n" +
-                "-尋求律師和非政府組織的\n" +
-                        "（聯繫方式見後）\n\n" +
-                        "-向有關當局，如申訴專員公署提出投訴\n\n" + "其他選擇：向社會福利署提出申訴" , fontSize = 20.sp
-            )
+        Text(
+            "進入中途宿舍需要哪些條件？\n",
+            lineHeight = 50.sp, fontSize =35.sp, fontWeight = FontWeight.Bold,textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)            )
 
-            NextButton(nextButton = onNextButtonClicked)
-            HKULogo()
-        }
+
+        OrderedList(listItems = orderedPoints)
+        BackButton(viewModel = viewModel, navController = navController, destination = HKUScreen.B_b )
+        NextButton(nextButton = onNextButtonClicked)
+        HKULogo()
+    }
 }
 
+val orderedPoints = listOf("15歲或以上的復元人士", "精神狀況穩定，沒有傳染病、酗酒或濫用藥物", "具有基本自我照顧能力，並與其他人和睦相處", "同意參與個人復原計畫")
+
+
 @Composable
-fun BulletList2(listItems: List<String>, indentedItem: String){
-    listItems.forEach {
+fun OrderedList(listItems: List<String>){
+    listItems.forEachIndexed { index, information ->
         Row {
-            Text( text = "\u2022 \t\t", fontSize = 20.sp)
-            Text( text = it, fontSize = 20.sp)
-        }
-        }
-    if(indentedItem.isNotEmpty()){
-        Row {
-            Text( text = "      。\t\t", fontSize = 20.sp)
-            Text( text = indentedItem, fontSize = 20.sp)
+            val realIndex = index + 1
+            Text( text = "  $realIndex. ", fontSize = 20.sp)
+            Text( text = "$information \n", fontSize = 20.sp)
         }
     }
-
 }
 
 @Preview
@@ -79,7 +70,9 @@ fun BulletList2(listItems: List<String>, indentedItem: String){
 fun B_cScreenPreview() {
     HKUTheme {
         B_cScreen(
-            modifier = Modifier.fillMaxHeight()
+            modifier = Modifier.fillMaxHeight(),
+            viewModel = HKUViewModel(),
+            navController = rememberNavController(),
         )
     }
 }

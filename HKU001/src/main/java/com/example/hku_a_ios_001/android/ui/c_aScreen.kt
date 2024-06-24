@@ -34,7 +34,7 @@ fun C_aScreen(
             ) {
 
             Text(
-                "有條件釋放令\n",
+                "有條件釋放令召回\n\n",
                 lineHeight = 50.sp, fontSize = 40.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
             Text(

@@ -51,6 +51,7 @@ import com.example.hku_a_ios_001.android.ui.B_aScreen
 import com.example.hku_a_ios_001.android.ui.B_bScreen
 import com.example.hku_a_ios_001.android.ui.B_cScreen
 import com.example.hku_a_ios_001.android.ui.B_dScreen
+import com.example.hku_a_ios_001.android.ui.B_eScreen
 import com.example.hku_a_ios_001.android.ui.C_aScreen
 import com.example.hku_a_ios_001.android.ui.C_bScreen
 import com.example.hku_a_ios_001.android.ui.D_aScreen
@@ -81,10 +82,11 @@ enum class HKUScreen(val string:String){ // can add size with int value to alter
     A_a("什麼是有條件釋放？ ▼"),
     A_b("什麼是“條件”？ ▼"),
     B_a("什麼是中途宿舍? ▼"),
-    B_b("進入中途宿舍需要哪些條件？ ▼"),
-    B_c("中途宿舍額外限制 ▼"),
-    B_d("如何申請？ ▼"),
-    C_a("有條件釋放令 ▼"),
+    B_b("香港中途宿舍位置 ▼"),
+    B_c("進入中途宿舍需要哪些條件？ ▼"),
+    B_d("中途宿舍額外限制 ▼"),
+    B_e("如何申請？ ▼"),
+    C_a("有條件釋放令召回 ▼"),
     C_b("您的有條件釋放令將會持續多久？ ▼"),
     D_a("如果有條件釋放令不合理？ ▼"),
     D_b("精神健康覆核審裁（MHRT) ▼"),
@@ -235,6 +237,7 @@ fun HKUApp(
                                     viewModel.setPage(HKUScreen.Home)
                                     viewModel.closeDropDown()
                                 },
+                                viewModel = viewModel, navController = navController,
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
@@ -261,6 +264,7 @@ fun HKUApp(
                                     viewModel.setPage(HKUScreen.B_c)
                                     viewModel.closeDropDown()
                                 },
+                                viewModel = viewModel, navController = navController,
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
@@ -274,6 +278,7 @@ fun HKUApp(
                                     viewModel.setPage(HKUScreen.B_d)
                                     viewModel.closeDropDown()
                                 },
+                                viewModel = viewModel, navController = navController,
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
@@ -283,10 +288,25 @@ fun HKUApp(
                         composable(route = HKUScreen.B_d.name) {
                             B_dScreen(
                                 onNextButtonClicked = {
+                                    navController.navigate(HKUScreen.B_e.name)
+                                    viewModel.setPage(HKUScreen.B_e)
+                                    viewModel.closeDropDown()
+                                },
+                                viewModel = viewModel, navController = navController,
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(dimensionResource(R.dimen.padding_medium))
+                            )
+                        }
+
+                        composable(route = HKUScreen.B_e.name) {
+                            B_eScreen(
+                                onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
                                     viewModel.setPage(HKUScreen.Home)
                                     viewModel.closeDropDown()
                                 },
+                                viewModel = viewModel, navController = navController,
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(dimensionResource(R.dimen.padding_medium))
@@ -421,10 +441,10 @@ fun HKUApp(
 
 val abList = listOf(Pair("什麼是有條件釋放？", HKUScreen.A_a.name), Pair("什麼是“條件”？", HKUScreen.A_b.name))
 val bdList  = listOf(
-        Pair("什麼是中途宿舍?", HKUScreen.B_a.name), Pair("進入中途宿舍需要哪些條件？", HKUScreen.B_b.name),
-        Pair("中途宿舍額外限制", HKUScreen.B_c.name), Pair("如何申請？", HKUScreen.B_d.name)
+        Pair("什麼是中途宿舍?", HKUScreen.B_a.name), Pair("香港中途宿舍位置", HKUScreen.B_b.name), Pair("進入中途宿舍需要哪些條件？", HKUScreen.B_c.name),
+        Pair("中途宿舍額外限制", HKUScreen.B_d.name), Pair("如何申請？", HKUScreen.B_e.name)
 )
-val cbList = listOf(Pair("有條件釋放令", HKUScreen.C_a.name), Pair("您的有條件釋放令將會持續多久", HKUScreen.C_b.name))
+val cbList = listOf(Pair("有條件釋放令召回\n", HKUScreen.C_a.name), Pair("您的有條件釋放令將會持續多久", HKUScreen.C_b.name))
 val dbList = listOf(Pair("如果有條件釋放令不合理",HKUScreen.D_a.name), Pair("精神健康覆核審裁(MHRT)",HKUScreen.D_b.name))
 val ebList = listOf(Pair("提出覆核申請需要提交哪些資料？", HKUScreen.E_a.name), Pair("申請書需要包括哪些內容？", HKUScreen.E_b.name))
 val fbList = listOf(Pair("可以向精神科醫生提出的問題", HKUScreen.F_a.name), Pair("醫生沒有正當理由卻拒絕調整相關限制...",HKUScreen.F_b.name))
@@ -595,7 +615,7 @@ fun BurgerMenuDropDown (
                 )
 
                 SelectDropItem(
-                    labelResourceId = "有條件釋放令",
+                    labelResourceId = "有條件釋放令召回\n",
                     itemImagePath = R.drawable.c_clipboard,
                     buttonClick = {
                         navController.navigate(HKUScreen.C_a.name)
