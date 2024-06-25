@@ -64,14 +64,11 @@ fun A_bScreen(
 
     ) {
         Text(
-            "Placeholder？ \n",
+            "病人在有條件下獲釋放出院的命令摹本\n",
             lineHeight = 50.sp, fontSize = 35.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
         )
-        Text(
-            "Conditional discharge order  form", fontSize = 20.sp
-        )
-
-
+        
+        Image(painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.order_for_conditional_discharge), contentDescription = "Order form sample",Modifier.fillMaxSize() )
 
         BackButton(destination = HKUScreen.A_a, viewModel = viewModel, navController = navController)
         NextButton(nextButton = onNextButtonClicked)

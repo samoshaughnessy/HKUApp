@@ -82,7 +82,7 @@ import com.example.hku_a_ios_001.android.data.OrderUiState
 enum class HKUScreen(val string:String){ // can add size with int value to alter size of titles if required
     Home("有條件釋放咨詢庫"),
     A_a("什麼是有條件釋放？ ▼"),
-    A_b("placeholder "),
+    A_b("病人在有條件下獲釋放出院的命令摹本 ▼"),
     A_c("什麼是“條件”？ ▼"),
     B_a("什麼是中途宿舍? ▼"),
     B_b("香港中途宿舍位置 ▼"),
@@ -474,7 +474,7 @@ fun HKUApp(
 
 }
 
-val abList = listOf(Pair("什麼是有條件釋放？", HKUScreen.A_a.name), Pair("Placeholder", HKUScreen.A_b.name),Pair("什麼是“條件”？", HKUScreen.A_c.name))
+val abList = listOf(Pair("什麼是有條件釋放？", HKUScreen.A_a.name), Pair("病人在有條件下獲釋放出院的命令摹本", HKUScreen.A_b.name),Pair("什麼是“條件”？", HKUScreen.A_c.name))
 val bdList  = listOf(
         Pair("什麼是中途宿舍?", HKUScreen.B_a.name), Pair("香港中途宿舍位置", HKUScreen.B_b.name), Pair("進入中途宿舍需要哪些條件？", HKUScreen.B_c.name),
         Pair("中途宿舍額外限制", HKUScreen.B_d.name), Pair("如何申請？", HKUScreen.B_e.name)
@@ -705,7 +705,7 @@ fun BurgerMenuDropDown (
                     }
                 )
 
-                Box(Modifier.height(100.dp)){}
+                Box(Modifier.height(120.dp)){}
             }
         }
     }
