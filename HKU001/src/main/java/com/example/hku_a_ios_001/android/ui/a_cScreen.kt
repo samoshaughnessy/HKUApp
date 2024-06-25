@@ -37,7 +37,7 @@ import com.example.hku_a_ios_001.android.HKUScreen
 import com.example.hku_a_ios_001.android.ui.theme.HKUTheme
 import com.example.hku_a_ios_001.android.ui.theme.md_theme_dark_background
 @Composable
-fun A_bScreen(
+fun A_cScreen(
     onNextButtonClicked: () -> Unit = {},
     modifier: Modifier,
     viewModel: HKUViewModel,
@@ -53,6 +53,26 @@ fun A_bScreen(
 
     //Device Density
     val density = displayMetrics.density
+    Box(
+        modifier = Modifier
+            .zIndex(1f)
+            .fillMaxSize()
+
+    ) {
+        Image(
+            painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.dotted_arrow),
+            contentDescription = "arrow",
+            modifier = Modifier
+                .absoluteOffset(x = (20).dp, y = (480).dp)
+                .scale(
+                    if (height > 1300) {
+                        4f
+                    } else {
+                        3f
+                    }
+                ) // fix for pixel and galaxy
+        )
+    }
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
@@ -64,17 +84,39 @@ fun A_bScreen(
 
     ) {
         Text(
-            "Placeholder？ \n",
+            "什麼是“條件”？ \n",
             lineHeight = 50.sp, fontSize = 35.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
         )
         Text(
-            "Conditional discharge order  form", fontSize = 20.sp
+            "由院長在簽署釋放令時施加; \n " +
+        "常見規限條件包括:", fontSize = 20.sp
         )
+        Text("居住在指定地點（比如中途宿舍）\n" +
+                "-服用指定藥物\n\n" +
+                "-定期到院長指定的診所覆診\n\n" +
+                "-接受社會福利署署長監督\n", fontSize = 20.sp)
+
+        Text("• \t\t理論上院長可以施加" , fontSize=20.sp)
+//       Add in blue Arrow
+        Text( buildAnnotatedString {
+            withStyle(style = SpanStyle(color=Color.Blue)){
+                append("一切合理")
+            }
+            append("的條件，沒有明確的")
+        }, fontSize = 20.sp
+        )
+        Text(" 禁止 \n", fontSize = 20.sp)
 
 
-
-        BackButton(destination = HKUScreen.A_a, viewModel = viewModel, navController = navController)
-        NextButton(nextButton = onNextButtonClicked)
+        Box(
+            modifier=Modifier.height(30.dp)
+        ){}
+        Text(
+            " 什麼是“合理”？",fontSize = 20.sp, fontWeight = FontWeight.Bold
+        )
+        BulletList(listItems = bulletPoints)
+        BackButton(destination = HKUScreen.A_b, viewModel = viewModel, navController = navController)
+        HomeButton(nextButton = onNextButtonClicked)
         HKULogo()
         }
 
@@ -82,10 +124,21 @@ fun A_bScreen(
 
 
 
+val bulletPoints = listOf("對控制病情、確保人身安全有實際作用\n", "與該人所患的病情相關\n", "與病情相應，不能在不必要的情況下侵犯個人生活\n")
+
+@Composable
+fun BulletList(listItems: List<String>){
+    listItems.forEach {
+        Row {
+            Text( text = "\u2022 \t\t", fontSize = 20.sp)
+            Text( text = it, fontSize = 20.sp)
+        }
+    }
+}
 
 @Preview
 @Composable
-fun A_bScreenPreview() {
+fun A_cScreenPreview() {
     HKUTheme {
         A_bScreen(
             viewModel = HKUViewModel(),

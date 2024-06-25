@@ -47,6 +47,7 @@ import androidx.compose.ui.res.painterResource
 
 import com.example.hku_a_ios_001.android.ui.A_aScreen
 import com.example.hku_a_ios_001.android.ui.A_bScreen
+import com.example.hku_a_ios_001.android.ui.A_cScreen
 import com.example.hku_a_ios_001.android.ui.B_aScreen
 import com.example.hku_a_ios_001.android.ui.B_bScreen
 import com.example.hku_a_ios_001.android.ui.B_cScreen
@@ -81,7 +82,8 @@ import com.example.hku_a_ios_001.android.data.OrderUiState
 enum class HKUScreen(val string:String){ // can add size with int value to alter size of titles if required
     Home("有條件釋放咨詢庫"),
     A_a("什麼是有條件釋放？ ▼"),
-    A_b("什麼是“條件”？ ▼"),
+    A_b("placeholder "),
+    A_c("什麼是“條件”？ ▼"),
     B_a("什麼是中途宿舍? ▼"),
     B_b("香港中途宿舍位置 ▼"),
     B_c("進入中途宿舍需要哪些條件？ ▼"),
@@ -108,9 +110,9 @@ fun    HKUAppBar(
     viewModel: HKUViewModel,
 ) {
     // edit to allow drop down menu
-    if(currentScreen.openHamburger){
-        println("hide")
-    } else {
+//    if(currentScreen.openHamburger){
+//        println("hide")
+//    } else {
         CenterAlignedTopAppBar(
             title = {
                 Text(
@@ -150,7 +152,7 @@ fun    HKUAppBar(
                 )
             }
         )
-    }
+//    }
 
 }
 @Composable
@@ -234,6 +236,20 @@ fun HKUApp(
                         }
                         composable(route = HKUScreen.A_b.name) {
                             A_bScreen(
+                                onNextButtonClicked = {
+                                    navController.navigate(HKUScreen.A_c.name)
+                                    viewModel.setPage(HKUScreen.A_c)
+                                    viewModel.closeDropDown()
+                                },
+                                viewModel = viewModel, navController = navController,
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(dimensionResource(R.dimen.padding_medium))
+                            )
+
+                        }
+                        composable(route = HKUScreen.A_c.name) {
+                            A_cScreen(
                                 onNextButtonClicked = {
                                     navController.navigate(HKUScreen.Home.name)
                                     viewModel.setPage(HKUScreen.Home)
@@ -458,7 +474,7 @@ fun HKUApp(
 
 }
 
-val abList = listOf(Pair("什麼是有條件釋放？", HKUScreen.A_a.name), Pair("什麼是“條件”？", HKUScreen.A_b.name))
+val abList = listOf(Pair("什麼是有條件釋放？", HKUScreen.A_a.name), Pair("Placeholder", HKUScreen.A_b.name),Pair("什麼是“條件”？", HKUScreen.A_c.name))
 val bdList  = listOf(
         Pair("什麼是中途宿舍?", HKUScreen.B_a.name), Pair("香港中途宿舍位置", HKUScreen.B_b.name), Pair("進入中途宿舍需要哪些條件？", HKUScreen.B_c.name),
         Pair("中途宿舍額外限制", HKUScreen.B_d.name), Pair("如何申請？", HKUScreen.B_e.name)
@@ -527,7 +543,7 @@ fun ArrowDropDownMenu (
             .fillMaxSize(),
             verticalArrangement = Arrangement.SpaceEvenly,
             ) {
-            if((currentScreen.currentPage == HKUScreen.A_a) || (currentScreen.currentPage == HKUScreen.A_b )){
+            if((currentScreen.currentPage == HKUScreen.A_a) || (currentScreen.currentPage == HKUScreen.A_b) || (currentScreen.currentPage == HKUScreen.A_c)){
                 Column  (
                     Modifier.fillMaxSize()
                 ){
@@ -606,7 +622,7 @@ fun BurgerMenuDropDown (
 ){
     if (showOrHide) {
         Box(
-            modifier = Modifier.absoluteOffset(x=0.dp, y=10.dp)
+            modifier = Modifier.absoluteOffset(x=0.dp, y=90.dp)
         ) {
             Column(
                 modifier = Modifier
@@ -688,6 +704,8 @@ fun BurgerMenuDropDown (
                         viewModel.closeHamburger()
                     }
                 )
+
+                Box(Modifier.height(100.dp)){}
             }
         }
     }
