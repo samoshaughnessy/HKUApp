@@ -63,12 +63,12 @@ fun A_cScreen(
             painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.dotted_arrow),
             contentDescription = "arrow",
             modifier = Modifier
-                .absoluteOffset(x = (20).dp, y = (480).dp)
+                .absoluteOffset(x = (-25).dp, y = (400).dp)
                 .scale(
                     if (height > 1300) {
-                        4f
+                        0.8f
                     } else {
-                        3f
+                        0.6f
                     }
                 ) // fix for pixel and galaxy
         )

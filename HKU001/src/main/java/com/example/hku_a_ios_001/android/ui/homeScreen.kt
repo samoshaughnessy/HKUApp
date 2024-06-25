@@ -45,9 +45,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import com.example.hku_a_ios_001.android.HKUScreen
 import com.example.hku_a_ios_001.android.R
 import com.example.hku_a_ios_001.android.ui.theme.HKUTheme
@@ -74,7 +72,7 @@ fun HomeScreen(
             Row{
                 SelectPageButton(
                     labelResourceId = "有條件釋放",
-                    itemImagePath = R.drawable.door,
+                    itemImagePath = R.drawable._1__door,
                     onClick = {
                         navController.navigate(HKUScreen.A_a.name)
                         viewModel.setPage(HKUScreen.A_a)
@@ -94,7 +92,7 @@ fun HomeScreen(
             Row{
                 SelectPageButton(
                     labelResourceId = "您會被召回醫院嗎？",
-                    itemImagePath = R.drawable.clipboard,
+                    itemImagePath = R.drawable._3__clipboard,
                     onClick = {
                         navController.navigate(HKUScreen.C_a.name)
                         viewModel.setPage(HKUScreen.C_a)
@@ -103,7 +101,7 @@ fun HomeScreen(
                 )
                 SelectPageButton(
                     labelResourceId = "如果有條件釋放令不合理？",
-                    itemImagePath = R.drawable.scales,
+                    itemImagePath = R.drawable._4__scales,
                     onClick = {
                         navController.navigate(HKUScreen.D_a.name)
                         viewModel.setPage(HKUScreen.D_a)
@@ -167,23 +165,15 @@ fun HomeButton(
         verticalAlignment = Alignment.Bottom,
         modifier = Modifier.fillMaxSize(),
     ) {
-        OutlinedButton(
-            border = BorderStroke(4.dp, Color.Black),
+        Button(
             colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
             modifier = Modifier
-                .size(width = 60.dp, height = 60.dp)
-                .absoluteOffset(x = 230.dp, y = 0.dp),
+                .absoluteOffset(x = 180.dp, y = 0.dp),
             enabled = true,
             onClick = nextButton
         ) {
-            Icon(
-                imageVector = Icons.Filled.Home,
-                contentDescription = "Home",
-                modifier = Modifier.scale(4f),
-                tint= Color.Black
-
-            )
-        }
+                Image(painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.home_button), contentDescription = "home button", modifier = Modifier.size(width = 80.dp, height = 80.dp))
+            }
 
     }
 }
@@ -196,31 +186,20 @@ fun BackButton(
     destination: HKUScreen
 ){
     Row(
-
         verticalAlignment = Alignment.Bottom,
-        modifier = Modifier.fillMaxSize(),
     ) {
-        OutlinedButton(
-            border = BorderStroke(4.dp, Color.Black),
+        Button(
             colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
             modifier = Modifier
-                .height(60.dp)
-                .width(60.dp)
-                .absoluteOffset(x = 0.dp, y = 55.dp),
+                .absoluteOffset(x = 0.dp, y = 93.dp),
             enabled = true,
             onClick = {
                 navController.navigate(destination.name)
                 viewModel.setPage(destination)
             }
         ) {
-            Icon(
-                imageVector = Icons.Filled.KeyboardArrowRight,
-                contentDescription = "Next",
-                modifier = Modifier.scale(4f).rotate(180f),
-                tint= Color.Black
-            )
+            Image(painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.next_button), contentDescription = "next button", modifier = Modifier.size(width = 80.dp, height = 80.dp).rotate(180f))
         }
-
     }
 
 }
@@ -229,28 +208,17 @@ fun NextButton(
     nextButton: () -> Unit,
 ){
     Row(
-
         verticalAlignment = Alignment.Bottom,
-        modifier = Modifier.fillMaxSize(),
     ) {
-        OutlinedButton(
-            border = BorderStroke(4.dp, Color.Black),
+        Button(
             colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
             modifier = Modifier
-                .height(60.dp)
-                .width(60.dp)
-                .absoluteOffset(x = 230.dp, y = 0.dp),
+                .absoluteOffset(x = 180.dp, y = 0.dp),
             enabled = true,
             onClick = nextButton
         ) {
-            Icon(
-                imageVector = Icons.Filled.KeyboardArrowRight,
-                contentDescription = "Next",
-                modifier = Modifier.scale(4f),
-                tint= Color.Black
-            )
+            Image(painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.next_button), contentDescription = "next button", modifier = Modifier.size(width = 80.dp, height = 80.dp))
         }
-
     }
 }
 
@@ -297,7 +265,7 @@ fun SelectPageButton(
             Image(
                 painter = painterResource(itemImagePath),
                 contentDescription = null,
-                modifier = Modifier.scale(1f)
+                modifier = Modifier.scale(0.8f)
             )
             Text(labelResourceId, color = Color.Black, fontWeight = FontWeight.Bold, fontSize = 14.sp, textAlign = TextAlign.Center, modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
         }
