@@ -52,7 +52,7 @@ fun B_bScreen(
                 "\n顯徑宿舍\n",
                 lineHeight = 30.sp, fontSize =20.sp, fontWeight = FontWeight.Bold,textAlign = TextAlign.Start)
 
-            val bulletPoint1 = listOf("新界沙田顯徑邨顯祐樓B 翼地下及 2 樓", "2695 7805", "2691 2507", "hkh@mhahk.org.hk"
+            val bulletPoint1 = listOf("新界沙田顯徑邨顯祐樓B 翼地下及 2 樓", "+852 2695 7805", "+852 2691 2507", "hkh@mhahk.org.hk"
             )
             HalfwayHomeList(listItems = bulletPoint1, context = requiredContext)
 
@@ -60,7 +60,7 @@ fun B_bScreen(
             "\n艾齡樓\n",
             lineHeight = 30.sp, fontSize =20.sp, fontWeight = FontWeight.Bold,textAlign = TextAlign.Start)
 
-        val bulletPoint2 = listOf("九龍黃大仙黃大仙下邨龍吉樓地下及2樓", "2320 2511", "2327 8596", "ireneh@mhahk.org.hk"
+        val bulletPoint2 = listOf("九龍黃大仙黃大仙下邨龍吉樓地下及2樓", "+852 2320 2511", "+852 2327 8596", "ireneh@mhahk.org.hk"
         )
         HalfwayHomeList(listItems = bulletPoint2, context = requiredContext)
 
@@ -68,7 +68,7 @@ fun B_bScreen(
             "\n李鄭屋宿舍\n",
             lineHeight = 30.sp, fontSize =20.sp, fontWeight = FontWeight.Bold,textAlign = TextAlign.Start)
 
-        val bulletPoint3 = listOf("九龍深水埗李鄭屋邨李孝慈樓 B 翼地下及 2 樓", "2725 9232", "2720 7974", "lcuh@mhahk.org.hk"
+        val bulletPoint3 = listOf("九龍深水埗李鄭屋邨李孝慈樓 B 翼地下及 2 樓", "+852 2725 9232", "+852 2720 7974", "lcuh@mhahk.org.hk"
         )
         HalfwayHomeList(listItems = bulletPoint3, context = requiredContext)
 
@@ -76,7 +76,7 @@ fun B_bScreen(
             "\n敦睦軒 (特建中途宿舍)\n",
             lineHeight = 30.sp, fontSize =20.sp, fontWeight = FontWeight.Bold,textAlign = TextAlign.Start)
 
-        val bulletPoint4 = listOf("九龍觀塘功樂道 2 號 5 樓", "2172 6036", "2172 6219", "jcbhwh1@mhahk.org.hk"
+        val bulletPoint4 = listOf("九龍觀塘功樂道 2 號 5 樓", "+852 2172 6036", "+852 2172 6219", "jcbhwh1@mhahk.org.hk"
         )
         HalfwayHomeList(listItems = bulletPoint4, context = requiredContext)
 
@@ -84,7 +84,7 @@ fun B_bScreen(
             "\n廣福宿舍\n",
             lineHeight = 30.sp, fontSize =20.sp, fontWeight = FontWeight.Bold,textAlign = TextAlign.Start)
 
-        val bulletPoint5 = listOf("新界大埔廣福邨廣崇樓 B 翼地下及 2 樓", "2651 8948", "2656 9211", "kfh@mhahk.org.hk"
+        val bulletPoint5 = listOf("新界大埔廣福邨廣崇樓 B 翼地下及 2 樓", "+852 2651 8948", "+852 2656 9211", "kfh@mhahk.org.hk"
         )
         HalfwayHomeList(listItems = bulletPoint5, context = requiredContext)
 
@@ -92,7 +92,7 @@ fun B_bScreen(
             "\n欣怡軒 (特建中途宿舍\n",
             lineHeight = 30.sp, fontSize =20.sp, fontWeight = FontWeight.Bold,textAlign = TextAlign.Start)
 
-        val bulletPoint6 = listOf("九龍觀塘功樂道 2 號 6 樓", "2172 7970", "2340 5955", "jcbhwh2@mhahk.org.hk"
+        val bulletPoint6 = listOf("九龍觀塘功樂道 2 號 6 樓", "+852 2172 7970", "+852 2340 5955", "jcbhwh2@mhahk.org.hk"
         )
         HalfwayHomeList(listItems = bulletPoint6, context = requiredContext)
 

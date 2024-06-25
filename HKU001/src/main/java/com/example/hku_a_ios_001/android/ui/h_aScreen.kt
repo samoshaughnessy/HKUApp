@@ -120,9 +120,9 @@ fun H_aScreen(
                         "石硤尾南山邨南逸樓地下3-10號", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
             HyperlinkText(
-                fullText =  "www.concord.org.hk \n",
+                fullText =  "https://concordorghk.wordpress.com/ \n",
                 hyperLinks = mutableMapOf(
-                    "www.concord.org.hk" to "https://www.concord.org.hk",
+                    "https://concordorghk.wordpress.com/" to "https://concordorghk.wordpress.com/",
                 ),
                 textStyle = TextStyle(
                     textAlign = TextAlign.Center,
@@ -149,7 +149,7 @@ fun H_aScreen(
                 )
             }
             Text(
-                "\n香港守護尊嚴中心\n", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
+                "\n香港守護尊嚴中心", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
 
             Text( "info@dignityinstitute.com", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
                 .align(alignment = Alignment.CenterHorizontally)

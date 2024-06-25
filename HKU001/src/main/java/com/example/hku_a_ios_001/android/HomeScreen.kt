@@ -485,6 +485,7 @@ fun InnerMenu (
                 .padding(20.dp)
                 .border(border = BorderStroke(1.dp, color=Color.Black))
                 .padding(20.dp)
+                .zIndex(2f)
                 .clickable {
                     if(!currentScreen.openDropDown){
                         viewModel.openDropDown()
