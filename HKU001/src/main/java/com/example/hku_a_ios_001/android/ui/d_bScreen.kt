@@ -58,8 +58,27 @@ fun D_bScreen(
                 "精神健康\n" + "覆核審裁（MHRT) \n",
                 lineHeight = 50.sp, fontSize = 33.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
+
+            Text("\n點擊下面的連結以下載精神健康覆核審裁處申請表格。請確保根據處理您有條件釋放的醫院聯網選擇正確的申請表格。（例如：如果是九龍西聯網處理您的案件，請選擇九龍西聯網（中）精神健康覆核審裁處申請表格以繼續您的申請。）\n", fontSize = 20.sp)
+            HyperlinkText(
+                fullText = "[點擊這裡]"
+                ,
+                hyperLinks = mutableMapOf(
+                    "[點擊這裡]" to "https://drive.google.com/drive/folders/112hh4dKkwt3d8RsNfBCiQAC0YjMff-Cm?usp=drive_link",
+                ),
+                textStyle = TextStyle(
+                    textAlign = TextAlign.Center,
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold,
+                ),
+                linkTextFontWeight = FontWeight.Bold,
+                linkTextColor = Color.Black,
+                fontSize = 20.sp,
+                modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+            )
+
             Text(
-                "精神健康覆核審裁處（MHRT）負責處理有條件釋放令下的覆核，並決定申請人是否適合被解除有條件釋放令。MHRT由一名具有適當法律經驗的主席、一名醫生、一名社工和一名具備行政或臨床心理學經驗或知識或其他資格或經驗的人組成。 \n \n" +
+                "\n精神健康覆核審裁處（MHRT）負責處理有條件釋放令下的覆核，並決定申請人是否適合被解除有條件釋放令。MHRT由一名具有適當法律經驗的主席、一名醫生、一名社工和一名具備行政或臨床心理學經驗或知識或其他資格或經驗的人組成。 \n \n" +
                 "覆核申請時，您可以獲得如下幫助：\n", fontSize = 20.sp
             )
 
@@ -120,6 +139,7 @@ fun D_bScreen(
                 fontSize = 20.sp,
                 modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
+
 
             BackButton(viewModel = viewModel, navController = navController, destination = HKUScreen.D_a )
             HomeButton(nextButton = onNextButtonClicked)
