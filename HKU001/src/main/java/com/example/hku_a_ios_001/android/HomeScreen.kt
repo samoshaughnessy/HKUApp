@@ -35,6 +35,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.filled.Menu
@@ -603,7 +604,7 @@ fun SelectDropItem(
             Image(
                 painter = painterResource(itemImagePath),
                 contentDescription = null,
-                modifier = Modifier.scale(1.5f)
+                modifier = Modifier.size(width = 70.dp, height = 70.dp).padding(10.dp)
             )
             Text(labelResourceId, color = Color.Black, fontWeight = FontWeight.Bold, fontSize = 18.sp)
         }
@@ -632,7 +633,7 @@ fun BurgerMenuDropDown (
             ) {
 
                 SelectDropItem(labelResourceId = "有條件釋放",
-                    itemImagePath = R.drawable.a_door,
+                    itemImagePath = R.drawable._1__door,
                     buttonClick = {
                         navController.navigate(HKUScreen.A_a.name)
                         viewModel.setPage(HKUScreen.A_a)
@@ -642,7 +643,7 @@ fun BurgerMenuDropDown (
 
                 SelectDropItem(
                     labelResourceId = "中途宿舍",
-                    itemImagePath = R.drawable.b_home,
+                    itemImagePath = R.drawable._2__house,
                     buttonClick = {
                         navController.navigate(HKUScreen.B_a.name)
                         viewModel.setPage(HKUScreen.B_a)
@@ -652,7 +653,7 @@ fun BurgerMenuDropDown (
 
                 SelectDropItem(
                     labelResourceId = "您會被召回醫院嗎？",
-                    itemImagePath = R.drawable.c_clipboard,
+                    itemImagePath = R.drawable._3__clipboard,
                     buttonClick = {
                         navController.navigate(HKUScreen.C_a.name)
                         viewModel.setPage(HKUScreen.C_a)
@@ -661,7 +662,7 @@ fun BurgerMenuDropDown (
                 )
                 SelectDropItem(
                     labelResourceId = "如果有條件釋放令不合理？",
-                    itemImagePath = R.drawable.d_scales,
+                    itemImagePath = R.drawable._4__scales,
                     buttonClick = {
                         navController.navigate(HKUScreen.D_a.name)
                         viewModel.setPage(HKUScreen.D_a)
@@ -670,7 +671,7 @@ fun BurgerMenuDropDown (
                 )
                 SelectDropItem(
                     labelResourceId = "復核申請需要哪些資料？",
-                    itemImagePath = R.drawable.e_documents,
+                    itemImagePath = R.drawable._5__docs,
                     buttonClick = {
                         navController.navigate(HKUScreen.E_a.name)
                         viewModel.setPage(HKUScreen.E_a)
@@ -679,7 +680,7 @@ fun BurgerMenuDropDown (
                 )
                 SelectDropItem(
                     labelResourceId = "可以向你的醫生提出的問題",
-                    itemImagePath = R.drawable.f_doc,
+                    itemImagePath = R.drawable._6__doctor,
                     buttonClick = {
                         navController.navigate(HKUScreen.F_a.name)
                         viewModel.setPage(HKUScreen.F_a)
@@ -688,7 +689,7 @@ fun BurgerMenuDropDown (
                 )
                 SelectDropItem(
                     labelResourceId = "有條件釋放令統計",
-                    itemImagePath = R.drawable.graph,
+                    itemImagePath = R.drawable._7__stats,
                     buttonClick = {
                         navController.navigate(HKUScreen.G_a.name)
                         viewModel.setPage(HKUScreen.G_a)
@@ -697,7 +698,7 @@ fun BurgerMenuDropDown (
                 )
                 SelectDropItem(
                     labelResourceId = "重要聯絡人",
-                    itemImagePath = R.drawable.h_contact,
+                    itemImagePath = R.drawable._8__contact,
                     buttonClick = {
                         navController.navigate(HKUScreen.H_a.name)
                         viewModel.setPage(HKUScreen.H_a)

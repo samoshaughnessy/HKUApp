@@ -32,6 +32,7 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -161,6 +162,16 @@ fun HomeScreen(
 fun HomeButton(
     nextButton: () -> Unit
 ){
+    val context = LocalContext.current
+
+    val displayMetrics = context.resources.displayMetrics
+
+    //Width And Height Of Screen
+    val width = displayMetrics.widthPixels
+    val height = displayMetrics.heightPixels
+
+    //Device Density
+    val density = displayMetrics.density
     Row(
         verticalAlignment = Alignment.Bottom,
         modifier = Modifier.fillMaxSize(),
@@ -168,7 +179,7 @@ fun HomeButton(
         Button(
             colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
             modifier = Modifier
-                .absoluteOffset(x = 180.dp, y = 0.dp),
+                .absoluteOffset(x = if (width>720){180} else {150}.dp, y = 0.dp),
             enabled = true,
             onClick = nextButton
         ) {
@@ -207,13 +218,24 @@ fun BackButton(
 fun NextButton(
     nextButton: () -> Unit,
 ){
+    val context = LocalContext.current
+
+    val displayMetrics = context.resources.displayMetrics
+
+    //Width And Height Of Screen
+    val width = displayMetrics.widthPixels
+    val height = displayMetrics.heightPixels
+
+    //Device Density
+    val density = displayMetrics.density
+
     Row(
         verticalAlignment = Alignment.Bottom,
     ) {
         Button(
             colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
             modifier = Modifier
-                .absoluteOffset(x = 180.dp, y = 0.dp),
+                .absoluteOffset(x = if (width>720){180} else {150}.dp, y = 0.dp),
             enabled = true,
             onClick = nextButton
         ) {
