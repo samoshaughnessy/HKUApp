@@ -30,8 +30,8 @@ fun A_aScreen(
                     verticalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
-                "什麼是有條\n" +
-                        "件釋放？",
+                    "什麼是有條\n" +
+                            "件釋放？",
                 lineHeight = 50.sp, fontSize = 40.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
             Text(

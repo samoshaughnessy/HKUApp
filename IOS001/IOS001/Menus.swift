@@ -14,11 +14,7 @@ import shared
 struct HomeScreen: View {
     
     var body: some View {
-        
-        NavigationView {
-            ScrollView{
-                ViewThatFits{
-                    
+                    ViewThatFits{
                     VStack(alignment:.leading){
                         HStack{
                             NavigationLink(destination: A_aScreen()){
@@ -90,10 +86,7 @@ struct HomeScreen: View {
                         HKULogo()
                     }
                     
-                    
-                }.padding(20).background(Color.clear)
-            }.background(Image(.jackimage))
-        }
+                }.padding(20).background(Color.clear).background(Image(.jackimage))
     }
 }
 
