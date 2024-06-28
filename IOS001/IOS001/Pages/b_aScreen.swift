@@ -18,7 +18,7 @@ struct B_aScreen: View {
         ScrollView {
             
             VStack(alignment:.leading){
-                Text("什麼是中途宿舍?").lineLimit(2).font(Font.system(size: 35)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                Text("什麼是中途宿舍?").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Text("\n-為有條件釋放者提供的指定住所，提供膳食服務\n\n" +
                      "-提供個人輔導及小組/社區活動\n\n" +

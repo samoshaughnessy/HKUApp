@@ -58,7 +58,7 @@ fun B_bScreen(
             fullText = "點擊這裡"
             ,
             hyperLinks = mutableMapOf(
-                "點擊這裡" to "https://www.swd.gov.hk/storage/asset/section/675/tc/HWH_Aug_2022.pdf)",
+                "點擊這裡" to "https://www.swd.gov.hk/storage/asset/section/675/tc/HWH_Aug_2022.pdf",
             ),
             textStyle = TextStyle(
                 textAlign = TextAlign.Center,

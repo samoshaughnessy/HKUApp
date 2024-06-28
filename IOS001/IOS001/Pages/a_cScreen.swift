@@ -16,7 +16,7 @@ struct A_cScreen: View {
     var body: some View {
         ScrollView {
             VStack(alignment:.leading){
-                Text("什麼是“條件”？").lineLimit(2).font(Font.system(size: 35)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                Text("什麼是“條件”？").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Text("\n由院長在簽署釋放令時施加; \n 常見規限條件包括: \n 居住在指定地點（比如中途宿舍）\n" +
                      "-服用指定藥物\n\n" +

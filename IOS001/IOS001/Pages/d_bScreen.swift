@@ -21,7 +21,7 @@ struct D_bScreen: View {
                 Text("\n點擊下面的連結以下載精神健康覆核審裁處申請表格。請確保根據處理您有條件釋放的醫院聯網選擇正確的申請表格。" + "（例如：如果是九龍西聯網處理您的案件，請選擇九龍西聯網（中）精神健康覆核審裁處申請表格以繼續您的申請。）").font(Font.system(size: 20))
                 
                 // hyperlink text
-                Link("\n[點擊這裡]\n", destination: URL(string: "https://drive.google.com/drive/folders/112hh4dKkwt3d8RsNfBCiQAC0YjMff-Cm?usp=drive_link")!).lineLimit(5).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.black)
+                Link("\n[點擊這裡]\n", destination: URL(string: "https://drive.google.com/drive/folders/112hh4dKkwt3d8RsNfBCiQAC0YjMff-Cm?usp=drive_link")!).lineLimit(5).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Text("精神健康覆核審裁處（MHRT）負責處理有條件釋放令下的覆核，並決定申請人是否適合被解除有條件釋放令。MHRT由一名具有適當法律經驗的主席、一名醫生、一名社工和一名具備行政或臨床心理學經驗或知識或其他資格或經驗的人組成。 \n \n" +
                      "覆核申請時，您可以獲得如下幫助：") .font(Font.system(size: 20))
@@ -52,9 +52,9 @@ struct D_bScreen: View {
                 
                 
                 // May work on phone not too sure?
-                Link("+852 2594 5636", destination: URL(string: "tel:+85225945636")!).lineLimit(2).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.black)
+                Link("+852 2594 5636", destination: URL(string: "tel:+85225945636")!).lineLimit(2).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
-                Link("https://www.healthbureau.gov.hk/cn/committees/mhrt.htm", destination: URL(string: "https://www.healthbureau.gov.hk/cn/committees/mhrt.htm")!).lineLimit(6).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.black)
+                Link("https://www.healthbureau.gov.hk/cn/committees/mhrt.htm", destination: URL(string: "https://www.healthbureau.gov.hk/cn/committees/mhrt.htm")!).lineLimit(6).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 HStack{
                     BackButton(destination: {D_aScreen()})

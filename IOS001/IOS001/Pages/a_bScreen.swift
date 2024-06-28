@@ -15,7 +15,7 @@ struct A_bScreen: View {
 var body: some View {
         ScrollView{
             VStack(alignment:.leading){
-                Text("病人在有條件下獲釋放出院的命令摹本").lineLimit(2).font(Font.system(size: 35)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                Text("病人在有條件下獲釋放出院的命令摹本").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 // make image resizeable
                 Image(.orderForConditionalDischarge).resizable().frame(width: 350, height: 500, alignment: .center)

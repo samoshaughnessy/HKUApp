@@ -15,8 +15,10 @@ struct A_aScreen: View {
     
     var body: some View {
         ScrollView{
+            Topbar(title:"什麼是有條件釋放？").padding(20)
+
             VStack(alignment:.leading){
-                Text("什麼是有條件釋放？").lineLimit(2).font(Font.system(size: 35)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                Text("什麼是有條件釋放？").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Text("\n相比於無條件釋放，有條件釋放令要求您出院後遵守一些特定的條件，如果您未遵守這些條件，而院長認為基於您的健康或安全，或為保護他人著想而有需要有可能將您重新召回精神病院。\n").font(Font.system(size: 20))
                 

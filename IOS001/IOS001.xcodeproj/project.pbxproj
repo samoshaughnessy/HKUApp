@@ -34,6 +34,7 @@
 		797CFAF02C2CFB2900D5EF86 /* g_aScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797CFAEF2C2CFB2900D5EF86 /* g_aScreen.swift */; };
 		797CFAF22C2CFB3700D5EF86 /* h_aScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797CFAF12C2CFB3700D5EF86 /* h_aScreen.swift */; };
 		797CFAF42C2D474400D5EF86 /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797CFAF32C2D474400D5EF86 /* Menus.swift */; };
+		797CFAF62C2E9CB500D5EF86 /* Topbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797CFAF52C2E9CB500D5EF86 /* Topbar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,6 +80,7 @@
 		797CFAEF2C2CFB2900D5EF86 /* g_aScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = g_aScreen.swift; sourceTree = "<group>"; };
 		797CFAF12C2CFB3700D5EF86 /* h_aScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = h_aScreen.swift; sourceTree = "<group>"; };
 		797CFAF32C2D474400D5EF86 /* Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
+		797CFAF52C2E9CB500D5EF86 /* Topbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topbar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				797CFAC72C2BC62B00D5EF86 /* HKULogo.swift */,
 				797CFAD12C2BDAA700D5EF86 /* Lists.swift */,
 				797CFAF32C2D474400D5EF86 /* Menus.swift */,
+				797CFAF52C2E9CB500D5EF86 /* Topbar.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				797CFAC62C2BC61200D5EF86 /* Buttons.swift in Sources */,
 				797CFAD02C2BD3CF00D5EF86 /* a_cScreen.swift in Sources */,
 				797CFAE22C2CF53F00D5EF86 /* c_cScreen.swift in Sources */,
+				797CFAF62C2E9CB500D5EF86 /* Topbar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

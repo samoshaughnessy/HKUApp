@@ -12,7 +12,6 @@ import shared
 
 
 struct HomeScreen: View {
-    
     var body: some View {
                     ViewThatFits{
                     VStack(alignment:.leading){
@@ -82,11 +81,94 @@ struct HomeScreen: View {
                                 }
                             }.frame(width: 150, height:150)
                         }
-                        
                         HKULogo()
                     }
-                    
                 }.padding(20).background(Color.clear).background(Image(.jackimage))
+    }
+}
+
+struct BurgerMenu : View{
+    var body: some View{
+        
+        VStack(alignment:.leading){
+                NavigationLink(destination: A_aScreen()){
+                    HStack{
+                        Image(._1Door).resizable().frame(width:40, height:40)
+                        Text("有條件釋放").foregroundColor(.black)
+                    }
+                }
+            Divider()
+                
+                NavigationLink(destination: B_aScreen()){
+                    HStack{
+                        Image(._2House).resizable().frame(width:40, height:40)
+                        Text("中途宿舍").foregroundColor(.black)
+                    }
+                }
+            
+            Divider()
+
+                NavigationLink(destination: C_aScreen()){
+                    HStack{
+                        Image(._3Clipboard).resizable().frame(width:40, height:40)
+                        Text("您會被召回醫院嗎？").foregroundColor(.black)
+                    }
+                }  
+            Divider()
+
+                
+                NavigationLink(destination: D_aScreen()){
+                    HStack{
+                        Image(._4Scales).resizable().frame(width:40, height:40)
+                        Text("如果有條件釋放令不合理？").foregroundColor(.black)
+                    }
+                }
+            Divider()
+
+            
+                NavigationLink(destination: E_aScreen()){
+                    HStack{
+                        Image(._5Docs).resizable().frame(width:40, height:40)
+                        Text("復核申請需要哪些資料？").foregroundColor(.black)
+                    }
+                    
+                }
+                
+            Divider()
+
+                NavigationLink(destination: F_aScreen()){
+                    HStack{
+                        Image(._6Doctor).resizable().frame(width:40, height:40)
+                        Text("可以向你的醫生提出的問題").foregroundColor(.black)
+                    }
+                }
+            Divider()
+
+
+                NavigationLink(destination: G_aScreen()){
+                    HStack{
+                        Image(._7Stats).resizable().frame(width:40, height:40)
+                        Text("有條件釋放令統計").foregroundColor(.black)
+                    }
+                }
+            Divider()
+
+                
+                NavigationLink(destination: H_aScreen()){
+                    HStack{
+                        Image(._8Contact).resizable().frame(width:40, height:40)
+                        Text("重要聯絡人").foregroundColor(.black)
+                    }
+                }
+            Divider()
+
+            
+            Spacer()
+            
+            HKULogo()
+        
+        }.padding(20).background(Color.clear).background(Image(.jackimage))
+
     }
 }
 
