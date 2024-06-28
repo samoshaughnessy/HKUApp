@@ -82,7 +82,7 @@ fun HomeScreen(
                 )
                 SelectPageButton(
                     labelResourceId = "中途宿舍",
-                    itemImagePath = R.drawable.houseicon,
+                    itemImagePath = R.drawable._2__house,
                     onClick = {
                         navController.navigate(HKUScreen.B_a.name)
                         viewModel.setPage(HKUScreen.B_a)
@@ -113,7 +113,7 @@ fun HomeScreen(
             Row{
                 SelectPageButton(
                     labelResourceId = "復核申請需要哪些資料？",
-                    itemImagePath = R.drawable.docs,
+                    itemImagePath = R.drawable._5__docs,
                     onClick = {
                         navController.navigate(HKUScreen.E_a.name)
                         viewModel.setPage(HKUScreen.E_a)
@@ -122,7 +122,7 @@ fun HomeScreen(
                 )
                 SelectPageButton(
                     labelResourceId = "可以向你的醫生提出的問題",
-                    itemImagePath = R.drawable.doctoricon,
+                    itemImagePath = R.drawable._6__doctor,
                     onClick = {
                         navController.navigate(HKUScreen.F_a.name)
                         viewModel.setPage(HKUScreen.F_a)
@@ -133,7 +133,7 @@ fun HomeScreen(
             Row{
                 SelectPageButton(
                     labelResourceId = "有條件釋放令統計",
-                    itemImagePath = R.drawable.stats, /// change image
+                    itemImagePath = R.drawable._7__stats, /// change image
                     onClick = {
                         navController.navigate(HKUScreen.G_a.name)
                         viewModel.setPage(HKUScreen.G_a)
@@ -142,7 +142,7 @@ fun HomeScreen(
                 )
                 SelectPageButton(
                     labelResourceId = "重要聯絡人",
-                    itemImagePath = R.drawable.contact,
+                    itemImagePath = R.drawable._8__contact,
                     onClick = {
                         navController.navigate(HKUScreen.H_a.name)
                         viewModel.setPage(HKUScreen.H_a)
