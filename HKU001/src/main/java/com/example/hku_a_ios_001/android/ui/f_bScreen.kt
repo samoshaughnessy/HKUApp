@@ -36,33 +36,7 @@ fun F_bScreen(
     viewModel: HKUViewModel,
     navController: NavController
 ){
-    val context = LocalContext.current
 
-    val displayMetrics = context.resources.displayMetrics
-
-    //Width And Height Of Screen
-    val width = displayMetrics.widthPixels
-    val height = displayMetrics.heightPixels
-
-    //Device Density
-    val density = displayMetrics.density
-
-
-    Box(
-            modifier = Modifier.zIndex(1f)
-        ) {
-            Image(
-                painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.doctor),
-                contentDescription = "background_image",
-                modifier = Modifier
-                    .offset(x = if(height>1300){
-                        (-140).dp
-                    }else {
-                        (-175).dp
-                    }, y = 290.dp)     // (width/3.85).dp, y = (height/4.4).dp)  works for galaxy but not pixel...
-                    .scale(if(width > 720) {0.7f} else {0.39f})
-            )
-        }
         Column(
             verticalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier
@@ -82,11 +56,12 @@ fun F_bScreen(
             Text(
                 "\n如果醫生沒有正當理由卻拒絕調整您的相關限制，您可以聯絡所在醫院的病人聯絡主任辦公室。爲了保證您的訴求得到合適的處理，您可以考慮書面記錄過程。 我要怎麼做才能使條件放寬？\n" +
                 "\n" +
-                        "您的記錄最後可以以表格形式呈現，盡可能詳細地記錄您在何時、何地向誰提出過怎樣的訴求，獲得了怎樣的回覆。一份合理且詳細的書面記錄可以幫助您 跟進相關事項的進度，同 時在您           \n" +
-                        "           需要維護自身權 利時作爲\n" +
-                        "           證據支持 \n"
+                        "您的記錄最後可以以表格形式呈現，盡可能詳細地記錄您在何時、何地向誰提出過怎樣的訴求，獲得了怎樣的回覆。一份合理且詳細的書面記錄可以幫助您 跟進相關事項的進度，同 時在您\n" +
+                        " 需要維護自身權 利時作爲證據支持"
             )
-
+            Image(
+                painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.doctor),
+                contentDescription = "background_image", modifier = Modifier.scale(0.7f))
             BackButton(viewModel = viewModel, navController = navController, destination = HKUScreen.F_a )
             HomeButton(nextButton = onNextButtonClicked)
             HKULogo()

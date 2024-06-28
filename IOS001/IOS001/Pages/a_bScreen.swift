@@ -11,6 +11,7 @@ import shared
 
 
 struct A_bScreen: View {
+    
 var body: some View {
         ScrollView{
             VStack(alignment:.leading){

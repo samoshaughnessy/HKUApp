@@ -34,6 +34,7 @@ fun H_aScreen(
     modifier: Modifier
 ){
     val requiredContext = LocalContext.current
+
         Column(
             modifier = Modifier
                 .padding(25.dp)
@@ -66,12 +67,12 @@ fun H_aScreen(
             Text(
                 "\n法律援助署", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
 
-            Text( "ladinfo@lad.gov.hk", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+            Text( "ladinfo@lad.gov.hk", fontSize = 20.sp, color = Color.Blue, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
                 .align(alignment = Alignment.CenterHorizontally)
                 .clickable {
                     openEmail(context = requiredContext, email = "ladinfo@lad.gov.hk")
                 } )
-            Text( "+852 2537 7677", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+            Text( "+852 2537 7677", fontSize = 20.sp,color = Color.Blue, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
                 .align(alignment = Alignment.CenterHorizontally)
                 .clickable {
                     openDialPad(context = requiredContext, phoneNum = "+85225377677")
@@ -100,18 +101,18 @@ fun H_aScreen(
             Text(
                 "\n康和互助社聯會"
                 ,fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
-            Text( "concord.maca@gmail.com", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+            Text( "concord.maca@gmail.com", fontSize = 20.sp, color = Color.Blue, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
                 .align(alignment = Alignment.CenterHorizontally)
                 .clickable {
                     openEmail(context = requiredContext, email = "concord.maca@gmail.com")
                 } )
 
-            Text( "+852 3586 0567", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+            Text( "+852 3586 0567", fontSize = 20.sp, color = Color.Blue, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
                 .align(alignment = Alignment.CenterHorizontally)
                 .clickable {
                     openDialPad(context = requiredContext, phoneNum = "+85235860567")
                 } )
-            Text( "+852 6826 0720", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+            Text( "+852 6826 0720", fontSize = 20.sp,color = Color.Blue, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
                 .align(alignment = Alignment.CenterHorizontally)
                 .clickable {
                     openDialPad(context = requiredContext, phoneNum = "+85268260720")
@@ -126,10 +127,10 @@ fun H_aScreen(
                 ),
                 textStyle = TextStyle(
                     textAlign = TextAlign.Center,
-                    color = Color.Black,
+                    color = Color.Blue,
                     fontWeight = FontWeight.Bold,
                 ),
-                linkTextColor = Color.Black,
+                linkTextColor = Color.Blue,
                 linkTextFontWeight = FontWeight.Bold,
                 fontSize = 20.sp,
                 modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
@@ -151,12 +152,12 @@ fun H_aScreen(
             Text(
                 "\n香港守護尊嚴中心", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
 
-            Text( "info@dignityinstitute.com", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+            Text( "info@dignityinstitute.com", fontSize = 20.sp, color = Color.Blue,fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
                 .align(alignment = Alignment.CenterHorizontally)
                 .clickable {
                     openEmail(context = requiredContext, email = "info@dignityinstitute.com")
                 } )
-            Text( "+852 9728 5969", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+            Text( "+852 9728 5969", fontSize = 20.sp,color = Color.Blue, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
                 .align(alignment = Alignment.CenterHorizontally)
                 .clickable {
                     openDialPad(context = requiredContext, phoneNum = "+85297285969")
@@ -174,11 +175,11 @@ fun H_aScreen(
                 ),
                 textStyle = TextStyle(
                     textAlign = TextAlign.Center,
-                    color = Color.Black,
+                    color = Color.Blue,
                     fontWeight = FontWeight.Bold,
                 ),
                 linkTextFontWeight = FontWeight.Bold,
-                linkTextColor = Color.Black,
+                linkTextColor = Color.Blue,
                 fontSize = 20.sp,
                 modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
@@ -201,7 +202,7 @@ fun H_aScreen(
                 "\n精神健康覆核審裁處\n" +
                         "香港添馬添美道2號政府總部東翼19樓", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
-            Text( "+852 2594 5636", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+            Text( "+852 2594 5636", fontSize = 20.sp, color = Color.Blue, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
                 .align(alignment = Alignment.CenterHorizontally)
                 .clickable {
                     openDialPad(context = requiredContext, phoneNum = "+85225945636")
@@ -215,11 +216,11 @@ fun H_aScreen(
                 ),
                 textStyle = TextStyle(
                     textAlign = TextAlign.Center,
-                    color = Color.Black,
+                    color = Color.Blue,
                     fontWeight = FontWeight.ExtraBold,
                 ),
                 linkTextFontWeight = FontWeight.Bold,
-                linkTextColor = Color.Black,
+                linkTextColor = Color.Blue,
                 fontSize = 20.sp,
                 modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )

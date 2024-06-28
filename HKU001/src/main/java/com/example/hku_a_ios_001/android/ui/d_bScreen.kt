@@ -41,7 +41,6 @@ fun D_bScreen(
     viewModel: HKUViewModel,
     navController: NavController
 ){
-
     val requiredContext = LocalContext.current
 
         Column(
@@ -69,11 +68,11 @@ fun D_bScreen(
                 ),
                 textStyle = TextStyle(
                     textAlign = TextAlign.Center,
-                    color = Color.Black,
+                    color = Color.Blue,
                     fontWeight = FontWeight.Bold,
                 ),
                 linkTextFontWeight = FontWeight.Bold,
-                linkTextColor = Color.Black,
+                linkTextColor = Color.Blue,
                 fontSize = 20.sp,
                 modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
@@ -115,7 +114,7 @@ fun D_bScreen(
                 fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
 
-            Text( "+852 2594 5636 \n", fontSize = 20.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
+            Text( "+852 2594 5636 \n", fontSize = 20.sp, color = Color.Blue, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center,   modifier = Modifier
                 .align(alignment = Alignment.CenterHorizontally)
                 .clickable {
                     openDialPad(context = requiredContext, phoneNum = "+85225945636")
@@ -132,11 +131,11 @@ fun D_bScreen(
                 ),
                 textStyle = TextStyle(
                     textAlign = TextAlign.Center,
-                    color = Color.Black,
+                    color = Color.Blue,
                     fontWeight = FontWeight.Bold,
                 ),
                 linkTextFontWeight = FontWeight.Bold,
-                linkTextColor = Color.Black,
+                linkTextColor = Color.Blue,
                 fontSize = 20.sp,
                 modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )

@@ -32,34 +32,6 @@ fun F_aScreen(
     modifier: Modifier
 ){
 
-    val context = LocalContext.current
-
-    val displayMetrics = context.resources.displayMetrics
-
-    //Width And Height Of Screen
-    val width = displayMetrics.widthPixels
-    val height = displayMetrics.heightPixels
-
-    //Device Density
-    val density = displayMetrics.density
-
-    Box(
-            modifier = Modifier.zIndex(1f)
-
-        ) {
-            Image(
-                painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.doctor),
-                contentDescription = "background_image",
-                modifier = Modifier
-                    .offset(x = if(height>1300){
-                        (-150).dp
-                    }else {
-                        (-175).dp
-                    }, y = 300.dp)
-                    .scale(if(width > 720) {0.7f} else {0.39f})
-            )
-        }
-
         Column(
             verticalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier
@@ -83,6 +55,10 @@ fun F_aScreen(
                 "我的心理健康狀況診斷結果是什麼？ \n \n " +
                 "距離我上次診斷已經很久了，我  \n" + "覺得自己好轉了，  你可以再次診  斷我嗎 \n", fontSize = 20.sp
             )
+            Image(
+                painter = painterResource(com.example.hku_a_ios_001.android.R.drawable.doctor),
+                contentDescription = "background_image", modifier = Modifier.scale(0.7f))
+
             NextButton(nextButton = onNextButtonClicked)
 
             HKULogo()

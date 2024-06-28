@@ -49,11 +49,11 @@ fun D_aScreen(
                 ),
                 textStyle = TextStyle(
                     textAlign = TextAlign.Center,
-                    color = Color.Black,
+                    color = Color.Blue,
                     fontWeight = FontWeight.Bold,
                 ),
                 linkTextFontWeight = FontWeight.Bold,
-                linkTextColor = Color.Black,
+                linkTextColor = Color.Blue,
                 fontSize = 20.sp,
                 modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
             )
