@@ -54,14 +54,10 @@ fun B_eScreen(
 
 
             Text(
-                "請注意，除非條件已被修訂，否則您無法申請離開。 \n\n • 若您未能接受及配合宿舍群體生活，可提出退\n" +
-                        "出服務。 \n\n" +
+                "請注意，除非條件已被修訂，否則您無法申請離開。 \n\n • 若您未能接受及配合宿舍群體生活，可提出退出服務。 \n\n" +
                 "• 若宿舍服務未能配合您需要，宿舍會與您協議終止服務；並會通知及建議主診醫生及醫務社工作出跟進安排。 \n\n"
             +
-                "• 若您已完成其復元計劃，精神狀況穩定及具有足 \n"
-            +
-                "夠生活技能，則可協議訂定遷出計劃，遷離宿舍開\n" +
-                        "展獨立生活", fontSize = 20.sp
+                "• 若您已完成其復元計劃，精神狀況穩定及具有足夠生活技能，則可協議訂定遷出計劃，遷離宿舍開展獨立生活", fontSize = 20.sp
             )
             BackButton(viewModel = viewModel, navController = navController, destination = HKUScreen.B_d )
             HomeButton(nextButton = onNextButtonClicked)
