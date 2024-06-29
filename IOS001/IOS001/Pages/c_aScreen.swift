@@ -18,29 +18,35 @@ struct C_aScreen: View {
     
     var body: some View {
         ScrollView{
-            HStack{
-                NavigationLink(destination: BurgerMenu()){
-                    Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
-            }.frame(width: 50)
-                Spacer()
-                Text("您會被召回醫院嗎？").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.white).onTapGesture {
-                    tapped = !tapped
-                }
-                Spacer()
-            }.padding(10).background(Color.gray).border(Color.gray, width:3).opacity(0.85).padding(10)
-            if tapped {
-                VStack{
-                    LinkingButton(destination: { C_aScreen()}, text: "您會被召回醫院嗎？")
-                    Divider()
-                    LinkingButton(destination: { C_bScreen()}, text: "有條件釋放令召回")
-                    Divider()
-                    LinkingButton(destination: {C_cScreen()}, text: "您的有條件釋放令將會持續多久？")
-                }.padding(10).background(Color.gray).opacity(0.7).padding(20).onTapGesture {
-                    tapped = false
-                }
-            }
+            
             VStack(alignment:.leading){
-                Text("您會被召回醫院嗎？\n").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                
+                HStack{
+                    NavigationLink(destination: BurgerMenu()){
+                        Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
+                }.frame(width: 50)
+                    Spacer()
+                    Text("您會被召回醫院嗎？").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.white).onTapGesture {
+                        tapped = !tapped
+                    }
+                    Spacer()
+                }
+                if tapped {
+                    VStack{
+                        Divider()
+                        LinkingButton(destination: { C_aScreen()}, text: "您會被召回醫院嗎？")
+                        Divider()
+                        LinkingButton(destination: { C_bScreen()}, text: "有條件釋放令召回")
+                        Divider()
+                        LinkingButton(destination: {C_cScreen()}, text: "您的有條件釋放令將會持續多久？")
+                    }.onTapGesture {
+                        tapped = false
+                    }
+                }
+                
+                Divider()
+                
+                Text("\n您會被召回醫院嗎？\n").lineLimit(4).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Text("您仍有可能被召回醫院，如果院長認為您: \n").font(Font.system(size: 20)).fontWeight(.bold)
                 

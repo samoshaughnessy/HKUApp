@@ -14,6 +14,7 @@ import shared
 struct HomeScreen: View {
     var body: some View {
                     ScrollView{
+                    VStack(alignment:.leading){
                         HStack{
                             NavigationLink(destination: BurgerMenu()){
                                 Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
@@ -21,8 +22,8 @@ struct HomeScreen: View {
                             Spacer()
                             Text("有條件釋放咨詢庫").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.white)
                             Spacer()
-                        }.padding(10).background(Color.gray).border(Color.gray, width:3).opacity(0.85).padding(10)
-                    VStack(alignment:.leading){
+                        }
+                        
                         HStack{
                             NavigationLink(destination: A_aScreen()){
                                 VStack{

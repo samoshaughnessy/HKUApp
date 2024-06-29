@@ -16,26 +16,30 @@ struct H_aScreen: View {
     
     var body: some View {
         ScrollView{
-            HStack{
-                NavigationLink(destination: BurgerMenu()){
-                    Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
-            }.frame(width: 50)
-                Spacer()
-                Text("重要聯絡人").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.white)
-                Spacer()
-            }.padding(10).background(Color.gray).border(Color.gray, width:3).opacity(0.85).padding(10)
 
             
             VStack(alignment:.leading){
-                Text("重要聯絡人").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
-                Text("如果認為施加的條件不合理，您可以聯絡律師或專業人士確認條件是否不合理:\n").font(Font.system(size: 20)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                HStack{
+                    NavigationLink(destination: BurgerMenu()){
+                        Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
+                }.frame(width: 50)
+                    Spacer()
+                    Text("重要聯絡人").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center).foregroundColor(.white)
+                    Spacer()
+                }
+                
+                Divider()
+                
+                Text("\n重要聯絡人").lineLimit(4).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center)
+                
+                Text("\n如果認為施加的條件不合理，您可以聯絡律師或專業人士確認條件是否不合理:\n").font(Font.system(size: 20)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 
                 HStack{
                     Spacer()
                     Image(.logo2).resizable().frame(width: 200, height: 100)
                     Spacer()}
-                Text("法律援助署").font(Font.system(size: 20)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                Text("法律援助署\n").font(Font.system(size: 20)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Link("ladinfo@lad.gov.hk", destination: URL(string: "mailto:ladinfo@lad.gov.hk")!).lineLimit(2).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
@@ -47,7 +51,7 @@ struct H_aScreen: View {
                     Spacer()
                     Image(.concordMutualAid).resizable().frame(width: 200, height: 200)
                     Spacer()}
-                Text("康和互助社聯會").font(Font.system(size: 20)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                Text("康和互助社聯會\n").font(Font.system(size: 20)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Link("concord.maca@gmail.com", destination: URL(string: "mailto:concord.maca@gmail.com")!).lineLimit(2).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
@@ -63,14 +67,13 @@ struct H_aScreen: View {
                     Spacer()
                     Image(.hkDignity).resizable().frame(width: 200, height: 200)
                     Spacer()}
-                Text("香港守護尊嚴中心").font(Font.system(size: 20)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                Text("香港守護尊嚴中心\n").font(Font.system(size: 20)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Link("info@dignityinstitute.com", destination: URL(string: "mailto:info@dignityinstitute.com")!).lineLimit(2).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Link("+852 9728 5969", destination: URL(string: "tel:+85297285969")!).lineLimit(2).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
-                Text("P.O. Box 28557\n" +
-                     "香港告士打道郵政局").font(Font.system(size: 20)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                Text("P.O. Box 28557 香港告士打道郵政局").font(Font.system(size: 20)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center)
                 
                 Link("https://www.dignityinstitute.com", destination: URL(string: "https://www.dignityinstitute.com")!).lineLimit(5).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
@@ -80,7 +83,7 @@ struct H_aScreen: View {
                     Image(.hongKongFlag2).resizable().frame(width: 100, height: 100)
                     Spacer()}
                 
-                Text("精神健康覆核審裁處香港添馬添美道2號政府總部東翼19樓").lineLimit(2).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                Text("\n精神健康覆核審裁處香港添馬添美道2號政府總部東翼19樓").lineLimit(4).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center)
                 
                 // May work on phone not too sure?
                 Link("+852 2594 5636", destination: URL(string: "tel:+85225945636")!).lineLimit(2).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)

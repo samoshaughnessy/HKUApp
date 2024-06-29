@@ -16,19 +16,22 @@ import shared
 struct G_aScreen: View {
     var body: some View {
         ScrollView{
-            HStack{
-                NavigationLink(destination: BurgerMenu()){
-                    Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
-            }.frame(width: 50)
-                Spacer()
-                Text("有條件釋放者是否了解他們的情況").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.white)
-                Spacer()
-            }.padding(10).background(Color.gray).border(Color.gray, width:3).opacity(0.85).padding(10)
+            
             VStack(alignment:.leading){
                 
-                Text("有條件釋放者\n" +
-                     "是否了解\n" +
-                     "他們的情況").lineLimit(6).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                HStack{
+                    NavigationLink(destination: BurgerMenu()){
+                        Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
+                }.frame(width: 50)
+                    Spacer()
+                    Text("有條件釋放者是否了解他們的情況").lineLimit(4).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center).foregroundColor(.white)
+                    Spacer()
+                }
+                
+                
+                Divider()
+                
+                Text("\n有條件釋放者是否了解他們的情況").lineLimit(6).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center)
                 
                 
                 let columns = [

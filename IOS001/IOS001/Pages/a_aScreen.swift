@@ -35,14 +35,13 @@ struct A_aScreen: View {
                         LinkingButton(destination: { A_bScreen()}, text: "病人在有條件下獲釋放出院的命令摹本")
                         Divider()
                         LinkingButton(destination: { A_cScreen()}, text: "什麼是“條件”？")
-                        Divider()
                     }.onTapGesture {
                         tapped = false
                     }
                 }
                 
-                
-                Text("\n什麼是有條件釋放？").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                Divider()
+                Text("\n什麼是有條件釋放？").lineLimit(4).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Text("\n相比於無條件釋放，有條件釋放令要求您出院後遵守一些特定的條件，如果您未遵守這些條件，而院長認為基於您的健康或安全，或為保護他人著想而有需要有可能將您重新召回精神病院。\n").font(Font.system(size: 20))
                 

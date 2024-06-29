@@ -17,6 +17,9 @@ struct B_eScreen: View {
 
         var body: some View {
             ScrollView{
+                
+            VStack(alignment:.leading){
+                
                 HStack{
                     NavigationLink(destination: BurgerMenu()){
                         Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
@@ -26,9 +29,10 @@ struct B_eScreen: View {
                         tapped = !tapped
                     }
                     Spacer()
-                }.padding(10).background(Color.gray).border(Color.gray, width:3).opacity(0.85).padding(10)
+                }
                 if tapped {
                     VStack{
+                        Divider()
                         LinkingButton(destination: { B_aScreen()}, text: "什麼是中途宿舍?")
                         Divider()
                         LinkingButton(destination: { B_bScreen()}, text: "香港中途宿舍位置")
@@ -38,12 +42,14 @@ struct B_eScreen: View {
                         LinkingButton(destination: { B_dScreen()}, text: "中途宿舍額外限制")
                         Divider()
                         LinkingButton(destination: { B_eScreen()}, text: "如何申請？")
-                    }.padding(10).background(Color.gray).opacity(0.7).padding(20).onTapGesture {
+                    }.onTapGesture {
                         tapped = false
                     }
                 }
-            VStack(alignment:.leading){
-                Text("如何申請？\n").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                
+                Divider()
+                
+                Text("\n如何申請？\n").lineLimit(4).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Text("在大多數情況下，有條件釋放要求您居住在中途宿舍。如有需要，以下信息將指導您如何申請。\n").font(Font.system(size: 20))
                 

@@ -17,31 +17,37 @@ struct E_aScreen: View {
 
     var body: some View {
         ScrollView{
-            HStack{
-                NavigationLink(destination: BurgerMenu()){
-                    Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
-            }.frame(width: 50)
-                Spacer()
-                Text("提出覆核申請需要\n提交哪些資料？").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.white).onTapGesture {
-                    tapped = !tapped
-                }
-                Spacer()
-            }.padding(10).background(Color.gray).border(Color.gray, width:3).opacity(0.85).padding(10)
-            if tapped {
-                VStack{
-                    LinkingButton(destination: { E_aScreen()}, text: "提出覆核申請需要提交哪些資料？")
-                    Divider()
-                    LinkingButton(destination: { E_bScreen()}, text: "申請書需要包括哪些內容？")
-
-                }.padding(10).background(Color.gray).opacity(0.7).padding(20).onTapGesture {
-                    tapped = false
-                }
-            }
+           
             VStack(alignment:.leading){
-                Text("提出覆核申請需要\n" +
-                     "提交哪些資料？").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
-                Text("\n根據《精神健康覆核審裁處規則》第136C章，第II部第3條規定：\n \n" + "1.申請必須以書面提出 \n").font(Font.system(size: 20))
+                HStack{
+                    NavigationLink(destination: BurgerMenu()){
+                        Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
+                }.frame(width: 50)
+                    Spacer()
+                    Text("提出覆核申請需要\n提交哪些資料？").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center).foregroundColor(.white).onTapGesture {
+                        tapped = !tapped
+                    }
+                    Spacer()
+                }
+                if tapped {
+                    VStack{
+                        Divider()
+                        LinkingButton(destination: { E_aScreen()}, text: "提出覆核申請需要提交哪些資料？")
+                        Divider()
+                        LinkingButton(destination: { E_bScreen()}, text: "申請書需要包括哪些內容？")
+
+                    }.onTapGesture {
+                        tapped = false
+                    }
+                }
+                
+                Divider()
+                
+                
+                Text("\n提出覆核申請需要提交哪些資料？").lineLimit(4).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center)
+                
+                Text("\n根據《精神健康覆核審裁處規則》第136C章，第II部第3條規定：\n\n1.申請必須以書面提出 \n").font(Font.system(size: 20))
                 
                 
                 
