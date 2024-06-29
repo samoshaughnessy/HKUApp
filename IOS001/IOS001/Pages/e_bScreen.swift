@@ -17,7 +17,7 @@ struct E_bScreen: View {
         ScrollView{
             VStack(alignment:.leading){
                 Text("申請書需要包括\n" +
-                     "哪些內容？").lineLimit(2).font(Font.system(size: 35)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                     "哪些內容？").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Text("\n申請書須盡可能包括以下資料：\n ").font(Font.system(size: 20)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 Text("服務對象姓名，以及身分證號碼；").font(Font.system(size: 20))

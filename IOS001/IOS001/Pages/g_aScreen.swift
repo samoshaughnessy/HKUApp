@@ -20,7 +20,7 @@ struct G_aScreen: View {
                 
                 Text("有條件釋放者\n" +
                      "是否了解\n" +
-                     "他們的情況").lineLimit(6).font(Font.system(size: 35)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                     "他們的情況").lineLimit(6).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 
                 let columns = [

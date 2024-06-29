@@ -17,7 +17,7 @@ struct D_aScreen: View {
     var body: some View {
         ScrollView{
             VStack(alignment:.leading){
-                Text("如果有條件釋\n放令不合理").lineLimit(2).font(Font.system(size: 35)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                Text("如果有條件釋\n放令不合理").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Text("\n點擊下面的連結以下載精神健康覆核審裁處申請表格。請確保根據處理您有條件釋放的醫院聯網選擇正確的申請表格。" + "（例如：如果是九龍西聯網處理您的案件，請選擇九龍西聯網（中）精神健康覆核審裁處申請表格以繼續您的申請。）").font(Font.system(size: 20))
                 

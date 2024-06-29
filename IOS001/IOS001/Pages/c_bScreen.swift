@@ -17,7 +17,7 @@ struct C_bScreen: View {
     var body: some View {
         ScrollView{
             VStack(alignment:.leading){
-                Text("有條件釋放令召回\n").lineLimit(2).font(Font.system(size: 35)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                Text("有條件釋放令召回\n").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Text("再次入院後，有條件釋放令還有效嗎？\n").font(Font.system(size: 20)).fontWeight(.bold)
                 

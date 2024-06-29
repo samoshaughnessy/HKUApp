@@ -16,7 +16,7 @@ struct B_eScreen: View {
         var body: some View {
             ScrollView{
             VStack(alignment:.leading){
-                Text("如何申請？\n").lineLimit(2).font(Font.system(size: 35)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                Text("如何申請？\n").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Text("在大多數情況下，有條件釋放要求您居住在中途宿舍。如有需要，以下信息將指導您如何申請。\n").font(Font.system(size: 20))
                 

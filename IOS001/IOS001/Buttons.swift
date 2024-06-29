@@ -52,11 +52,22 @@ struct BackButton<Destination: View>: View {
     }
 }
 
+struct LinkingButton <Destination: View>: View {
+    var destination: () -> Destination
+    var text: String
+    var body: some View {
+                NavigationLink( destination: self.destination ){
+                    Text(text).font(Font.system(size: 20)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                }
+    }
+}
+
 struct HomeButtonPreview: PreviewProvider {
     static var previews: some View {
         BackButton(destination: {HomeScreen()})
     }
 }
+ // not used?
 
 func call(givenNumber:String){
     let app = UIApplication.shared

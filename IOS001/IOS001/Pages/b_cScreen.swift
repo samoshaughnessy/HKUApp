@@ -16,7 +16,7 @@ struct B_cScreen: View {
     var body: some View {
         ScrollView{
             VStack(alignment:.leading){
-                Text("進入中途宿舍需要哪些條件？\n").lineLimit(2).font(Font.system(size: 35)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                Text("進入中途宿舍需要哪些條件？\n").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 OrderedList(items:["15歲或以上的復元人士", "精神狀況穩定，沒有傳染病、酗酒或濫用藥物", "具有基本自我照顧能力，並與其他人和睦相處", "同意參與個人復原計畫"])
                 

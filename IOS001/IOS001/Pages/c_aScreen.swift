@@ -17,7 +17,7 @@ struct C_aScreen: View {
     var body: some View {
         ScrollView{
             VStack(alignment:.leading){
-                Text("您會被召回醫院嗎？\n").lineLimit(2).font(Font.system(size: 35)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                Text("您會被召回醫院嗎？\n").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Text("您仍有可能被召回醫院，如果院長認為您: \n").font(Font.system(size: 20)).fontWeight(.bold)
                 

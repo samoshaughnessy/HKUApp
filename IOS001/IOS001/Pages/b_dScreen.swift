@@ -19,7 +19,7 @@ struct B_dScreen: View {
             
             VStack(alignment:.leading){
                 
-                Text("中途宿舍額外限制").lineLimit(2).font(Font.system(size: 35)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                Text("中途宿舍額外限制").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Text("\n中途宿舍可能施加額外限制，例如：").font(Font.system(size: 20))
                 

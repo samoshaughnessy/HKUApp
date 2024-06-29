@@ -18,7 +18,7 @@ struct H_aScreen: View {
         ScrollView{
             
             VStack(alignment:.leading){
-                Text("重要聯絡人").lineLimit(2).font(Font.system(size: 35)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                Text("重要聯絡人").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Text("如果認為施加的條件不合理，您可以聯絡律師或專業人士確認條件是否不合理:\n").font(Font.system(size: 20)).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 

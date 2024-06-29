@@ -17,7 +17,7 @@ struct E_aScreen: View {
         ScrollView{
             VStack(alignment:.leading){
                 Text("提出覆核申請需要\n" +
-                     "提交哪些資料？").lineLimit(2).font(Font.system(size: 35)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                     "提交哪些資料？").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
                 Text("\n根據《精神健康覆核審裁處規則》第136C章，第II部第3條規定：\n \n" + "1.申請必須以書面提出 \n").font(Font.system(size: 20))
                 

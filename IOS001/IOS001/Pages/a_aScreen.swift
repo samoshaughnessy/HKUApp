@@ -15,7 +15,7 @@ struct A_aScreen: View {
     
     var body: some View {
         ScrollView{
-            Topbar(title:"什麼是有條件釋放？").padding(20)
+            Topbar(title:"什麼是有條件釋放？").padding(10)
 
             VStack(alignment:.leading){
                 Text("什麼是有條件釋放？").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
