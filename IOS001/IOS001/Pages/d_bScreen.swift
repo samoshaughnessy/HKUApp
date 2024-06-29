@@ -13,8 +13,30 @@ import shared
 
 
 struct D_bScreen: View {
+    @State    var tapped = false
+
     var body: some View {
         ScrollView{
+            HStack{
+                NavigationLink(destination: BurgerMenu()){
+                    Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
+            }.frame(width: 50)
+                Spacer()
+                Text("精神健康覆核審裁（MHRT)").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.white).onTapGesture {
+                    tapped = !tapped
+                }
+                Spacer()
+            }.padding(10).background(Color.gray).border(Color.gray, width:3).opacity(0.85).padding(10)
+            if tapped {
+                VStack{
+                    LinkingButton(destination: { D_aScreen()}, text: "如果有條件釋放令不合理")
+                    Divider()
+                    LinkingButton(destination: { D_bScreen()}, text: "精神健康覆核審裁（MHRT)")
+
+                }.padding(10).background(Color.gray).opacity(0.7).padding(20).onTapGesture {
+                    tapped = false
+                }
+            }
             VStack(alignment:.leading){
                 Text("精神健康\n" + "覆核審裁（MHRT)").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
                 
@@ -64,7 +86,7 @@ struct D_bScreen: View {
                 HKULogo()
                 
                 
-            }.padding(20)
+            }.padding(20).background(Color.gray).border(Color.gray, width:3).opacity(0.8).padding(10)
         }.background(Image(.jackimage))
     }
     

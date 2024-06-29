@@ -16,6 +16,15 @@ struct H_aScreen: View {
     
     var body: some View {
         ScrollView{
+            HStack{
+                NavigationLink(destination: BurgerMenu()){
+                    Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
+            }.frame(width: 50)
+                Spacer()
+                Text("重要聯絡人").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.white)
+                Spacer()
+            }.padding(10).background(Color.gray).border(Color.gray, width:3).opacity(0.85).padding(10)
+
             
             VStack(alignment:.leading){
                 Text("重要聯絡人").lineLimit(2).font(Font.system(size: 30)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
@@ -82,7 +91,7 @@ struct H_aScreen: View {
                 HKULogo()
                 
                 
-            }.padding(20)
+            }.padding(20).background(Color.gray).border(Color.gray, width:3).opacity(0.8).padding(10)
         }.background(Image(.jackimage))
     }
     

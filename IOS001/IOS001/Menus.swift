@@ -13,7 +13,15 @@ import shared
 
 struct HomeScreen: View {
     var body: some View {
-                    ViewThatFits{
+                    ScrollView{
+                        HStack{
+                            NavigationLink(destination: BurgerMenu()){
+                                Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
+                        }.frame(width: 50)
+                            Spacer()
+                            Text("有條件釋放咨詢庫").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.white)
+                            Spacer()
+                        }.padding(10).background(Color.gray).border(Color.gray, width:3).opacity(0.85).padding(10)
                     VStack(alignment:.leading){
                         HStack{
                             NavigationLink(destination: A_aScreen()){
@@ -82,8 +90,8 @@ struct HomeScreen: View {
                             }.frame(width: 150, height:150)
                         }
                         HKULogo()
-                    }
-                }.padding(20).background(Color.clear).background(Image(.jackimage))
+                    }.padding(20).background(Color.gray).border(Color.gray, width:3).opacity(0.8).padding(10)
+                }.background(Image(.jackimage))
     }
 }
 
@@ -167,7 +175,7 @@ struct BurgerMenu : View{
             
             HKULogo()
         
-        }.padding(20).background(Color.clear).background(Image(.jackimage))
+        }.padding(20).background(Color.gray).border(Color.gray, width:3).opacity(0.8).padding(10).background(Image(.jackimage))
 
     }
 }

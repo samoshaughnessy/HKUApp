@@ -13,13 +13,33 @@ import shared
 
 
 struct F_bScreen: View {
-    
+    @State    var tapped = false
+
     var body: some View {
         ScrollView{
+            HStack{
+                NavigationLink(destination: BurgerMenu()){
+                    Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
+            }.frame(width: 50)
+                Spacer()
+                Text("醫生沒有正當理由卻拒絕調整相關限制...").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.white).onTapGesture {
+                    tapped = !tapped
+                }
+                Spacer()
+            }.padding(10).background(Color.gray).border(Color.gray, width:3).opacity(0.85).padding(10)
+            if tapped {
+                VStack{
+                    LinkingButton(destination: { F_aScreen()}, text: "可以向精神科醫生提出的問題")
+                    Divider()
+                    LinkingButton(destination: { F_bScreen()}, text: "醫生沒有正當理由卻拒絕調整相關限制...")
+
+                }.padding(10).background(Color.gray).opacity(0.7).padding(20).onTapGesture {
+                    tapped = false
+                }
+            }
             VStack(alignment:.leading){
                 
                 
-                // center item better
                 Text("醫生沒有正\n當理由卻拒絕\n調整相關限制...").frame(maxWidth: .infinity, alignment: .center).lineLimit(6).font(Font.system(size: 30)).fontWeight(.bold)
                 
                 Text("\n如果醫生沒有正當理由卻拒絕調整您的相關限制，您可以聯絡所在醫院的病人聯絡主任辦公室。爲了保證您的訴求得到合適的處理，您可以考慮書面記錄過程。 我要怎麼做才能使條件放寬？\n\n").font(Font.system(size: 20))
@@ -37,7 +57,7 @@ struct F_bScreen: View {
                 HKULogo()
                 
                 
-            }.padding(20)
+            }.padding(20).background(Color.gray).border(Color.gray, width:3).opacity(0.8).padding(10)
         }.background(Image(.jackimage))
     }
 }

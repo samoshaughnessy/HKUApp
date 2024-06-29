@@ -16,6 +16,14 @@ import shared
 struct G_aScreen: View {
     var body: some View {
         ScrollView{
+            HStack{
+                NavigationLink(destination: BurgerMenu()){
+                    Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
+            }.frame(width: 50)
+                Spacer()
+                Text("有條件釋放者是否了解他們的情況").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.white)
+                Spacer()
+            }.padding(10).background(Color.gray).border(Color.gray, width:3).opacity(0.85).padding(10)
             VStack(alignment:.leading){
                 
                 Text("有條件釋放者\n" +
@@ -74,7 +82,7 @@ struct G_aScreen: View {
                 HKULogo()
                 
                 
-            }.padding(20)
+            }.padding(20).background(Color.gray).border(Color.gray, width:3).opacity(0.8).padding(10)
         }.background(Image(.jackimage))
     }
     

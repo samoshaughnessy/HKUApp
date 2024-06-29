@@ -57,7 +57,7 @@ struct LinkingButton <Destination: View>: View {
     var text: String
     var body: some View {
                 NavigationLink( destination: self.destination ){
-                    Text(text).font(Font.system(size: 20)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center)
+                    Text(text).font(Font.system(size: 20)).fontWeight(.bold).foregroundStyle(.black).frame(maxWidth: .infinity, alignment: .center)
                 }
     }
 }

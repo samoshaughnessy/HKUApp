@@ -13,9 +13,30 @@ import shared
 
 
 struct F_aScreen: View {
-    
+    @State    var tapped = false
+
     var body: some View {
         ScrollView{
+            HStack{
+                NavigationLink(destination: BurgerMenu()){
+                    Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
+            }.frame(width: 50)
+                Spacer()
+                Text("可以向精神科醫生提出的問題").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.white).onTapGesture {
+                    tapped = !tapped
+                }
+                Spacer()
+            }.padding(10).background(Color.gray).border(Color.gray, width:3).opacity(0.85).padding(10)
+            if tapped {
+                VStack{
+                    LinkingButton(destination: { F_aScreen()}, text: "可以向精神科醫生提出的問題")
+                    Divider()
+                    LinkingButton(destination: { F_bScreen()}, text: "醫生沒有正當理由卻拒絕調整相關限制...")
+
+                }.padding(10).background(Color.gray).opacity(0.7).padding(20).onTapGesture {
+                    tapped = false
+                }
+            }
             VStack(alignment:.leading){
                 
                 Text("可以向精神科醫生\n" +
@@ -32,7 +53,7 @@ struct F_aScreen: View {
                 HKULogo()
                 
                 
-            }.padding(20)
+            }.padding(20).background(Color.gray).border(Color.gray, width:3).opacity(0.8).padding(10)
         }.background(Image(.jackimage))
     }
     
