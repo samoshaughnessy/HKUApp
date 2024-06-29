@@ -26,7 +26,7 @@ struct C_cScreen: View {
                         Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
                 }.frame(width: 50)
                     Spacer()
-                    Text("您的有條件釋放令將會持續多久？").lineLimit(4).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center).foregroundColor(.white).onTapGesture {
+                    Text("您的有條件釋放令將會持續多久？ ▼").lineLimit(4).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center).foregroundColor(.white).onTapGesture {
                         tapped = !tapped
                     }
                     Spacer()
@@ -34,11 +34,11 @@ struct C_cScreen: View {
                 if tapped {
                     VStack{
                         Divider()
-                        LinkingButton(destination: { C_aScreen()}, text: "您會被召回醫院嗎？ ▼")
+                        LinkingButton(destination: { C_aScreen()}, text: "您會被召回醫院嗎？")
                         Divider()
-                        LinkingButton(destination: { C_bScreen()}, text: "有條件釋放令召回 ▼")
+                        LinkingButton(destination: { C_bScreen()}, text: "有條件釋放令召回")
                         Divider()
-                        LinkingButton(destination: { C_cScreen()}, text: "您的有條件釋放令將會持續多久？ ▼")
+                        LinkingButton(destination: { C_cScreen()}, text: "您的有條件釋放令將會持續多久？")
                     }.onTapGesture {
                         tapped = false
                     }

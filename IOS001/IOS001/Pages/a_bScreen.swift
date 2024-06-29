@@ -34,7 +34,7 @@ var body: some View {
                     Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
                 }.frame(width: 50)
                 Spacer()
-                Text("病人在有條件下獲釋放出院的命令摹本").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center).foregroundColor(.white).onTapGesture {
+                Text("病人在有條件下獲釋放出院的命令摹本 ▼").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center).foregroundColor(.white).onTapGesture {
                     
                     tapped = !tapped
                 }

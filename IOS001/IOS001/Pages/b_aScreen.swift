@@ -22,7 +22,7 @@ struct B_aScreen: View {
                         Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
                 }.frame(width: 50)
                     Spacer()
-                    Text("什麼是中途宿舍?").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.white).onTapGesture {
+                    Text("什麼是中途宿舍? ▼").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.white).onTapGesture {
                         isTapped = !isTapped
                     }
                     Spacer()
@@ -31,15 +31,15 @@ struct B_aScreen: View {
                 if isTapped {
                     VStack{
                         Divider()
-                        LinkingButton(destination: { B_aScreen()}, text: "\n什麼是中途宿舍? ▼")
+                        LinkingButton(destination: { B_aScreen()}, text: "\n什麼是中途宿舍?")
                         Divider()
-                        LinkingButton(destination: { B_bScreen()}, text: "香港中途宿舍位置 ▼")
+                        LinkingButton(destination: { B_bScreen()}, text: "香港中途宿舍位置")
                         Divider()
-                        LinkingButton(destination: { B_cScreen()}, text: "進入中途宿舍需要哪些條件？ ▼")
+                        LinkingButton(destination: { B_cScreen()}, text: "進入中途宿舍需要哪些條件？")
                         Divider()
-                        LinkingButton(destination: { B_dScreen()}, text: "中途宿舍額外限制 ▼")
+                        LinkingButton(destination: { B_dScreen()}, text: "中途宿舍額外限制")
                         Divider()
-                        LinkingButton(destination: { B_eScreen()}, text: "如何申請？ ▼")
+                        LinkingButton(destination: { B_eScreen()}, text: "如何申請？")
                     }.onTapGesture {
                         isTapped = false
                     }

@@ -50,32 +50,32 @@ struct G_aScreen: View {
                         Text("您理解您身處的有條件釋放制度嗎？")
                         Text("36.2%")
                         Text("63.8%")
-                    }.padding(5).frame(height: 80).border(Color.white).background(Color.blue)
+                    }.padding(5).frame(height: 80).border(Color.gray).background(Color.blue)
                     GridRow{
                         Text("您理解有條件釋放令的監管條件嗎？")
                         Text("70.2%")
                         Text("29.8%")
-                    }.padding(5).frame(height: 80).border(Color.white).background(Color.gray)
+                    }.padding(5).frame(height: 80).border(Color.gray).background(Color.gray)
                     GridRow{
                         Text("您知道如何終止您的有條件釋放令嗎？")
                         Text("25.5%")
                         Text("74.5%")
-                    }.padding(5).frame(height: 80).border(Color.white).background(Color.blue)
+                    }.padding(5).frame(height: 80).border(Color.gray).background(Color.blue)
                     GridRow{
                         Text("您是否知道您有權向精神健康覆核審裁處（MHRT）提出覆核申請以解除您的有條件釋放令？")
                         Text("27.7%")
                         Text("72.3%")
-                    }.padding(5).frame(height: 100).border(Color.white).background(Color.gray)
+                    }.padding(5).frame(height: 100).border(Color.gray).background(Color.gray)
                     GridRow{
                         Text("首次申請無條件釋放成功率")
                         Text("2.3%")
                         Text("97.7%")
-                    }.padding(5).frame(height: 80).border(Color.white).background(Color.blue)
+                    }.padding(5).frame(height: 80).border(Color.gray).background(Color.blue)
                     GridRow{
                         Text("您是否知道您所擁有的權利?").frame(width:210)
                         Text("9.3%")
                         Text("91.7%")
-                    }.padding(5).frame(height: 80).border(Color.white).background(Color.gray)
+                    }.padding(5).frame(height: 80).border(Color.gray).background(Color.gray)
                     
                 }
                 

@@ -24,6 +24,8 @@ struct HomeScreen: View {
                             Spacer()
                         }
                         
+                        Divider()
+                        
                         HStack{
                             NavigationLink(destination: A_aScreen()){
                                 VStack{

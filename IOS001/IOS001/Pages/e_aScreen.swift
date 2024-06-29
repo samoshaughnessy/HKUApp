@@ -25,7 +25,7 @@ struct E_aScreen: View {
                         Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
                 }.frame(width: 50)
                     Spacer()
-                    Text("提出覆核申請需要\n提交哪些資料？").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center).foregroundColor(.white).onTapGesture {
+                    Text("提出覆核申請需要提交哪些資料？ ▼").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center).foregroundColor(.white).onTapGesture {
                         tapped = !tapped
                     }
                     Spacer()
@@ -33,9 +33,9 @@ struct E_aScreen: View {
                 if tapped {
                     VStack{
                         Divider()
-                        LinkingButton(destination: { E_aScreen()}, text: "提出覆核申請需要提交哪些資料？ ▼")
+                        LinkingButton(destination: { E_aScreen()}, text: "提出覆核申請需要提交哪些資料？")
                         Divider()
-                        LinkingButton(destination: { E_bScreen()}, text: "申請書需要包括哪些內容？ ▼")
+                        LinkingButton(destination: { E_bScreen()}, text: "申請書需要包括哪些內容？")
 
                     }.onTapGesture {
                         tapped = false

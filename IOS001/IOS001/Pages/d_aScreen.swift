@@ -25,7 +25,7 @@ struct D_aScreen: View {
                         Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
                 }.frame(width: 50)
                     Spacer()
-                    Text("如果有條件釋放令不合理").lineLimit(4).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center).foregroundColor(.white).onTapGesture {
+                    Text("如果有條件釋放令不合理 ▼").lineLimit(4).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center).foregroundColor(.white).onTapGesture {
                         tapped = !tapped
                     }
                     Spacer()
@@ -33,9 +33,9 @@ struct D_aScreen: View {
                 if tapped {
                     VStack{
                         Divider()
-                        LinkingButton(destination: { D_aScreen()}, text: "如果有條件釋放令不合理 ▼")
+                        LinkingButton(destination: { D_aScreen()}, text: "如果有條件釋放令不合理")
                         Divider()
-                        LinkingButton(destination: { D_bScreen()}, text: "精神健康覆核審裁（MHRT) ▼")
+                        LinkingButton(destination: { D_bScreen()}, text: "精神健康覆核審裁（MHRT)")
 
                     }.onTapGesture {
                         tapped = false
