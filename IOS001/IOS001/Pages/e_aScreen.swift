@@ -33,9 +33,9 @@ struct E_aScreen: View {
                 if tapped {
                     VStack{
                         Divider()
-                        LinkingButton(destination: { E_aScreen()}, text: "提出覆核申請需要提交哪些資料？")
+                        LinkingButton(destination: { E_aScreen()}, text: "提出覆核申請需要提交哪些資料？ ▼")
                         Divider()
-                        LinkingButton(destination: { E_bScreen()}, text: "申請書需要包括哪些內容？")
+                        LinkingButton(destination: { E_bScreen()}, text: "申請書需要包括哪些內容？ ▼")
 
                     }.onTapGesture {
                         tapped = false

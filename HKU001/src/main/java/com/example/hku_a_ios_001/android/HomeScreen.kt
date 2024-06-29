@@ -82,7 +82,7 @@ import com.example.hku_a_ios_001.android.data.OrderUiState
 
 enum class HKUScreen(val string:String){ // can add size with int value to alter size of titles if required
     Home("有條件釋放咨詢庫"),
-    A_a("什麼是有條件釋放？ ▼"),
+    A_a("什麼是有條件釋放？ git s"),
     A_b("病人在有條件下獲釋放出院的命令摹本 ▼"),
     A_c("什麼是“條件”？ ▼"),
     B_a("什麼是中途宿舍? ▼"),

@@ -33,9 +33,9 @@ struct F_bScreen: View {
                 if tapped {
                     VStack{
                         Divider()
-                        LinkingButton(destination: { F_aScreen()}, text: "可以向精神科醫生提出的問題")
+                        LinkingButton(destination: { F_aScreen()}, text: "可以向精神科醫生提出的問題 ▼")
                         Divider()
-                        LinkingButton(destination: { F_bScreen()}, text: "醫生沒有正當理由卻拒絕調整相關限制...")
+                        LinkingButton(destination: { F_bScreen()}, text: "醫生沒有正當理由卻拒絕調整相關限制... ▼")
 
                     }.onTapGesture {
                         tapped = false

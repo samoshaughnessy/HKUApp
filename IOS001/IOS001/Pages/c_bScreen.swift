@@ -33,11 +33,11 @@ struct C_bScreen: View {
                 if tapped {
                     VStack{
                         Divider()
-                        LinkingButton(destination: { C_aScreen()}, text: "您會被召回醫院嗎？")
+                        LinkingButton(destination: { C_aScreen()}, text: "您會被召回醫院嗎？ ▼")
                         Divider()
-                        LinkingButton(destination: { C_bScreen()}, text: "有條件釋放令召回")
+                        LinkingButton(destination: { C_bScreen()}, text: "有條件釋放令召回 ▼")
                         Divider()
-                        LinkingButton(destination: { C_cScreen()}, text: "您的有條件釋放令將會持續多久？")
+                        LinkingButton(destination: { C_cScreen()}, text: "您的有條件釋放令將會持續多久？ ▼")
                     }.onTapGesture {
                         tapped = false
                     }

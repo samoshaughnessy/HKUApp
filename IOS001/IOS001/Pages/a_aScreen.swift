@@ -30,11 +30,11 @@ struct A_aScreen: View {
                 }
                 if tapped {
                     VStack{
-                        LinkingButton(destination: { A_aScreen()}, text: "\n什麼是有條件釋放？")
+                        LinkingButton(destination: { A_aScreen()}, text: "\n什麼是有條件釋放？ ▼")
                         Divider()
-                        LinkingButton(destination: { A_bScreen()}, text: "病人在有條件下獲釋放出院的命令摹本")
+                        LinkingButton(destination: { A_bScreen()}, text: "病人在有條件下獲釋放出院的命令摹本 ▼")
                         Divider()
-                        LinkingButton(destination: { A_cScreen()}, text: "什麼是“條件”？")
+                        LinkingButton(destination: { A_cScreen()}, text: "什麼是“條件”？ ▼")
                     }.onTapGesture {
                         tapped = false
                     }

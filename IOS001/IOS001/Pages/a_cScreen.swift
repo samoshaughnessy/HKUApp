@@ -32,11 +32,11 @@ struct A_cScreen: View {
                 if tapped {
                     VStack{
                         Divider()
-                        LinkingButton(destination: { A_aScreen()}, text: "\n什麼是有條件釋放？")
+                        LinkingButton(destination: { A_aScreen()}, text: "\n什麼是有條件釋放？ ▼")
                         Divider()
-                        LinkingButton(destination: { A_bScreen()}, text: "病人在有條件下獲釋放出院的命令摹本")
+                        LinkingButton(destination: { A_bScreen()}, text: "病人在有條件下獲釋放出院的命令摹本 ▼")
                         Divider()
-                        LinkingButton(destination: { A_cScreen()}, text: "什麼是“條件”？")
+                        LinkingButton(destination: { A_cScreen()}, text: "什麼是“條件”？ ▼")
                     }.onTapGesture {
                         tapped = false
                     }
@@ -49,7 +49,7 @@ struct A_cScreen: View {
                      "-服用指定藥物\n\n" +
                      "-定期到院長指定的診所覆診\n\n" +
                      "-接受社會福利署署長監督\n").font(Font.system(size: 20))
-                
+                // Insert the arrow
                 Text("•  理論上院長可以施加").font(Font.system(size: 20))
                 Text("一切合理").font(Font.system(size: 20)).foregroundColor(.blue) +
                 Text("的條件，沒有明確的禁止\n\n").font(Font.system(size: 20))
@@ -64,6 +64,8 @@ struct A_cScreen: View {
                 }
                 
                 HKULogo()
+                Image(.dottedArrow).resizable().frame(width: 150, height: 150).position(x:0,y:-425)
+
                 
                 
             }.padding(20).background(Color.gray).border(Color.gray, width:3).opacity(0.8).padding(10)
