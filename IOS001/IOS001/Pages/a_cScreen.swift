@@ -24,7 +24,7 @@ struct A_cScreen: View {
                         Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
                 }.frame(width: 50)
                     Spacer()
-                    Text("什麼是“條件”？ ▼").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.white).onTapGesture {
+                    Text("什麼是“條件”？ ▼").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.black).onTapGesture {
                         tapped = !tapped
                     }
                     Spacer()
@@ -68,7 +68,7 @@ struct A_cScreen: View {
 
                 
                 
-            }.padding(20).background(Color.gray).border(Color.gray, width:3).opacity(0.8).padding(10)
+            }.padding(20).border(Color.gray, width:3).padding(10)
         }.background(Image(.jackimage))
     }
     

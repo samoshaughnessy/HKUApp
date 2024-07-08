@@ -26,7 +26,7 @@ struct C_cScreen: View {
                         Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
                 }.frame(width: 50)
                     Spacer()
-                    Text("您的有條件釋放令將會持續多久？ ▼").lineLimit(4).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center).foregroundColor(.white).onTapGesture {
+                    Text("您的有條件釋放令將會持續多久？ ▼").lineLimit(4).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center).foregroundColor(.black).onTapGesture {
                         tapped = !tapped
                     }
                     Spacer()
@@ -61,7 +61,7 @@ struct C_cScreen: View {
                 HKULogo()
                 
                 
-            }.padding(20).background(Color.gray).border(Color.gray, width:3).opacity(0.8).padding(10)
+            }.padding(20).border(Color.gray, width:3).padding(10)
         }.background(Image(.jackimage))
     }
     

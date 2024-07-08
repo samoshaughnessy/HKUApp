@@ -24,7 +24,7 @@ struct G_aScreen: View {
                         Image(systemName: "line.3.horizontal").resizable().frame(width: 30, height: 30).foregroundColor(.black)
                 }.frame(width: 50)
                     Spacer()
-                    Text("有條件釋放者是否了解他們的情況").lineLimit(4).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center).foregroundColor(.white)
+                    Text("有條件釋放者是否了解他們的情況").lineLimit(4).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity).multilineTextAlignment(.center).foregroundColor(.black)
                     Spacer()
                 }
                 
@@ -55,7 +55,7 @@ struct G_aScreen: View {
                         Text("您理解有條件釋放令的監管條件嗎？")
                         Text("70.2%")
                         Text("29.8%")
-                    }.padding(5).frame(height: 80).border(Color.gray).background(Color.gray)
+                    }.padding(5).frame(height: 80).border(Color.gray).background(Color.white)
                     GridRow{
                         Text("您知道如何終止您的有條件釋放令嗎？")
                         Text("25.5%")
@@ -65,7 +65,7 @@ struct G_aScreen: View {
                         Text("您是否知道您有權向精神健康覆核審裁處（MHRT）提出覆核申請以解除您的有條件釋放令？")
                         Text("27.7%")
                         Text("72.3%")
-                    }.padding(5).frame(height: 100).border(Color.gray).background(Color.gray)
+                    }.padding(5).frame(height: 100).border(Color.gray).background(Color.white)
                     GridRow{
                         Text("首次申請無條件釋放成功率")
                         Text("2.3%")
@@ -75,7 +75,7 @@ struct G_aScreen: View {
                         Text("您是否知道您所擁有的權利?").frame(width:210)
                         Text("9.3%")
                         Text("91.7%")
-                    }.padding(5).frame(height: 80).border(Color.gray).background(Color.gray)
+                    }.padding(5).frame(height: 80).border(Color.gray).background(Color.white)
                     
                 }
                 
@@ -85,7 +85,7 @@ struct G_aScreen: View {
                 HKULogo()
                 
                 
-            }.padding(20).background(Color.gray).border(Color.gray, width:3).opacity(0.8).padding(10)
+            }.padding(20).border(Color.gray, width:3).padding(10)
         }.background(Image(.jackimage))
     }
     

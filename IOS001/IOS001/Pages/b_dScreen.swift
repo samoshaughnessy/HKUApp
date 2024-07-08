@@ -26,7 +26,7 @@ struct B_dScreen: View {
                 }.frame(width: 50)
                     
                     Spacer()
-                    Text("中途宿舍額外限制 ▼").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.white).onTapGesture {
+                    Text("中途宿舍額外限制 ▼").lineLimit(3).font(Font.system(size: 25)).fontWeight(.bold).frame(maxWidth: .infinity, alignment: .center).foregroundColor(.black).onTapGesture {
                         tapped = !tapped
                     }
                     Spacer()
@@ -67,7 +67,7 @@ struct B_dScreen: View {
                 HKULogo()
                 
                 
-            }.padding(20).background(Color.gray).border(Color.gray, width:3).opacity(0.8).padding(10)
+            }.padding(20).border(Color.gray, width:3).padding(10)
             
         }.background(Image(.jackimage))
     }
