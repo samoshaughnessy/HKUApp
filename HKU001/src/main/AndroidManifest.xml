@@ -8,6 +8,7 @@
     <application
         android:allowBackup="false"
         android:supportsRtl="true"
+        android:label="有條件釋放咨詢庫"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"

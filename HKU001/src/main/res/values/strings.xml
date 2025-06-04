@@ -14,6 +14,8 @@
      limitations under the License.
 -->
 <resources>
+    <string name="app_name">有條件釋放咨詢庫</string>
+
     <string name="a_a">a_a</string>
     <string name="a_b">a_b</string>
     <string name="b_a">b_a</string>
@@ -37,9 +39,6 @@
     <string name="a_aTitle">a_aTitle</string>
     <string name="a_bTitle">a_bTitle</string>
     <string name="b_aTitle">b_aTitle</string>
-
-
-    <string name="app_name">有條件釋放咨詢庫</string>
 
     <string name="order_cupcakes">Order Cupcakes</string>
     <string name="one_cupcake">One Cupcake</string>
