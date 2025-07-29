@@ -4,10 +4,10 @@ plugins {
 }
 
 android {
-    namespace = "com.example.hku_a_ios_001.android"
+    namespace = "hk.hku.cdapp.android"
     compileSdk = 34
     defaultConfig {
-        applicationId = "com.example.hku_a_ios_001.android"
+        applicationId = "hk.hku.cdapp.android"
         minSdk = 25
         targetSdk = 34
         versionCode = 1
