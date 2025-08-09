@@ -42,7 +42,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import hk.hku.cdapp.android.android.HKUScreen
-import hk.hku.cdapp.android.R
+import hk.hku.cdapp.android.android.R
 import hk.hku.cdapp.android.android.ui.theme.HKUTheme
 import androidx.navigation.compose.rememberNavController
 
@@ -177,7 +177,7 @@ fun HomeButton(
             enabled = true,
             onClick = nextButton
         ) {
-                Image(painter = painterResource(hk.hku.cdapp.android.R.drawable.home_button), contentDescription = "home button", modifier = Modifier.size(width = 80.dp, height = 80.dp))
+                Image(painter = painterResource(hk.hku.cdapp.android.android.R.drawable.home_button), contentDescription = "home button", modifier = Modifier.size(width = 80.dp, height = 80.dp))
             }
 
     }
@@ -203,7 +203,7 @@ fun BackButton(
                 viewModel.setPage(destination)
             }
         ) {
-            Image(painter = painterResource(hk.hku.cdapp.android.R.drawable.next_button), contentDescription = "next button", modifier = Modifier.size(width = 80.dp, height = 80.dp).rotate(180f))
+            Image(painter = painterResource(hk.hku.cdapp.android.android.R.drawable.next_button), contentDescription = "next button", modifier = Modifier.size(width = 80.dp, height = 80.dp).rotate(180f))
         }
     }
 
@@ -233,7 +233,7 @@ fun NextButton(
             enabled = true,
             onClick = nextButton
         ) {
-            Image(painter = painterResource(hk.hku.cdapp.android.R.drawable.next_button), contentDescription = "next button", modifier = Modifier.size(width = 80.dp, height = 80.dp))
+            Image(painter = painterResource(hk.hku.cdapp.android.android.R.drawable.next_button), contentDescription = "next button", modifier = Modifier.size(width = 80.dp, height = 80.dp))
         }
     }
 }

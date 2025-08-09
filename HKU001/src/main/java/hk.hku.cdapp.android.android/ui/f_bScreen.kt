@@ -56,7 +56,7 @@ fun F_bScreen(
                         "需要維護自身權 利時作爲證據支持"
             )
             Image(
-                painter = painterResource(hk.hku.cdapp.android.R.drawable.doctor),
+                painter = painterResource(hk.hku.cdapp.android.android.R.drawable.doctor),
                 contentDescription = "background_image", modifier = Modifier.scale(0.7f))
             BackButton(viewModel = viewModel, navController = navController, destination = HKUScreen.F_a )
             HomeButton(nextButton = onNextButtonClicked)

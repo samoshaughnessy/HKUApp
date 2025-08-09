@@ -79,7 +79,7 @@ import androidx.compose.ui.zIndex
 import hk.hku.cdapp.android.android.ui.theme.md_theme_dark_background
 import hk.hku.cdapp.android.android.data.OrderUiState
 
-import hk.hku.cdapp.android.R
+import hk.hku.cdapp.android.android.R
 
 enum class HKUScreen(val string:String){ // can add size with int value to alter size of titles if required
     Home("有條件釋放咨詢庫"),
@@ -177,7 +177,7 @@ fun HKUApp(
                 .background(color = Color.Black)
                 .fillMaxSize()
                 .paint(
-                    painterResource(id = hk.hku.cdapp.android.R.drawable.jackimage),
+                    painterResource(id = hk.hku.cdapp.android.android.R.drawable.jackimage),
                     contentScale = ContentScale.FillHeight
                 )
                 .verticalScroll(

@@ -52,7 +52,7 @@ fun F_aScreen(
                 "距離我上次診斷已經很久了，我  \n" + "覺得自己好轉了，  你可以再次診  斷我嗎 \n", fontSize = 20.sp
             )
             Image(
-                painter = painterResource(hk.hku.cdapp.android.R.drawable.doctor),
+                painter = painterResource(hk.hku.cdapp.android.android.R.drawable.doctor),
                 contentDescription = "background_image", modifier = Modifier.scale(0.7f))
 
             NextButton(nextButton = onNextButtonClicked)

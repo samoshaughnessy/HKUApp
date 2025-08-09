@@ -99,7 +99,7 @@ fun A_bScreen(
                 )
             }
             Image(
-                painter = painterResource(hk.hku.cdapp.android.R.drawable.order_for_conditional_discharge),
+                painter = painterResource(hk.hku.cdapp.android.android.R.drawable.order_for_conditional_discharge),
                 contentDescription = null,
                 modifier = Modifier
                     .fillMaxWidth()

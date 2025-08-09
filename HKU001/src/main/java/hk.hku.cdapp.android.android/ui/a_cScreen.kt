@@ -59,7 +59,7 @@ fun A_cScreen(
 
     ) {
         Image(
-            painter = painterResource(hk.hku.cdapp.android.R.drawable.dotted_arrow),
+            painter = painterResource(hk.hku.cdapp.android.android.R.drawable.dotted_arrow),
             contentDescription = "arrow",
             modifier = Modifier
                 .absoluteOffset(x = (-25).dp, y = (400).dp)

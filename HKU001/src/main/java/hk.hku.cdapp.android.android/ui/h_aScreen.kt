@@ -57,7 +57,7 @@ fun H_aScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(
-                    painter = painterResource(hk.hku.cdapp.android.R.drawable.logo2),
+                    painter = painterResource(hk.hku.cdapp.android.android.R.drawable.logo2),
                     modifier = Modifier
                         .background(color = Color.Transparent)
                         .scale(2f),
@@ -91,7 +91,7 @@ fun H_aScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(
-              painter = painterResource(hk.hku.cdapp.android.R.drawable.concord_mutual_aid), // replace image....?
+              painter = painterResource(hk.hku.cdapp.android.android.R.drawable.concord_mutual_aid), // replace image....?
                     modifier = Modifier
                         .background(color = Color.Transparent)
                         .scale(1f),
@@ -142,7 +142,7 @@ fun H_aScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(
-                    painter = painterResource(hk.hku.cdapp.android.R.drawable.hk_dignity), // replace image....?
+                    painter = painterResource(hk.hku.cdapp.android.android.R.drawable.hk_dignity), // replace image....?
                     modifier = Modifier
                         .background(color = Color.Transparent)
                         .scale(1f),
@@ -191,7 +191,7 @@ fun H_aScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(
-                    painter = painterResource(hk.hku.cdapp.android.R.drawable.hong_kong_flag), // replace image....?
+                    painter = painterResource(hk.hku.cdapp.android.android.R.drawable.hong_kong_flag), // replace image....?
                     modifier = Modifier
                         .background(color = Color.Transparent)
                         .scale(1f),

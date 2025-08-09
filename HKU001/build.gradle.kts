@@ -4,14 +4,14 @@ plugins {
 }
 
 android {
-    namespace = "hk.hku.cdapp.android"
+    namespace = "hk.hku.cdapp.android.android"
     compileSdk = 34
     defaultConfig {
-        applicationId = "hk.hku.cdapp.android"
+        applicationId = "hk.hku.cdapp.android.android"
         minSdk = 25
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "2"
     }
     buildFeatures {
         compose = true

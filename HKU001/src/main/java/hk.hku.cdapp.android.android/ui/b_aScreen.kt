@@ -65,7 +65,7 @@ fun B_aScreen(
 
 
             Image(
-                painter = painterResource(hk.hku.cdapp.android.R.drawable.house), // fix image alignment
+                painter = painterResource(hk.hku.cdapp.android.android.R.drawable.house), // fix image alignment
                 contentDescription = "background_image",
                 modifier = Modifier.offset(x = if(width > 720){200} else {150}
                     .dp, y=0.dp) // pixel vs galaxy

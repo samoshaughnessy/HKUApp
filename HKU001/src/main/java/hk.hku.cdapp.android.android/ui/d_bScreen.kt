@@ -96,7 +96,7 @@ fun D_bScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(
-                    painter = painterResource(hk.hku.cdapp.android.R.drawable.hong_kong_flag), // replace image....?
+                    painter = painterResource(hk.hku.cdapp.android.android.R.drawable.hong_kong_flag), // replace image....?
                     modifier = Modifier
                         .background(color = Color.Transparent)
                         .scale(1f),
