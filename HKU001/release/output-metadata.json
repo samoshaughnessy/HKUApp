@@ -4,15 +4,15 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "hk.hku.cdapp.android.android",
+  "applicationId": "hk.hku.cdapp.android",
   "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 3,
-      "versionName": "3",
+      "versionCode": 4,
+      "versionName": "4",
       "outputFile": "HKU001-release.apk"
     }
   ],
