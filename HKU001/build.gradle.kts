@@ -10,8 +10,8 @@ android {
         applicationId = "hk.hku.cdapp.android"
         minSdk = 25
         targetSdk = 34
-        versionCode =4
-        versionName = "4"
+        versionCode =5
+        versionName = "5"
     }
     buildFeatures {
         compose = true
